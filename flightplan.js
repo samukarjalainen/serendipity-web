@@ -2,7 +2,7 @@ var plan = require('flightplan');
 
 var appName = 'serendipity';
 var username = 'deploy';
-var startFile = 'bin/www';
+var startFile = 'server/www';
 
 var tmpDir = appName+'-' + new Date().getTime();
 
