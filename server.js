@@ -6,9 +6,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var db = require('./server/mysql')
+var db = require('./server/mysql');
 
 var app = express();
+
+var api = require('./server/api/api');
 
 var env = process.env.NODE_ENV || 'development';
 app.locals.ENV = env;
@@ -16,7 +18,7 @@ app.locals.ENV_DEVELOPMENT = env == 'development';
 app.set('port', process.env.PORT || 3000);
 
 
-// app.use(favicon(__dirname + '/public/img/favicon.ico'));
+app.use(favicon(__dirname + '/client/images/favicon.jpg'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -26,21 +28,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client')));
 
 // API calls
-app.get('/api/users', function (req, res) {
-  console.log("GET requsted at /api/users");
-  var person1 = {
-    id : '123',
-    username : 'dummyuser'
-  };
-
-  var person2 = {
-    id : '999',
-    username : 'roflcopter'
-  };
-
-  var users = [person1, person2];
-  res.json(users);
-});
+app.get('/api/users', api.users.getUsers);
 
 // Connect to MySQL database
 console.log(db.getUsers());
