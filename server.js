@@ -1,12 +1,9 @@
-
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var db = require('./server/mysql');
 
 var app = express();
 
@@ -16,7 +13,6 @@ var env = process.env.NODE_ENV || 'development';
 app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env == 'development';
 app.set('port', process.env.PORT || 3000);
-
 
 app.use(favicon(__dirname + '/client/images/favicon.jpg'));
 app.use(logger('dev'));
@@ -30,8 +26,6 @@ app.use(express.static(path.join(__dirname, 'client')));
 // API calls
 app.get('/api/users', api.users.getUsers);
 
-// Connect to MySQL database
-console.log(db.getUsers());
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
