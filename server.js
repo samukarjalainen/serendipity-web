@@ -13,6 +13,7 @@ var app = express();
 var env = process.env.NODE_ENV || 'development';
 app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env == 'development';
+app.set('port', process.env.PORT || 3000);
 
 
 // app.use(favicon(__dirname + '/public/img/favicon.ico'));
@@ -58,6 +59,10 @@ app.use(function(err, req, res, next) {
         error: {},
         title: 'error'
     });
+});
+
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
 });
 
 

@@ -39,7 +39,8 @@ module.exports = {
     connection.query('SELECT * FROM users',
       function(err, results, fields) {
         if (err) return (err);
-        return results;
+        console.log(results);
+        return results.json;
       }
     );
   }
