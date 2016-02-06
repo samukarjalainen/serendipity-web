@@ -25,6 +25,23 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client')));
 
+// API calls
+app.get('/api/users', function (req, res) {
+  console.log("GET requsted at /api/users");
+  var person1 = {
+    id : '123',
+    username : 'dummyuser'
+  };
+
+  var person2 = {
+    id : '999',
+    username : 'roflcopter'
+  };
+
+  var users = [person1, person2];
+  res.json(users);
+});
+
 // Connect to MySQL database
 console.log(db.getUsers());
 /// catch 404 and forward to error handler

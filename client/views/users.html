@@ -1,8 +1,17 @@
 <div ng-controller="UsersCtrl">
   <table>
-    <tr ng-repeat="user in users">
-      <td>{{ user.id }}</td>
-      <td>{{ user.username }}</td>
-    </tr>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+      </tr>
+    </tbody>
+
   </table>
 </div>
