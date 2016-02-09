@@ -22,8 +22,6 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client')));
 
-//Dummy data into db
-
 // API calls
 app.get('/api/users', function (req, res) {
   db.User.findAll().then(function (results) {
@@ -40,14 +38,54 @@ app.get('/api/users/email', function (req, res) {
     res.json(result);
   })
 });
-//app.get('/api/user/:email', api.users.getUser);
+
+app.post('/api/register', function (req, res) {
+
+  var wasCreated = "";
+
+  db.User
+    .findOrCreate({
+      where: {
+        email: req.body.email
+      },
+      defaults: {
+        username: req.body.username,
+        password: req.body.password,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        city: req.body.city,
+        country: req.body.country
+      }
+    })
+    .spread(function (user, created) {
+      console.log(user.get({plain: true}));
+      console.log(created);
+      wasCreated = created;
+    })
+    .then(function () {
+  });
+
+});
+
+
+  //db.User
+  //  .build({
+  //    username: req.body.username,
+  //    email: req.body.email,
+  //    password: req.body.password,
+  //    firstName: req.body.firstName,
+  //    lastName: req.body.lastName,
+  //    city: req.body.city,
+  //    country: req.body.country
+  //  })
+  //  .save();
 
 /// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
+//app.use(function(req, res, next) {
+//    var err = new Error('Not Found');
+//    err.status = 404;
+//    next(err);
+//});
 
 /// error handlers
 
@@ -57,7 +95,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
-        res.render('error', {
+        res.json({
             message: err.message,
             error: err,
             title: 'error'
@@ -69,7 +107,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.json({
         message: err.message,
         error: {},
         title: 'error'
@@ -77,9 +115,10 @@ app.use(function(err, req, res, next) {
 });
 
 // Synchronize db with sequelize model, create dummy users and then start the server
-db.sequelize.sync({force: true}).then(function () {
+db.sequelize.sync().then(function () {
+
   db.User
-    .build({
+    .findOrCreate({where: {
       username: 'Admin',
       email: 'admin@serendipity.com',
       password: 's3cr37',
@@ -87,28 +126,22 @@ db.sequelize.sync({force: true}).then(function () {
       lastName: 'Admin',
       city: 'Oulu',
       country: 'Finland'
-    })
-    .save()
-    .then(function () {
+    }}).then(function () {
       db.User
-        .build({
-          username: 'Test',
+        .findOrCreate({where: {
+          username: 'test',
           email: 'test@serendipity.com',
-          password: 'testpass',
+          password: 'test',
           firstName: 'Testing',
           lastName: 'Account',
           city: 'Oulu',
           country: 'Finland'
+        }}).then(function () {
+          var server = app.listen(app.get('port'), function () {
+            console.log('Express server listening on port ' + server.address().port);
+          })
         })
-        .save()
-      })
-      .then(function () {
-        var server = app.listen(app.get('port'), function() {
-          console.log('Express server listening on port ' + server.address().port);
-        });
-      });
+    });
 });
-
-
 
 module.exports = app;

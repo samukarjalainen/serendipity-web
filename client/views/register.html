@@ -1,0 +1,13 @@
+<div ng-controller="RegisterCtrl">
+  <form novalidate class="simple-form">
+    First name: <input type="text" ng-model="user.firstName" /><br />
+    Last name: <input type="text" ng-model="user.lastName" /><br />
+    E-mail: <input type="email" ng-model="user.email" /><br />
+    Username: <input type="text" ng-model="user.username" /> <br />
+    Password: <input type="password" ng-model="user.password" /><br />
+    City: <input type="text" ng-model="user.city" /><br />
+    Country: <input type="text" ng-model="user.country" /><br />
+    <input type="button" ng-click="reset()" value="Clear fields" />
+    <input type="submit" ng-click="sendRegistration(user)" value="Register" />
+  </form>
+</div>

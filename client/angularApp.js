@@ -22,9 +22,14 @@ angular
         controllerAs: 'about'
       })
       .when('/users', {
-        templateUrl : 'views/users.html',
-        controller : 'UsersCtrl',
-        controllerAs : 'users'
+        templateUrl: 'views/users.html',
+        controller: 'UsersCtrl',
+        controllerAs: 'users'
+      })
+      .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl',
+        controllerAs: 'register'
       })
       .otherwise({
         redirectTo: '/'
