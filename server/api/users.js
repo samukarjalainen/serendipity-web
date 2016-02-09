@@ -1,35 +1,33 @@
-var db = require('../database');
+'use strict';
 
-exports.getUsers = function(req, res) {
-  db.getAllUsers(function(err, results) {
-    if(err) {
-      res.send(500, "Server Error");
-      return;
+var Sequelize = require('sequelize');
+
+module.exports = function(sequelize, DataTypes) {
+  var User = sequelize.define('User', {
+    username: {
+      type: Sequelize.STRING,
+      unique: true
+    },
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      unique: true
+    },
+    password: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    firstName: Sequelize.STRING,
+    lastName: Sequelize.STRING,
+    city: Sequelize.STRING,
+    country: Sequelize.STRING
+  }, {
+    classMethods: {
+      associate: function(models) {
+        User.hasMany(models.Sound)
+      }
     }
-    console.log("no error on getting users");
-    console.log(results);
-    res.json(results);
-    });
+  });
+
+  return User;
 };
-
-//var app = require('../server.js');
-//
-//module.exports = {
-//  getUsers : function (req, res) {
-//    console.log("GET requsted at /api/users");
-//    var person1 = {
-//      id : '123',
-//      username : 'dummyuser'
-//    };
-//
-//    var person2 = {
-//      id : '999',
-//      username : 'roflcopter'
-//    };
-//
-//    var users = [person1, person2];
-//    res.json(users);
-//  }
-//};
-
-

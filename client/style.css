@@ -5822,3 +5822,6 @@ button.close {
 
 .jumbotron .lead {
   color: blueviolet; }
+
+td, th {
+  padding-right: 20px; }

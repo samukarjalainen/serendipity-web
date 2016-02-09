@@ -4,10 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var db = require('./server/api');
 
 var app = express();
-
-var api = require('./server/api/api');
 
 var env = process.env.NODE_ENV || 'development';
 app.locals.ENV = env;
@@ -23,8 +22,25 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client')));
 
+//Dummy data into db
+
 // API calls
-app.get('/api/users', api.users.getUsers);
+app.get('/api/users', function (req, res) {
+  db.User.findAll().then(function (results) {
+    res.json(results);
+  });
+});
+
+app.get('/api/users/email', function (req, res) {
+  db.User.findOne({
+    where: {
+      email: 'test@serendipity.com'
+    }
+  }).then(function (result) {
+    res.json(result);
+  })
+});
+//app.get('/api/user/:email', api.users.getUser);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,9 +76,39 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var server = app.listen(app.get('port'), function() {
-  console.log('Express server listening on port ' + server.address().port);
+// Synchronize db with sequelize model, create dummy users and then start the server
+db.sequelize.sync({force: true}).then(function () {
+  db.User
+    .build({
+      username: 'Admin',
+      email: 'admin@serendipity.com',
+      password: 's3cr37',
+      firstName: 'Admin',
+      lastName: 'Admin',
+      city: 'Oulu',
+      country: 'Finland'
+    })
+    .save()
+    .then(function () {
+      db.User
+        .build({
+          username: 'Test',
+          email: 'test@serendipity.com',
+          password: 'testpass',
+          firstName: 'Testing',
+          lastName: 'Account',
+          city: 'Oulu',
+          country: 'Finland'
+        })
+        .save()
+      })
+      .then(function () {
+        var server = app.listen(app.get('port'), function() {
+          console.log('Express server listening on port ' + server.address().port);
+        });
+      });
 });
+
 
 
 module.exports = app;
