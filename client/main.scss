@@ -2,5 +2,8 @@
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import "styles/variables";
+@import "styles/footer";
 @import "styles/home";
 @import "styles/users";
+@import "styles/register";

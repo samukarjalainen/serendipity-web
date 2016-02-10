@@ -1,13 +1,65 @@
-<div ng-controller="RegisterCtrl">
-  <form novalidate class="simple-form">
-    First name: <input type="text" ng-model="user.firstName" /><br />
-    Last name: <input type="text" ng-model="user.lastName" /><br />
-    E-mail: <input type="email" ng-model="user.email" /><br />
-    Username: <input type="text" ng-model="user.username" /> <br />
-    Password: <input type="password" ng-model="user.password" /><br />
-    City: <input type="text" ng-model="user.city" /><br />
-    Country: <input type="text" ng-model="user.country" /><br />
-    <input type="button" ng-click="reset()" value="Clear fields" />
-    <input type="submit" ng-click="sendRegistration(user)" value="Register" />
-  </form>
+<div class="register-wrapper">
+  <div class="form-horizontal" ng-controller="RegisterCtrl">
+    <!-- First name -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="firstName">First name:</label>
+      <div class="col-sm-10 col-md-3">
+        <input type="text" class="form-control" id="firstName" placeholder="John" ng-model="user.firstName">
+      </div>
+    </div>
+    <!-- Last name -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="lastName">Last name:</label>
+      <div class="col-sm-10 col-md-3">
+        <input type="text" class="form-control" id="lastName" placeholder="Doe" ng-model="user.lastName">
+      </div>
+    </div>
+
+    <!-- E-mail -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">E-mail:</label>
+      <div class="col-sm-10 col-md-3">
+        <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="user.email">
+      </div>
+    </div>
+
+    <!-- Username -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="username">Username:</label>
+      <div class="col-sm-10 col-md-3">
+        <input type="text" class="form-control" id="username" placeholder="johndoe" ng-model="user.username">
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="password">Password:</label>
+      <div class="col-sm-10 col-md-3">
+        <input type="password" class="form-control" id="password" placeholder="Choose a password" ng-model="user.password">
+      </div>
+    </div>
+
+    <!-- City -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="city">City:</label>
+      <div class="col-sm-10 col-md-3">
+        <input type="text" class="form-control" id="city" placeholder="Oulu" ng-model="user.city">
+      </div>
+    </div>
+
+    <!-- Country -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="country">Country:</label>
+      <div class="col-sm-10 col-md-3">
+        <input type="text" class="form-control" id="country" placeholder="Finland" ng-model="user.country">
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default" ng-click="sendRegistration(user)">Register</button>
+      </div>
+    </div>
+  </div>
 </div>

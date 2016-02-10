@@ -5817,6 +5817,10 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+.footer {
+  margin-top: 80px;
+  background-color: #CCCCCC; }
+
 .jumbotron h1 {
   color: cadetblue; }
 
@@ -5825,3 +5829,8 @@ button.close {
 
 td, th {
   padding-right: 20px; }
+
+.register-wrapper {
+  background-color: aliceblue;
+  margin: 0 auto;
+  padding: 20px; }

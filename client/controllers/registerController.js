@@ -43,29 +43,3 @@ angular.module('serendipityApp')
 
     $scope.reset();
   }]);
-
-    //
-    //function($scope, $http) {
-    //$scope.user = {};
-    //$scope.user.firstName = user.firstName;
-    //$scope.user.lastName = user.lastName;
-    //$scope.user.email = user.email;
-    //$scope.user.password = user.password;
-    //$scope.user.city = user.city;
-    //$scope.user.country = user.country;
-    //
-    //
-    //
-    //$scope.sendRegistration = function (user) {
-    //  console.log(user);
-    //};
-
-    //$scope.update = function(user) {
-    //  $scope.user = angular.copy(user);
-    //};
-    //
-    //$scope.reset = function() {
-    //  $scope.user = angular.copy($scope.master);
-    //};
-
-  // });
