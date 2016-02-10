@@ -1,7 +1,11 @@
 @import "variables";
 
 .footer {
+  //padding: 30px;
   margin-top: 80px;
   background-color: $main-color;
 
+  .footer-text {
+    //margin-bottom: 30px;
+  }
 }

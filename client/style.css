@@ -5834,3 +5834,6 @@ td, th {
   background-color: aliceblue;
   margin: 0 auto;
   padding: 20px; }
+
+.login-wrapper .login-form {
+  max-width: 500px; }
