@@ -67,6 +67,10 @@ app.post('/api/register', function (req, res) {
 
 });
 
+app.get('/logout', function (req, res) {
+  console.log("Logout called, redirecting to homepage");
+  res.redirect('/');
+});
 
   //db.User
   //  .build({
