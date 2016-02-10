@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('./server/api');
+var Sequelize = require('sequelize');
 
 var app = express();
 
@@ -39,57 +40,36 @@ app.get('/api/users/email', function (req, res) {
   })
 });
 
-app.post('/api/register', function (req, res) {
+app.post('/login', function (req, res) {
+  res.json(req.body);
+});
 
-  var wasCreated = "";
+app.post('/register', function (req, res) {
+  var created = false;
 
-  db.User
-    .findOrCreate({
-      where: {
-        email: req.body.email
-      },
-      defaults: {
+  db.User.find({
+    where: Sequelize.or({ username: req.body.username }, { email: req.body.email })
+  }).then(function (user) {
+    if (!user) {
+      db.User.create({
         username: req.body.username,
+        email: req.body.email,
         password: req.body.password,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         city: req.body.city,
         country: req.body.country
-      }
-    })
-    .spread(function (user, created) {
-      console.log(user.get({plain: true}));
-      console.log(created);
-      wasCreated = created;
-    })
-    .then(function () {
+      });
+      created = true;
+    }
+    res.json(created);
   });
-
 });
 
 app.get('/logout', function (req, res) {
   console.log("Logout called, redirecting to homepage");
   res.redirect('/');
 });
-
-  //db.User
-  //  .build({
-  //    username: req.body.username,
-  //    email: req.body.email,
-  //    password: req.body.password,
-  //    firstName: req.body.firstName,
-  //    lastName: req.body.lastName,
-  //    city: req.body.city,
-  //    country: req.body.country
-  //  })
-  //  .save();
-
-/// catch 404 and forward to error handler
-//app.use(function(req, res, next) {
-//    var err = new Error('Not Found');
-//    err.status = 404;
-//    next(err);
-//});
 
 /// error handlers
 
@@ -120,7 +100,6 @@ app.use(function(err, req, res, next) {
 
 // Synchronize db with sequelize model, create dummy users and then start the server
 db.sequelize.sync().then(function () {
-
   db.User
     .findOrCreate({where: {
       username: 'Admin',
