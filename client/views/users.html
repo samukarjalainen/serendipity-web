@@ -1,5 +1,5 @@
-<div ng-controller="UsersCtrl">
-  <table>
+<div class="users-wrapper" ng-controller="UsersCtrl">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>Id</th>
@@ -11,7 +11,7 @@
         <th>City</th>
         <th>Country</th>
         <th>Created</th>
-        <th>Modified</th>
+        <th>Updated</th>
       </tr>
     </thead>
     <tbody>
@@ -25,9 +25,8 @@
         <td>{{ user.city }}</td>
         <td>{{ user.country }}</td>
         <td>{{ user.createdAt }}</td>
-        <td>{{ user.modifiedAt }}</td>
+        <td>{{ user.updatedAt }}</td>
       </tr>
     </tbody>
-
   </table>
 </div>

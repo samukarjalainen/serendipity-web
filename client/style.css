@@ -5845,16 +5845,23 @@ body {
 body {
   background: url("../images/waves2.jpg"); }
 
-.jumbotron {
-  margin-top: 100px;
-  margin-bottom: 100px; }
-  .jumbotron h1 {
-    color: cadetblue; }
-  .jumbotron .lead {
-    color: blueviolet; }
+.main-wrapper {
+  margin: 0; }
+  .main-wrapper .jumbotron {
+    margin-top: 100px;
+    margin-bottom: 100px; }
+    .main-wrapper .jumbotron h1 {
+      color: cadetblue; }
+    .main-wrapper .jumbotron .lead {
+      color: blueviolet; }
+  .main-wrapper .user-quote {
+    margin-bottom: 60px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5); }
 
-td, th {
-  padding-right: 20px; }
+.table {
+  background-color: #fff;
+  border-radius: 4px; }
 
 .register-wrapper {
   background-color: aliceblue;

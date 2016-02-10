@@ -41,7 +41,19 @@ app.get('/api/users/email', function (req, res) {
 });
 
 app.post('/login', function (req, res) {
-  res.json(req.body);
+  var success = false;
+
+  db.User.find({
+    where: Sequelize.or({ username: req.body.email }, { email: req.body.email })
+  }).then(function (user) {
+    if (user && req.body.password === user.password) {
+      success = true;
+      res.json(success);
+      //res.redirect('#/dashboard');
+    } else {
+      res.json(success);
+    }
+  });
 });
 
 app.post('/register', function (req, res) {
