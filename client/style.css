@@ -5859,7 +5859,7 @@ body {
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.5); }
 
-.table {
+.sounds-wrapper .table {
   background-color: #fff;
   border-radius: 4px; }
 
@@ -5870,3 +5870,7 @@ body {
 
 .login-wrapper .login-form {
   max-width: 500px; }
+
+.table {
+  background-color: #fff;
+  border-radius: 4px; }

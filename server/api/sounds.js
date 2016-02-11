@@ -6,7 +6,8 @@ module.exports = function(sequelize, DataTypes) {
   var Sound = sequelize.define('Sound', {
     title: Sequelize.STRING,
     description: Sequelize.STRING,
-    gpsLoc: Sequelize.STRING,
+    lat: Sequelize.STRING,
+    long: Sequelize.STRING,
     path: {
       type: Sequelize.STRING,
       allowNull: false,
@@ -18,13 +19,11 @@ module.exports = function(sequelize, DataTypes) {
         Sound.belongsTo(models.User, {
           onDelete: "CASCADE",
           foreignKey: {
-
-            allowNull: false
+            allowNull: true
           }
         });
       }
     }
   });
-
   return Sound;
 };

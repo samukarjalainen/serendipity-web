@@ -7,7 +7,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngFileUpload'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -40,6 +41,15 @@ angular
         templateUrl: 'views/dashboard.html',
         controller: 'DashboardCtrl',
         controllerAs: 'dashboard'
+      })
+      .when('/upload', {
+        templateUrl: 'views/upload.html',
+        controller: 'UploadCtrl'
+      })
+      .when('/sounds', {
+        templateUrl: 'views/sounds.html',
+        controller: 'SoundsCtrl',
+        controllerAs: 'sounds'
       })
       .otherwise({
         redirectTo: '/'

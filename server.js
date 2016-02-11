@@ -6,14 +6,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('./server/api');
 var Sequelize = require('sequelize');
+var multer = require('multer');
 
 var app = express();
 
-var env = process.env.NODE_ENV || 'development';
-app.locals.ENV = env;
-app.locals.ENV_DEVELOPMENT = env == 'development';
-app.set('port', process.env.PORT || 3000);
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
+// Middleware
 app.use(favicon(__dirname + '/client/images/favicon.jpg'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -23,9 +26,36 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client')));
 
+// Configure multer (file uploading
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads/')
+  },
+  filename: function (req, file, cb) {
+    var datetimestamp = Date.now();
+    //cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1])
+    cb(null, 'upload-' + datetimestamp);
+  }
+});
+
+var upload = multer({ storage: storage }).single('file');
+
+var env = process.env.NODE_ENV || 'development';
+app.locals.ENV = env;
+app.locals.ENV_DEVELOPMENT = env == 'development';
+app.set('port', process.env.PORT || 3000);
+
+
+
 // API calls
 app.get('/api/users', function (req, res) {
   db.User.findAll().then(function (results) {
+    res.json(results);
+  });
+});
+
+app.get('/api/sounds', function (req, res) {
+  db.Sound.findAll().then(function (results) {
     res.json(results);
   });
 });
@@ -78,6 +108,32 @@ app.post('/register', function (req, res) {
   });
 });
 
+app.post('/upload', function(req, res) {
+  upload(req,res,function(err){
+    //console.log(req);
+    if(err){
+      console.log(err);
+      res.json({error_code:1,err_desc:err});
+      return;
+    }
+    console.log('Creating a file in DB');
+    db.User.findOne({ where: {email: 'test@serendipity.com'}}).then(function (user) {
+      if (user) {
+        db.Sound.create({
+          title: req.file.originalname,
+          description: "Lorem ipsum",
+          lat: "90",
+          long: "45",
+          path: req.file.path,
+          UserId: user.id
+        })
+      }
+    }).then(function () {
+      res.json({error_code:0,err_desc:null});
+    });
+  });
+});
+
 app.get('/logout', function (req, res) {
   console.log("Logout called, redirecting to homepage");
   res.redirect('/');
@@ -111,32 +167,35 @@ app.use(function(err, req, res, next) {
 });
 
 // Synchronize db with sequelize model, create dummy users and then start the server
-db.sequelize.sync().then(function () {
-  db.User
-    .findOrCreate({where: {
-      username: 'Admin',
-      email: 'admin@serendipity.com',
-      password: 's3cr37',
-      firstName: 'Admin',
-      lastName: 'Admin',
-      city: 'Oulu',
-      country: 'Finland'
-    }}).then(function () {
-      db.User
-        .findOrCreate({where: {
-          username: 'test',
-          email: 'test@serendipity.com',
-          password: 'test',
-          firstName: 'Testing',
-          lastName: 'Account',
-          city: 'Oulu',
-          country: 'Finland'
-        }}).then(function () {
-          var server = app.listen(app.get('port'), function () {
-            console.log('Express server listening on port ' + server.address().port);
-          })
-        })
-    });
+db.sequelize.sync({}).then(function () {
+  //db.User
+  //  .findOrCreate({where: {
+  //    username: 'Admin',
+  //    email: 'admin@serendipity.com',
+  //    password: 's3cr37',
+  //    firstName: 'Admin',
+  //    lastName: 'Admin',
+  //    city: 'Oulu',
+  //    country: 'Finland'
+  //  }}).then(function () {
+  //    db.User
+  //      .findOrCreate({where: {
+  //        username: 'test',
+  //        email: 'test@serendipity.com',
+  //        password: 'test',
+  //        firstName: 'Testing',
+  //        lastName: 'Account',
+  //        city: 'Oulu',
+  //        country: 'Finland'
+  //      }}).then(function () {
+  //        var server = app.listen(app.get('port'), function () {
+  //          console.log('Express server listening on port ' + server.address().port);
+  //        })
+  //      })
+  //  });
+  var server = app.listen(app.get('port'), function () {
+    console.log('Server started on port ' + server.address().port);
+  });
 });
 
 module.exports = app;

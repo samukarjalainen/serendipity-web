@@ -1,6 +1,7 @@
 node_modules/
 client/bower_components
 client/.sass-cache
+uploads/
 .sass-cache
 .idea
 *.iml

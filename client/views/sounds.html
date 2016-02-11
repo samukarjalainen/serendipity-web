@@ -1,0 +1,30 @@
+<div class="sounds-wrapper" ng-controller="SoundsCtrl">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Path</th>
+      <th>Created</th>
+      <th>Modified</th>
+      <th>Used ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="sound in sounds">
+      <td>{{ sound.id }}</td>
+      <td>{{ sound.title }}</td>
+      <td>{{ sound.description }}</td>
+      <td>{{ sound.lat }}</td>
+      <td>{{ sound.long }}</td>
+      <td>{{ sound.path }}</td>
+      <td>{{ sound.createdAt }}</td>
+      <td>{{ sound.updatedAt }}</td>
+      <td>{{ sound.UserId }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
