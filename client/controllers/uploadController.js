@@ -1,5 +1,6 @@
 angular.module('serendipityApp')
   .controller('UploadCtrl', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
+
     $scope.uploadPic = function(file) {
       file.upload = Upload.upload({
         url: '/upload',
@@ -17,5 +18,6 @@ angular.module('serendipityApp')
         // Math.min is to fix IE which reports 200% sometimes
         file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
       });
-    }
+    };
+
   }]);

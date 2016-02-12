@@ -117,6 +117,8 @@ app.post('/upload', function(req, res) {
       return;
     }
     console.log('Creating a file in DB');
+    console.log(req.body);
+    console.log(req.file);
     db.User.findOne({ where: {email: 'test@serendipity.com'}}).then(function (user) {
       if (user) {
         db.Sound.create({
@@ -133,6 +135,35 @@ app.post('/upload', function(req, res) {
     });
   });
 });
+//
+//app.post('/uploadsound', function(req, res) {
+//  upload(req,res,function(err){
+//    console.log("upload starting");
+//    console.log(req);
+//    if(err){
+//      console.log(err);
+//      res.json({error_code:1,err_desc:err});
+//      return;
+//    }
+//    console.log('[/uploadsound] Creating a file in DB');
+//    console.log(req.body);
+//    console.log(req.file);
+//    db.User.findOne({ where: {email: 'test@serendipity.com'}}).then(function (user) {
+//      if (user) {
+//        db.Sound.create({
+//          title: req.body.title,
+//          description: req.body.description,
+//          lat: req.body.lat,
+//          long: req.body.long,
+//          path: req.file.path,
+//          UserId: user.id
+//        })
+//      }
+//    }).then(function () {
+//      res.json({error_code:0,err_desc:null});
+//    });
+//  });
+//});
 
 app.get('/logout', function (req, res) {
   console.log("Logout called, redirecting to homepage");
