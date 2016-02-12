@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('serendipityApp')
+serendipityApp
   .controller('DashboardCtrl', ['$scope', function ($scope) {
 
   }]);

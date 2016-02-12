@@ -1,6 +1,6 @@
 'use strict';
 
-angular
+var serendipityApp = angular
   .module('serendipityApp',[
     'ngAnimate',
     'ngCookies',
@@ -9,7 +9,9 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngFileUpload'
-  ])
+  ]);
+
+serendipityApp
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('serendipityApp')
+serendipityApp
   .controller('UsersCtrl', function ($scope, $http) {
 
     $http.get('/api/users').then(function successCallback(response) {

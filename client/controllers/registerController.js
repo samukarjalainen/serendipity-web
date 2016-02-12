@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('serendipityApp')
+serendipityApp
   .controller('RegisterCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.sendRegistration = function(user) {
       $http.post('/register', user).

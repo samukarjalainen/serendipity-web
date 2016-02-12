@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('serendipityApp')
+serendipityApp
   .controller('LoginCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.loginStatus = "";
     $scope.loginSuccess = null;
