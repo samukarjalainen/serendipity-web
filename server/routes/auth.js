@@ -1,5 +1,6 @@
 var db = require('../database');
 var Sequelize = require('sequelize');
+var jwt = require('jwt-simple');
 
 var auth = {
 

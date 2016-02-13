@@ -8,6 +8,7 @@ var sounds = require('./sounds.js');
 // Public routes
 router.post('/login', auth.login);
 router.get('/logout', auth.logout);
+router.get('/register');
 
 // Routes that require user role (logging in)
 
