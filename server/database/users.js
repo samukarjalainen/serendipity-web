@@ -20,7 +20,11 @@ module.exports = function(sequelize, DataTypes) {
     firstName: Sequelize.STRING,
     lastName: Sequelize.STRING,
     city: Sequelize.STRING,
-    country: Sequelize.STRING
+    country: Sequelize.STRING,
+    role: {
+      type: Sequelize.STRING,
+      defaultValue: "user"
+    }
   }, {
     classMethods: {
       associate: function(models) {

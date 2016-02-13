@@ -66,34 +66,37 @@ app.use(function(err, req, res, next) {
 
 // Synchronize db with sequelize model, create dummy users and then start the server
 db.sequelize.sync({}).then(function () {
-  //db.User
-  //  .findOrCreate({where: {
-  //    username: 'Admin',
-  //    email: 'admin@serendipity.com',
-  //    password: 's3cr37',
-  //    firstName: 'Admin',
-  //    lastName: 'Admin',
-  //    city: 'Oulu',
-  //    country: 'Finland'
-  //  }}).then(function () {
-  //    db.User
-  //      .findOrCreate({where: {
-  //        username: 'test',
-  //        email: 'test@serendipity.com',
-  //        password: 'test',
-  //        firstName: 'Testing',
-  //        lastName: 'Account',
-  //        city: 'Oulu',
-  //        country: 'Finland'
-  //      }}).then(function () {
-  //        var server = app.listen(app.get('port'), function () {
-  //          console.log('Express server listening on port ' + server.address().port);
-  //        })
-  //      })
-  //  });
   var server = app.listen(app.get('port'), function () {
     console.log('Server started on port ' + server.address().port);
   });
+  // createDummyData();
 });
+
+function createDummyData() {
+  db.User
+    .findOrCreate({where: {
+      username: 'admin',
+      email: 'admin@serendipity.com',
+      password: 'admin',
+      firstName: 'Admin',
+      lastName: 'Admin',
+      city: 'Oulu',
+      country: 'Finland',
+      role: 'admin'
+    }}).then(function () {
+    db.User
+      .findOrCreate({where: {
+        username: 'test',
+        email: 'test@serendipity.com',
+        password: 'test',
+        firstName: 'Testing',
+        lastName: 'Account',
+        city: 'Oulu',
+        country: 'Finland'
+      }}).then(function () {
+      return "created";
+    })
+  });
+}
 
 module.exports = app;
