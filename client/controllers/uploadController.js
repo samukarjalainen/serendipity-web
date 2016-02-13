@@ -3,7 +3,7 @@ serendipityApp
 
     $scope.uploadPic = function(file) {
       file.upload = Upload.upload({
-        url: '/upload',
+        url: '/api/sounds/upload',
         data: {file: file, username: $scope.username},
       });
 
