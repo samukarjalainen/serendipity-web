@@ -1,6 +1,6 @@
 'use strict';
 
-serendipityApp
+app
   .controller('SoundsCtrl', function ($scope, $http) {
 
     $http.get('/api/sounds').then(function successCallback(response) {

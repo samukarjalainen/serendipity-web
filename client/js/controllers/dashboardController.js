@@ -1,6 +1,6 @@
 'use strict';
 
-serendipityApp
+app
   .controller('DashboardCtrl', ['$scope', function ($scope) {
 
   }]);

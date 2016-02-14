@@ -1,6 +1,6 @@
 'use strict';
 
-serendipityApp
+app
   .controller('AboutCtrl', function () {
 
   });

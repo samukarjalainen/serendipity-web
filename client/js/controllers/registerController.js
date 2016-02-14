@@ -1,6 +1,6 @@
 'use strict';
 
-serendipityApp
+app
   .controller('RegisterCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.sendRegistration = function(user) {
       $http.post('/api/users/create', user).

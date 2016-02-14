@@ -1,6 +1,6 @@
 'use strict';
 
-serendipityApp.controller('LoginCtrl', ['$scope', '$window', '$location', 'LoginFactory', 'AuthenticationFactory',
+app.controller('LoginCtrl', ['$scope', '$window', '$location', 'LoginFactory', 'AuthenticationFactory',
   function ($scope, $window, $location, LoginFactory, AuthenticationFactory) {
 
     $scope.login = function (user) {
@@ -11,9 +11,9 @@ serendipityApp.controller('LoginCtrl', ['$scope', '$window', '$location', 'Login
           AuthenticationFactory.user = response.data.id;
           AuthenticationFactory.userRole = response.data.role;
 
-          $window.sessionStorage.token = response.data.token;
-          $window.sessionStorage.user = response.data.id;
-          $window.sessionStorage.userRole = response.data.role;
+          $window.localStorage.token = response.data.token;
+          $window.localStorage.user = response.data.id;
+          $window.localStorage.userRole = response.data.role;
 
           $location.path('/dashboard');
         })

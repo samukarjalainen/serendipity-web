@@ -1,4 +1,4 @@
-serendipityApp
+app
   .controller('UploadCtrl', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
 
     $scope.uploadPic = function(file) {

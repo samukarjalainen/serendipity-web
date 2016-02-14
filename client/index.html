@@ -20,52 +20,16 @@
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <!-- Add your site or application content here -->
+  <!-- Site content here -->
   <div class="content-wrapper">
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="#/">Serendipity</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/users">Users</a> </li>
-              <li><a ng-href="#/register">Register</a></li>
-              <li><a ng-href="#/login">Login</a></li>
-              <li><a ng-href="#/dashboard">Dashboard</a></li>
-              <li><a ng-href="#/upload">Upload</a></li>
-              <li><a ng-href="#/sounds">Sounds</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <!-- Header -->
+    <div ng-include="'views/header.html'"></div>
     <div class="view-wrapper">
-      <div class="container">
-        <div ng-view=""></div>
-      </div>
+      <div class="container" ng-view=""></div>
     </div>
+    <div ng-include="'views/footer.html'"></div>
 
-    <div class="footer">
-      <div class="container">
-        <h3 class="footer-title">Serendipity</h3>
-        <p class="footer-text">Experiencing sounds</p>
-      </div>
-    </div>
   </div>
 
 
@@ -97,17 +61,17 @@
   <!-- endbuild -->
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
-  <script src="serendipityApp.js"></script>
-  <script src="controllers/mainController.js"></script>
-  <script src="controllers/aboutController.js"></script>
-  <script src="controllers/usersController.js"></script>
-  <script src="controllers/registerController.js"></script>
-  <script src="controllers/loginController.js"></script>
-  <script src="controllers/dashboardController.js"></script>
-  <script src="controllers/uploadController.js"></script>
-  <script src="controllers/soundsController.js"></script>
-  <!--<script src="directives/fileModel.js"></script>-->
-  <!--<script src="services/multipartForm.js"></script>-->
+  <script src="js/serendipityApp.js"></script>
+  <script src="js/controllers/mainController.js"></script>
+  <script src="js/controllers/aboutController.js"></script>
+  <script src="js/controllers/usersController.js"></script>
+  <script src="js/controllers/registerController.js"></script>
+  <script src="js/controllers/loginController.js"></script>
+  <script src="js/controllers/dashboardController.js"></script>
+  <script src="js/controllers/uploadController.js"></script>
+  <script src="js/controllers/soundsController.js"></script>
+  <script src="js/services/authenticationFactory.js"></script>
+  <script src="js/services/loginFactory.js"></script>
   <!-- endbuild -->
   </body>
 </html>
