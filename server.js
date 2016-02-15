@@ -20,7 +20,7 @@ app.all('/*', function(req, res, next) {
 });
 
 // Middleware
-app.use(favicon(__dirname + '/client/images/favicon.jpg'));
+app.use(favicon(__dirname + '/client/images/favicon.png'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

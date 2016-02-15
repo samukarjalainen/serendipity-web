@@ -5843,7 +5843,9 @@ body {
   background-color: #CCCCCC; }
 
 body {
-  background: url("../images/waves2.jpg"); }
+  background: url("../images/black-mountain-50.jpg") no-repeat center;
+  -webkit-background-size: cover;
+  background-size: cover; }
 
 .main-wrapper {
   margin: 0; }
