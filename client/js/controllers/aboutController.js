@@ -1,6 +1,5 @@
 'use strict';
 
-app
-  .controller('AboutCtrl', function () {
+app.controller('AboutCtrl', function () {
 
-  });
+});

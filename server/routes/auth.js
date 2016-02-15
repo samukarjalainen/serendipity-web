@@ -46,109 +46,31 @@ var auth = {
     res.json({ success: true, message: "You have logged out." });
   },
 
-  validateUser: function (username) {
 
-  },
-
+  // Check that
   isAuth: function (req, res, next) {
+    console.log("auth.js: isAuth called");
     var authHeader, token, elements, bearer;
-    authHeader = req.headers['Authorization'];
+    authHeader = req.headers['authorization'];
 
-    if (typeof authHeader !== 'undefined') {
+    if (authHeader) {
+      console.log("auth.js: Authorization header found");
       elements = authHeader.split(" ");
       bearer = elements[0];
 
       if (bearer === 'Bearer') {
         token = elements[1];
+
+        try {
+          jwt.decode(token, secret);
+          console.log("auth.js: token decoded successfully");
+          next();
+        } catch (err) {
+          console.log(err);
+        }
       }
     }
-  },
-
-  validateRequest: function (req, res, next) {
-  //  // Check that the token exists
-  //  var token = (req.body && req.body.access_token) || (req.query && req.query.access_token) || req.headers['x-access-token'] || req.headers['Authorization'];
-  //
-  //  if (token) {
-  //    try {
-  //      var decoded = jwt.decode(token, secret);
-  //
-  //      // Check that the token hasn't expired
-  //      if (decoded.exp <= Date.now()) {
-  //        res.status(400);
-  //        res.json({
-  //          "status": 400,
-  //          "message": "Token Expired"
-  //        });
-  //        return;
-  //      }
-  //
-  //      // Check that
-  //      if (key == '') {
-  //        res.status(401);
-  //        res.json({
-  //          status: 401,
-  //          success: false,
-  //          message: "Empty username in request"
-  //        });
-  //        return;
-  //      }
-  //
-  //      db.User.findOne({
-  //        where: Sequelize.or({ username: username }, { email: username })
-  //      }).then(function (dbUserObj) {
-  //        if (dbUserObj && dbUserObj !== typeof 'undefined' && password == dbUserObj.password) {
-  //          var user = dbUserObj.get();
-  //          console.log("returning token");
-  //          res.json(generateToken(user));
-  //        } else {
-  //          res.status(401);
-  //          res.json({
-  //            status: 401,
-  //            success: false,
-  //            message: "Incorrect username or password. (2)"
-  //          });
-  //        }
-  //      });
-  //
-  //      if (dbUser) {
-  //        if ((req.url.indexOf('admin') >= 0 && dbUser.role == 'admin') || (req.url.indexOf('admin') < 0 && req.url.indexOf('/api/v1/') >= 0)) {
-  //          next(); // To move to next middleware
-  //        } else {
-  //          res.status(403);
-  //          res.json({
-  //            "status": 403,
-  //            "message": "Not Authorized"
-  //          });
-  //          return;
-  //        }
-  //      } else {
-  //        // No user with this name exists, respond back with a 401
-  //        res.status(401);
-  //        res.json({
-  //          "status": 401,
-  //          "message": "Invalid User"
-  //        });
-  //        return;
-  //      }
-  //
-  //    } catch (err) {
-  //      res.status(500);
-  //      res.json({
-  //        "status": 500,
-  //        "message": "Oops something went wrong",
-  //        "error": err
-  //      });
-  //    }
-  //  } else {
-  //    res.status(401);
-  //    res.json({
-  //      "status": 401,
-  //      "message": "Invalid Token or Key"
-  //    });
-  //    return;
-  //  }
   }
-
 };
 
 // Private helper functions for authenticating
@@ -165,16 +87,12 @@ function generateToken(user) {
     scope: user.role
   };
 
-  console.log("starting token generation");
   var token = jwt.encode(payload, secret);
-  console.log("token generated");
-  var decoded = jwt.decode(token, secret);
-  console.log(decoded);
-
 
   return {
     token: token,
     expires: expires,
+    username: user.username,
     id : user.id,
     role: user.role
   };

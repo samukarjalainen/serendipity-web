@@ -33,6 +33,9 @@ app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env == 'development';
 app.set('port', process.env.PORT || 3000);
 
+// Require authentication for protected routes
+app.all('/api/*', [require('./server/routes/auth').isAuth]);
+
 // Setup routes
 app.use('/', require('./server/routes'));
 

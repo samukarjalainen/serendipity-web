@@ -13,8 +13,6 @@ router.get('/register');
 // Routes that require user role (logging in)
 
 
-// Routes that require admin role
-
 // User routes
 router.get('/api/users', users.getAll);
 router.get('/api/user/:username', users.getOne);

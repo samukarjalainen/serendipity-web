@@ -1,21 +1,16 @@
-app.factory('LoginFactory', function ($window, $location, $http, AuthenticationFactory) {
+app.factory('LoginFactory', function ($http, $window, $location, AuthenticationFactory) {
   return {
     login: function (user) {
       return $http.post('/login', user);
     },
 
     logout: function () {
-      if (AuthenticationFactory.isLoggedIn) {
-        AuthenticationFactory.isLoggedIn = false;
-        delete AuthenticationFactory.user;
-        delete AuthenticationFactory.userRole;
+      console.log("LoginFactory: Logout called.");
 
-        delete $window.sessionStorage.token;
-        delete $window.sessionStorage.user;
-        delete $window.sessionStorage.userRole;
+      AuthenticationFactory.clear();
+      $window.localStorage.clear();
 
-        $location.path('/login');
-      }
+      $location.path('/');
     }
   }
 });
