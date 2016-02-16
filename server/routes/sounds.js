@@ -13,7 +13,17 @@ var sounds = {
   },
 
   getOne: function(req, res) {
+    // TODO: Implement
+  },
 
+  getUserSounds: function (req, res) {
+    var user = auth.getUser(req);
+    if (user) {
+      console.log(TAG, "fetching sounds for user: " + user.username);
+      db.Sound.findAll({ where: {UserId: user.id} }).then(function (results) {
+        res.json(results);
+      })
+    }
   },
 
   create: function(req, res) {
@@ -25,29 +35,31 @@ var sounds = {
         return;
       }
       var user = auth.getUser(req);
-      var username = user.username || 'test';
-      console.log(TAG, 'username is ', username);
-      db.User.findOne({ where: {username: username}}).then(function (user) {
-        if (user) {
-          // Get the values from request or use placeholders
-          var title = req.body.title || "Default title";
-          var description = req.body.description || "Description placeholder";
-          var lat = req.body.lat || "99";
-          var long = req.body.long || "00";
-          var path = req.file.path || "Default path";
+      if (user) {
+        var username = user.username || 'test';
+        console.log(TAG, 'username is ', username);
+        db.User.findOne({ where: {username: username}}).then(function (user) {
+          if (user) {
+            // Get the values from request or use placeholders
+            var title = req.body.title || "Default title";
+            var description = req.body.description || "Description placeholder";
+            var lat = req.body.lat || "99";
+            var long = req.body.long || "00";
+            var path = req.file.path || "Default path";
 
-          db.Sound.create({
-            title: title,
-            description: description,
-            lat: lat,
-            long: long,
-            path: path,
-            UserId: user.id
-          })
-        }
-      }).then(function () {
-        res.json({error_code:0,err_desc:null});
-      });
+            db.Sound.create({
+              title: title,
+              description: description,
+              lat: lat,
+              long: long,
+              path: path,
+              UserId: user.id
+            })
+          }
+        }).then(function () {
+          res.json({error_code:0,err_desc:null});
+        });
+      }
     });
   },
 
