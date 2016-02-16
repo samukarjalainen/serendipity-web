@@ -106,6 +106,7 @@ app.factory('HttpInterceptor', function ($window) {
     request: function (config) {
       if ($window.localStorage.token) {
         config.headers['authorization'] = 'Bearer ' + $window.localStorage.token;
+        config.loggedInUser = $window.localStorage.username;
       }
       return config;
     },

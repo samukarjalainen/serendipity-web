@@ -1,15 +1,24 @@
 var multer = require('multer');
+var mkdirp = require('mkdirp');
+var auth = require('../routes/auth');
+var separator = '-';
+
 
 var storage = multer.diskStorage({
 
   destination: function (req, file, cb) {
-    cb(null, './uploads/')
+    var dest = './uploads/' + auth.getUsername(req) + '/';
+    console.log(dest);
+    mkdirp.sync(dest);
+    cb(null, dest)
   },
 
   filename: function (req, file, cb) {
-    var datetimestamp = Date.now();
-    //cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1])
-    cb(null, 'upload-' + datetimestamp);
+    var timestamp = Date.now();
+    var fileParts = file.originalname.split('.');
+    var origFileName = fileParts[0];
+    var extension = fileParts.pop();
+    cb(null, origFileName + separator + timestamp + '.' + extension);
   }
 
 });

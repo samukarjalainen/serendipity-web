@@ -49,12 +49,10 @@ var auth = {
 
   // Check that
   isAuth: function (req, res, next) {
-    console.log("auth.js: isAuth called");
     var authHeader, token, elements, bearer;
     authHeader = req.headers['authorization'];
 
     if (authHeader) {
-      console.log("auth.js: Authorization header found");
       elements = authHeader.split(" ");
       bearer = elements[0];
 
@@ -63,13 +61,35 @@ var auth = {
 
         try {
           jwt.decode(token, secret);
-          console.log("auth.js: token decoded successfully");
           next();
         } catch (err) {
           console.log(err);
         }
       }
     }
+  },
+
+  getUsername: function (req) {
+    var authHeader, token, elements, bearer;
+    authHeader = req.headers['authorization'];
+
+    if (authHeader) {
+      elements = authHeader.split(" ");
+      bearer = elements[0];
+
+      if (bearer === 'Bearer') {
+        token = elements[1];
+
+        try {
+          var decoded = jwt.decode(token, secret);
+          console.log(decoded);
+          return decoded.usr;
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    }
+
   }
 };
 
@@ -84,6 +104,7 @@ function generateToken(user) {
     iat: curTime,
     exp: expires,
     sub: user.id,
+    usr: user.username,
     scope: user.role
   };
 

@@ -13,14 +13,15 @@ router.get('/register');
 // Routes that require user role (logging in)
 
 
-// User routes
-router.get('/api/users', users.getAll);
+// Regular user routes
 router.get('/api/user/:username', users.getOne);
 router.post('/api/users/create', users.create);
 router.post('/api/users/update', users.update);
-
-// Sound routes
-router.get('/api/sounds', sounds.getAll);
 router.post('/api/sounds/upload', sounds.create);
+
+// Admin user routes
+router.get('/api/users', users.getAll);
+router.get('/api/sounds', sounds.getAll);
+
 
 module.exports = router;
