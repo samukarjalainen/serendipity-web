@@ -28,12 +28,19 @@ var sounds = {
       console.log(TAG, 'username is ', username);
       db.User.findOne({ where: {username: username}}).then(function (user) {
         if (user) {
+          // Get the values from request or use placeholders
+          var title = req.body.title || "Default title";
+          var description = req.body.description || "Description placeholder";
+          var lat = req.body.lat || "99";
+          var long = req.body.long || "00";
+          var path = req.file.path || "Default path";
+
           db.Sound.create({
-            title: req.file.originalname,
-            description: "Lorem ipsum",
-            lat: "90",
-            long: "45",
-            path: req.file.path,
+            title: title,
+            description: description,
+            lat: lat,
+            long: long,
+            path: path,
             UserId: user.id
           })
         }
