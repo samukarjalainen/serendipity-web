@@ -69,7 +69,7 @@ var auth = {
     }
   },
 
-  getUsername: function (req) {
+  getUser: function (req) {
     var authHeader, token, elements, bearer;
     authHeader = req.headers['authorization'];
 
@@ -82,8 +82,11 @@ var auth = {
 
         try {
           var decoded = jwt.decode(token, secret);
-          console.log(decoded);
-          return decoded.usr;
+          return {
+            id: decoded.sub,
+            username: decoded.usr,
+            role: decoded.scope
+          };
         } catch (err) {
           console.log(err);
         }

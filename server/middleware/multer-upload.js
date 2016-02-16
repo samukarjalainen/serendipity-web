@@ -7,7 +7,8 @@ var separator = '-';
 var storage = multer.diskStorage({
 
   destination: function (req, file, cb) {
-    var dest = './uploads/' + auth.getUsername(req) + '/';
+    var user = auth.getUser(req);
+    var dest = './uploads/' + user.username + '/';
     console.log(dest);
     mkdirp.sync(dest);
     cb(null, dest)

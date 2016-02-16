@@ -13,7 +13,7 @@ var sounds = {
   },
 
   getOne: function(req, res) {
-    // TODO: Implement
+
   },
 
   create: function(req, res) {
@@ -24,7 +24,8 @@ var sounds = {
         res.json({error_code:1,err_desc:err});
         return;
       }
-      var username = auth.getUsername(req) || 'test';
+      var user = auth.getUser(req);
+      var username = user.username || 'test';
       console.log(TAG, 'username is ', username);
       db.User.findOne({ where: {username: username}}).then(function (user) {
         if (user) {
