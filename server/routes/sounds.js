@@ -1,6 +1,7 @@
 var db = require('../database');
 var Sequelize = require('sequelize');
 var upload = require('../middleware/multer-upload.js');
+var auth = require('./auth.js');
 var TAG = 'api/routes/sounds.js: ';
 
 var sounds = {
@@ -23,12 +24,9 @@ var sounds = {
         res.json({error_code:1,err_desc:err});
         return;
       }
-      console.log('Creating a file in DB');
-      console.log(req.body);
-      //console.log(req.file);
-      var username = req.loggedInUser || 'test@serendipity.com';
+      var username = auth.getUsername(req) || 'test';
       console.log(TAG, 'username is ', username);
-      db.User.findOne({ where: {email: 'test@serendipity.com'}}).then(function (user) {
+      db.User.findOne({ where: {username: username}}).then(function (user) {
         if (user) {
           db.Sound.create({
             title: req.file.originalname,
