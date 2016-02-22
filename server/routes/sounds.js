@@ -31,7 +31,7 @@ var sounds = {
       //console.log(req);
       if(err){
         console.log(err);
-        res.json({error_code:1,err_desc:err});
+        res.json({success: false, error: err});
         return;
       }
       var user = auth.getUser(req);
@@ -57,7 +57,7 @@ var sounds = {
             })
           }
         }).then(function () {
-          res.json({error_code:0,err_desc:null});
+          res.json({ success: true, error:null });
         });
       }
     });

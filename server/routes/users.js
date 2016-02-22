@@ -29,21 +29,26 @@ var users = {
     db.User.find({
       where: Sequelize.or({ username: req.body.username }, { email: req.body.email })
     }).then(function (user) {
-      if (!user || typeof user ==  'undefined') {
-        db.User.create({
-          username: req.body.username,
-          email: req.body.email,
-          password: req.body.password,
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          city: req.body.city,
-          country: req.body.country
-        });
-        res.status(200);
-        res.json({success: true, message: "User created"});
+      if (!user) {
+        if (req.body.email && req.body.password) {
+          db.User.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            city: req.body.city,
+            country: req.body.country
+          });
+          res.status(200);
+          res.json({success: true, message: "User created"});
+        } else {
+          res.status(409);
+          res.json({ success: false, message: "Missing e-mail or password" });
+        }
       } else {
         res.status(409);
-        res.json({success: false, message: "A user with that e-mail or username already exits."});
+        res.json({success: false, message: "A user with that e-mail or username already exists."});
       }
     });
   },

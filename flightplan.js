@@ -55,3 +55,11 @@ plan.remote(function(remote) {
   remote.exec('forever stop ~/'+appName+'/'+startFile, {failsafe: true});
   remote.exec('forever start ~/'+appName+'/'+startFile);
 });
+//
+//plan.target.hosts.forEach(function(host) {
+//  var command = "rsync -Crzu -hi --stats --exclude-from 'deploy/exclude.txt' " +
+//    "-e 'ssh -i " + host.privateKey + "' " +
+//    "root/ " +
+//    host.username + "@" + host.host + ":/tmp/" + tmpDir;
+//  local.exec(command);
+//});
