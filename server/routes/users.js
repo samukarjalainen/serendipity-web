@@ -1,5 +1,6 @@
 var db = require('../database');
 var Sequelize = require('sequelize');
+var bcrypt = require('bcryptjs');
 
 var users = {
 
@@ -31,10 +32,11 @@ var users = {
     }).then(function (user) {
       if (!user) {
         if (req.body.email && req.body.password) {
+          var hash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
           db.User.create({
             username: req.body.username,
             email: req.body.email,
-            password: req.body.password,
+            password: hash,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             city: req.body.city,
@@ -76,6 +78,35 @@ var users = {
 
   delete: function(req, res) {
     // TODO: Finish this function
+  },
+
+  createDummyUsers: function () {
+    var adminHash = bcrypt.hashSync('admin', bcrypt.genSaltSync(10));
+    var testHash = bcrypt.hashSync('test', bcrypt.genSaltSync(10));
+    db.User
+      .findOrCreate({where: {
+        username: 'admin',
+        email: 'admin@serendipity.com',
+        password: adminHash,
+        firstName: 'Admin',
+        lastName: 'Admin',
+        city: 'Oulu',
+        country: 'Finland',
+        role: 'admin'
+      }}).then(function () {
+      db.User
+        .findOrCreate({where: {
+          username: 'test',
+          email: 'test@serendipity.com',
+          password: testHash,
+          firstName: 'Testing',
+          lastName: 'Account',
+          city: 'Oulu',
+          country: 'Finland'
+        }}).then(function () {
+        return "created";
+      })
+    });
   }
 };
 

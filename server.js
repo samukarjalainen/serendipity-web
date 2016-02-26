@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('./server/database');
+var users = require('./server/routes/users');
 
 var app = express();
 
@@ -72,34 +73,10 @@ db.sequelize.sync({}).then(function () {
   var server = app.listen(app.get('port'), function () {
     console.log('Server started on port ' + server.address().port);
   });
-  // createDummyData();
+
+  // Create dummy users
+  //users.createDummyUsers();
 });
 
-function createDummyData() {
-  db.User
-    .findOrCreate({where: {
-      username: 'admin',
-      email: 'admin@serendipity.com',
-      password: 'admin',
-      firstName: 'Admin',
-      lastName: 'Admin',
-      city: 'Oulu',
-      country: 'Finland',
-      role: 'admin'
-    }}).then(function () {
-    db.User
-      .findOrCreate({where: {
-        username: 'test',
-        email: 'test@serendipity.com',
-        password: 'test',
-        firstName: 'Testing',
-        lastName: 'Account',
-        city: 'Oulu',
-        country: 'Finland'
-      }}).then(function () {
-      return "created";
-    })
-  });
-}
 
 module.exports = app;
