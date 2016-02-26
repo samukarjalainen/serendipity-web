@@ -76,7 +76,7 @@ app.run(function($rootScope, $window, $location, AuthenticationFactory) {
 
   $rootScope.$on("$routeChangeStart", function(event, nextRoute, currentRoute) {
     if (nextRoute.access && nextRoute.access.requiredAdmin && $window.localStorage.userRole !== 'admin') {
-      console.log("Admin rights needed for that");
+      console.log("Admin rights are needed for that");
       $window.alert("Unauthorized action!");
       $location.path("login");
     }
