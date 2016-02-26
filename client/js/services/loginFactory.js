@@ -11,6 +11,7 @@ app.factory('LoginFactory', function ($http, $window, $location, AuthenticationF
       $window.localStorage.clear();
 
       $location.path('/');
+      $window.location.reload();
     }
   }
 });

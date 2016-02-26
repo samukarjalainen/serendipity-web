@@ -26,6 +26,7 @@ app.controller('LoginCtrl', ['$scope', '$window', '$location', 'LoginFactory', '
             $window.localStorage.userRole = data.role;
 
             $location.path('/dashboard');
+            $window.location.reload();
           }
         }, function (errorResponse) {
           var status = errorResponse.status;
