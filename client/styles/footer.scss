@@ -4,9 +4,26 @@
   //padding: 30px;
   //margin-top: 80px;
   //background-color: transparent;
-  background: url("../images/ananas2.jpg");
+  width:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  height: 320px;
+  background: url("../images/ananas2-45.jpg") no-repeat center;
 
-  .footer-text {
-    //margin-bottom: 30px;
+  .footer-hero-wrapper {
+    text-align: center;
+    margin-top: 30px;
+
+    .footer-hero-text {
+      @extend %footer-font;
+      margin-bottom: 30px;
+    }
+
+    .footer-hero-image {
+      margin-top: 15px;;
+      height: 150px;
+    }
   }
+
 }

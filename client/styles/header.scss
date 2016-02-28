@@ -3,10 +3,46 @@
 // Navbar styling here
 
 .header {
+  @extend %navbar-font;
+
   .navbar-default {
     @include border-radius(0);
     border: none;
     background-color: transparent;
+
+    .navbar-nav {
+      & > {
+
+        li {
+          a {
+            &:hover {
+              color: white;
+            }
+          }
+        }
+
+        li.active {
+          a {
+            background-color: transparent;
+            color: white;
+
+            &:hover {
+              color: white;
+              background-color: transparent;
+            }
+          }
+
+          &:after {
+            content: '';
+            display: block;
+            margin: 0 auto;
+            width: 40px;
+            height: 3px;
+            background: white;
+          }
+        }
+      }
+    }
 
   }
 }

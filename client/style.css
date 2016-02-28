@@ -5832,6 +5832,14 @@ body {
   font-size: 16px;
   color: white; }
 
+.header {
+  font-size: 18px;
+  text-transform: uppercase; }
+
+.footer .footer-hero-wrapper .footer-hero-text {
+  opacity: 0.7;
+  font-size: 26px; }
+
 /* -- Mixins -- */
 /* -- Colors -- */
 /* -- Fonts -- */
@@ -5841,30 +5849,43 @@ body {
   font-size: 16px;
   color: white; }
 
+.header {
+  font-size: 18px;
+  text-transform: uppercase; }
+
+.footer .footer-hero-wrapper .footer-hero-text {
+  opacity: 0.7;
+  font-size: 26px; }
+
 /* -- Mixins -- */
 html,
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+a:hover {
+  color: white; }
+
+.table {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px; }
+  .table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.2); }
 
 .content-wrapper {
   min-height: 100%;
   position: relative; }
 
 .view-wrapper {
-  padding-bottom: 100px;
+  padding-bottom: 320px;
   /* Height of the footer element */ }
-
-.footer {
-  background: #ffab62;
-  width: 100%;
-  height: 100px;
-  position: absolute;
-  bottom: 0;
-  left: 0; }
 
 /* -- Colors -- */
 /* -- Fonts -- */
@@ -5873,6 +5894,14 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   color: white; }
+
+.header {
+  font-size: 18px;
+  text-transform: uppercase; }
+
+.footer .footer-hero-wrapper .footer-hero-text {
+  opacity: 0.7;
+  font-size: 26px; }
 
 /* -- Mixins -- */
 .header .navbar-default {
@@ -5882,6 +5911,21 @@ body {
   border-radius: 0;
   border: none;
   background-color: transparent; }
+  .header .navbar-default .navbar-nav > li a:hover {
+    color: white; }
+  .header .navbar-default .navbar-nav > li.active a {
+    background-color: transparent;
+    color: white; }
+    .header .navbar-default .navbar-nav > li.active a:hover {
+      color: white;
+      background-color: transparent; }
+  .header .navbar-default .navbar-nav > li.active:after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 40px;
+    height: 3px;
+    background: white; }
 
 /* -- Colors -- */
 /* -- Fonts -- */
@@ -5891,32 +5935,42 @@ body {
   font-size: 16px;
   color: white; }
 
+.header {
+  font-size: 18px;
+  text-transform: uppercase; }
+
+.footer .footer-hero-wrapper .footer-hero-text {
+  opacity: 0.7;
+  font-size: 26px; }
+
 /* -- Mixins -- */
 .footer {
-  background: url("../images/ananas2.jpg"); }
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 320px;
+  background: url("../images/ananas2-45.jpg") no-repeat center; }
+  .footer .footer-hero-wrapper {
+    text-align: center;
+    margin-top: 30px; }
+    .footer .footer-hero-wrapper .footer-hero-text {
+      margin-bottom: 30px; }
+    .footer .footer-hero-wrapper .footer-hero-image {
+      margin-top: 15px;
+      height: 150px; }
 
 body {
   background: url("../images/header-montagna.png") no-repeat center;
   -webkit-background-size: cover;
   background-size: cover; }
 
-.main-wrapper {
-  margin: 0; }
-  .main-wrapper .jumbotron {
-    margin-top: 100px;
-    margin-bottom: 100px; }
-    .main-wrapper .jumbotron h1 {
-      color: cadetblue; }
-    .main-wrapper .jumbotron .lead {
-      color: blueviolet; }
-  .main-wrapper .user-quote {
-    margin-bottom: 60px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.5); }
-
-.sounds-wrapper .table {
-  background-color: #fff;
-  border-radius: 4px; }
+.main-wrapper .main-hero-wrapper {
+  text-align: center; }
+  .main-wrapper .main-hero-wrapper .hero-image {
+    display: inline-block;
+    margin: 0 auto;
+    height: 750px; }
 
 /* -- Colors -- */
 /* -- Fonts -- */
@@ -5926,9 +5980,16 @@ body {
   font-size: 16px;
   color: white; }
 
+.header {
+  font-size: 18px;
+  text-transform: uppercase; }
+
+.footer .footer-hero-wrapper .footer-hero-text {
+  opacity: 0.7;
+  font-size: 26px; }
+
 /* -- Mixins -- */
 .register-wrapper {
-  background-color: aliceblue;
   margin: 0 auto;
   padding: 20px; }
 
@@ -5939,6 +6000,14 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   color: white; }
+
+.header {
+  font-size: 18px;
+  text-transform: uppercase; }
+
+.footer .footer-hero-wrapper .footer-hero-text {
+  opacity: 0.7;
+  font-size: 26px; }
 
 /* -- Mixins -- */
 .login-wrapper .login-form {
@@ -5952,7 +6021,12 @@ body {
   font-size: 16px;
   color: white; }
 
+.header {
+  font-size: 18px;
+  text-transform: uppercase; }
+
+.footer .footer-hero-wrapper .footer-hero-text {
+  opacity: 0.7;
+  font-size: 26px; }
+
 /* -- Mixins -- */
-.table {
-  background-color: #fff;
-  border-radius: 4px; }
