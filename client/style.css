@@ -5,6 +5,13 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -5817,11 +5824,31 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+/* -- Colors -- */
+/* -- Fonts -- */
+html,
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: white; }
+
+/* -- Mixins -- */
+/* -- Colors -- */
+/* -- Fonts -- */
+html,
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: white; }
+
+/* -- Mixins -- */
 html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%; }
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 .content-wrapper {
   min-height: 100%;
@@ -5839,11 +5866,37 @@ body {
   bottom: 0;
   left: 0; }
 
+/* -- Colors -- */
+/* -- Fonts -- */
+html,
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: white; }
+
+/* -- Mixins -- */
+.header .navbar-default {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  background-color: transparent; }
+
+/* -- Colors -- */
+/* -- Fonts -- */
+html,
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: white; }
+
+/* -- Mixins -- */
 .footer {
-  background-color: #CCCCCC; }
+  background: url("../images/ananas2.jpg"); }
 
 body {
-  background: url("../images/black-mountain-50.jpg") no-repeat center;
+  background: url("../images/header-montagna.png") no-repeat center;
   -webkit-background-size: cover;
   background-size: cover; }
 
@@ -5865,14 +5918,41 @@ body {
   background-color: #fff;
   border-radius: 4px; }
 
+/* -- Colors -- */
+/* -- Fonts -- */
+html,
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: white; }
+
+/* -- Mixins -- */
 .register-wrapper {
   background-color: aliceblue;
   margin: 0 auto;
   padding: 20px; }
 
+/* -- Colors -- */
+/* -- Fonts -- */
+html,
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: white; }
+
+/* -- Mixins -- */
 .login-wrapper .login-form {
   max-width: 500px; }
 
+/* -- Colors -- */
+/* -- Fonts -- */
+html,
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: white; }
+
+/* -- Mixins -- */
 .table {
   background-color: #fff;
   border-radius: 4px; }

@@ -1,2 +1,37 @@
-// Colors
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
+
+/* -- Colors -- */
 $main-color: #CCCCCC;
+$light-gray: #e6e6e6;
+
+
+/* -- Fonts -- */
+%default-font {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: white;
+}
+
+/* -- Mixins -- */
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition( $val : ease 0.5s ) {
+  -webkit-transition: $val;
+  -moz-transition: $val;
+  -o-transition: $val;
+  -ms-transition: $val;
+  transition: $val;
+}

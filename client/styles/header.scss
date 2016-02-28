@@ -1,3 +1,12 @@
 @import "variables";
 
 // Navbar styling here
+
+.header {
+  .navbar-default {
+    @include border-radius(0);
+    border: none;
+    background-color: transparent;
+
+  }
+}
