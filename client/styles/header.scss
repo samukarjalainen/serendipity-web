@@ -9,6 +9,7 @@
     @include border-radius(0);
     border: none;
     background-color: transparent;
+    margin: 30px auto;
 
     .navbar-nav {
       & > {

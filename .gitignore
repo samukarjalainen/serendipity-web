@@ -5,3 +5,4 @@ uploads/
 .sass-cache
 .idea
 *.iml
+*.DS_Store

@@ -5833,6 +5833,10 @@ body {
   font-size: 16px;
   color: white; }
 
+.main-wrapper .help-us .help-us-text {
+  font-size: 20px;
+  font-weight: 700; }
+
 .header {
   font-size: 18px;
   text-transform: uppercase; }
@@ -5842,7 +5846,8 @@ body {
   font-size: 26px; }
 
 .main-wrapper .definition .definition-title {
-  font-size: 36px;
+  font-size: 40px;
+  line-height: 50px;
   color: #070706;
   font-weight: 300; }
 
@@ -5855,6 +5860,10 @@ body {
   font-size: 16px;
   color: white; }
 
+.main-wrapper .help-us .help-us-text {
+  font-size: 20px;
+  font-weight: 700; }
+
 .header {
   font-size: 18px;
   text-transform: uppercase; }
@@ -5864,7 +5873,8 @@ body {
   font-size: 26px; }
 
 .main-wrapper .definition .definition-title {
-  font-size: 36px;
+  font-size: 40px;
+  line-height: 50px;
   color: #070706;
   font-weight: 300; }
 
@@ -5906,6 +5916,10 @@ body {
   font-size: 16px;
   color: white; }
 
+.main-wrapper .help-us .help-us-text {
+  font-size: 20px;
+  font-weight: 700; }
+
 .header {
   font-size: 18px;
   text-transform: uppercase; }
@@ -5915,7 +5929,8 @@ body {
   font-size: 26px; }
 
 .main-wrapper .definition .definition-title {
-  font-size: 36px;
+  font-size: 40px;
+  line-height: 50px;
   color: #070706;
   font-weight: 300; }
 
@@ -5926,7 +5941,8 @@ body {
   -ms-border-radius: 0;
   border-radius: 0;
   border: none;
-  background-color: transparent; }
+  background-color: transparent;
+  margin: 30px auto; }
   .header .navbar-default .navbar-nav > li a:hover {
     color: white; }
   .header .navbar-default .navbar-nav > li.active a {
@@ -5951,6 +5967,10 @@ body {
   font-size: 16px;
   color: white; }
 
+.main-wrapper .help-us .help-us-text {
+  font-size: 20px;
+  font-weight: 700; }
+
 .header {
   font-size: 18px;
   text-transform: uppercase; }
@@ -5960,7 +5980,8 @@ body {
   font-size: 26px; }
 
 .main-wrapper .definition .definition-title {
-  font-size: 36px;
+  font-size: 40px;
+  line-height: 50px;
   color: #070706;
   font-weight: 300; }
 
@@ -5989,6 +6010,10 @@ body {
   font-size: 16px;
   color: white; }
 
+.main-wrapper .help-us .help-us-text {
+  font-size: 20px;
+  font-weight: 700; }
+
 .header {
   font-size: 18px;
   text-transform: uppercase; }
@@ -5998,7 +6023,8 @@ body {
   font-size: 26px; }
 
 .main-wrapper .definition .definition-title {
-  font-size: 36px;
+  font-size: 40px;
+  line-height: 50px;
   color: #070706;
   font-weight: 300; }
 
@@ -6013,13 +6039,26 @@ body {
   .main-wrapper .main-hero-wrapper .hero-image {
     display: inline-block;
     margin: 0 auto;
-    height: 750px; }
+    height: 740px; }
 
 .main-wrapper .definition {
   text-align: center; }
   .main-wrapper .definition .definition-title {
     margin-top: 45px;
     margin-bottom: 45px; }
+
+.main-wrapper .help-us {
+  background-image: url("../images/help-us.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 200px;
+  width: 100%;
+  text-align: center; }
+  .main-wrapper .help-us .help-us-text {
+    display: inline-block;
+    width: 66%;
+    margin-top: 50px; }
 
 /* -- Colors -- */
 /* -- Fonts -- */
@@ -6028,6 +6067,10 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   color: white; }
+
+.main-wrapper .help-us .help-us-text {
+  font-size: 20px;
+  font-weight: 700; }
 
 .header {
   font-size: 18px;
@@ -6038,7 +6081,8 @@ body {
   font-size: 26px; }
 
 .main-wrapper .definition .definition-title {
-  font-size: 36px;
+  font-size: 40px;
+  line-height: 50px;
   color: #070706;
   font-weight: 300; }
 
@@ -6055,6 +6099,10 @@ body {
   font-size: 16px;
   color: white; }
 
+.main-wrapper .help-us .help-us-text {
+  font-size: 20px;
+  font-weight: 700; }
+
 .header {
   font-size: 18px;
   text-transform: uppercase; }
@@ -6064,7 +6112,8 @@ body {
   font-size: 26px; }
 
 .main-wrapper .definition .definition-title {
-  font-size: 36px;
+  font-size: 40px;
+  line-height: 50px;
   color: #070706;
   font-weight: 300; }
 
@@ -6080,6 +6129,10 @@ body {
   font-size: 16px;
   color: white; }
 
+.main-wrapper .help-us .help-us-text {
+  font-size: 20px;
+  font-weight: 700; }
+
 .header {
   font-size: 18px;
   text-transform: uppercase; }
@@ -6089,7 +6142,8 @@ body {
   font-size: 26px; }
 
 .main-wrapper .definition .definition-title {
-  font-size: 36px;
+  font-size: 40px;
+  line-height: 50px;
   color: #070706;
   font-weight: 300; }
 

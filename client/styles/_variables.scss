@@ -13,6 +13,11 @@ $light-gray: #e6e6e6;
   color: white;
 }
 
+%emphasis-font {
+  font-size: 20px;
+  font-weight: 700;
+}
+
 %navbar-font {
   font-size: 18px;
   text-transform: uppercase;
@@ -24,7 +29,8 @@ $light-gray: #e6e6e6;
 }
 
 %serendipity-h1-font {
-  font-size: 36px;
+  font-size: 40px;
+  line-height: 50px;
   color: $black;
   font-weight: 300;
 }
