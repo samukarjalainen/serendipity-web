@@ -6101,7 +6101,8 @@ body {
     padding-bottom: 40px; }
 
 .main-wrapper .steps-wrapper {
-  position: relative; }
+  position: relative;
+  margin-bottom: 60px; }
   .main-wrapper .steps-wrapper .steps .step-number {
     font-size: 30px; }
   .main-wrapper .steps-wrapper .steps .step-title {
