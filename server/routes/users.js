@@ -93,7 +93,7 @@ var users = {
         city: 'Oulu',
         country: 'Finland',
         role: 'admin'
-      }}).then(function () {
+      }}).spread(function (user, created) {
       db.User
         .findOrCreate({where: {
           username: 'test',
@@ -106,6 +106,8 @@ var users = {
         }}).then(function () {
         return "created";
       })
+    }).catch(function(error) {
+      console.log("The default 'admin' and 'test' users already in db");
     });
   }
 };
