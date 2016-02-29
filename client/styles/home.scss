@@ -1,3 +1,5 @@
+@import "variables";
+
 body {
   background: url("../images/header-montagna.png") no-repeat center;
   -webkit-background-size: cover;
@@ -13,6 +15,15 @@ body {
       margin:0 auto;
       //max-width: 700px;
       height: 750px;
+    }
+  }
+
+  .definition {
+    text-align: center;
+    .definition-title {
+      @extend %serendipity-h1-font;
+      margin-top: 45px;
+      margin-bottom: 45px;
     }
   }
 }

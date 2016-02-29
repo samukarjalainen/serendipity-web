@@ -1,6 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 
 /* -- Colors -- */
+$black: #070706;
 $main-color: #CCCCCC;
 $light-gray: #e6e6e6;
 
@@ -20,6 +21,12 @@ $light-gray: #e6e6e6;
 %footer-font {
   opacity: 0.7;
   font-size: 26px;
+}
+
+%serendipity-h1-font {
+  font-size: 36px;
+  color: $black;
+  font-weight: 300;
 }
 
 /* -- Mixins -- */
