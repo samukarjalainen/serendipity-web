@@ -3,6 +3,7 @@ var Sequelize = require('sequelize');
 var jwt = require('jwt-simple');
 var bcrypt = require('bcryptjs');
 var secret = '5UP3R53CR3770K3N57R1NG';
+var TAG = 'auth.js: ';
 
 var auth = {
 
@@ -16,7 +17,7 @@ var auth = {
       res.json({
         status: 401,
         success: false,
-        message: "Incorrect username or password."
+        message: "Incorrect username or password.(1)"
       });
       return;
     }
@@ -26,16 +27,17 @@ var auth = {
     db.User.findOne({
       where: Sequelize.or({ username: username }, { email: username })
     }).then(function (dbUserObj) {
+      console.log(TAG, + "User found checking password");
       if (dbUserObj && bcrypt.compareSync(req.body.password, dbUserObj.password)) {
         var user = dbUserObj.get();
-        console.log("returning token");
+        console.log(TAG + "returning token");
         res.json(generateToken(user));
       } else {
         res.status(401);
         res.json({
           status: 401,
           success: false,
-          message: "Incorrect username or password."
+          message: "Incorrect username or password.(2)"
         });
       }
     });

@@ -32,15 +32,70 @@ body {
     background-size:     cover;
     background-repeat:   no-repeat;
     background-position: center center;
-    height: 200px;
+    //height: 200px;
     width: 100%;
     text-align: center;
+    margin-bottom: 30px;
+
 
     .help-us-text {
       @extend %emphasis-font;
-      display: inline-block;
+      display: block;
       width: 66%;
-      margin-top: 50px;
+      margin: 60px auto 0;
+      padding-top: 70px;
+      margin-bottom: 60px;
+    }
+
+    .badge-image {
+      width: 100px;
+      padding-bottom: 40px;
+    }
+  }
+
+  .steps-wrapper {
+    position: relative;
+
+    @extend %steps-font;
+
+    .steps {
+
+      .step-number {
+        font-size: 30px;
+
+      }
+
+      .step-title {
+        font-weight: 100;
+        font-size: 30px;
+      }
+
+      .step-text {
+
+      }
+
+    }
+    .left-side {
+      @include border-radius(0);
+      border-right: 2px solid black;
+      text-align: right;
+      width: 30%;
+      margin-left: 20%;
+      padding-bottom: 144px;
+      //position: absolute;
+      //left: 0;
+      //margin-left: 19%;
+      //float: right;
+    }
+    .right-side {
+      border-left: 2px solid black;
+      text-align: left;
+      width: 30%;
+      padding-top: 100px;
+      //float: left;
+      //position: absolute;
+      //right: 0;;
+      //margin-right: 24%;
     }
   }
 }

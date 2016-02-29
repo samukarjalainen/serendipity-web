@@ -5851,6 +5851,12 @@ body {
   color: #070706;
   font-weight: 300; }
 
+.main-wrapper .steps-wrapper {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #070706; }
+
 /* -- Mixins -- */
 /* -- Colors -- */
 /* -- Fonts -- */
@@ -5877,6 +5883,12 @@ body {
   line-height: 50px;
   color: #070706;
   font-weight: 300; }
+
+.main-wrapper .steps-wrapper {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #070706; }
 
 /* -- Mixins -- */
 html,
@@ -5934,6 +5946,12 @@ body {
   color: #070706;
   font-weight: 300; }
 
+.main-wrapper .steps-wrapper {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #070706; }
+
 /* -- Mixins -- */
 .header .navbar-default {
   -webkit-border-radius: 0;
@@ -5943,6 +5961,8 @@ body {
   border: none;
   background-color: transparent;
   margin: 30px auto; }
+  .header .navbar-default .navbar-nav .navbar-user {
+    margin-top: 13px; }
   .header .navbar-default .navbar-nav > li a:hover {
     color: white; }
   .header .navbar-default .navbar-nav > li.active a {
@@ -5984,6 +6004,12 @@ body {
   line-height: 50px;
   color: #070706;
   font-weight: 300; }
+
+.main-wrapper .steps-wrapper {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #070706; }
 
 /* -- Mixins -- */
 .footer {
@@ -6028,6 +6054,12 @@ body {
   color: #070706;
   font-weight: 300; }
 
+.main-wrapper .steps-wrapper {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #070706; }
+
 /* -- Mixins -- */
 body {
   background: url("../images/header-montagna.png") no-repeat center;
@@ -6052,13 +6084,41 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 200px;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 30px; }
   .main-wrapper .help-us .help-us-text {
-    display: inline-block;
+    display: block;
     width: 66%;
-    margin-top: 50px; }
+    margin: 60px auto 0;
+    padding-top: 70px;
+    margin-bottom: 60px; }
+  .main-wrapper .help-us .badge-image {
+    width: 100px;
+    padding-bottom: 40px; }
+
+.main-wrapper .steps-wrapper {
+  position: relative; }
+  .main-wrapper .steps-wrapper .steps .step-number {
+    font-size: 30px; }
+  .main-wrapper .steps-wrapper .steps .step-title {
+    font-weight: 100;
+    font-size: 30px; }
+  .main-wrapper .steps-wrapper .left-side {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    border-right: 2px solid black;
+    text-align: right;
+    width: 30%;
+    margin-left: 20%;
+    padding-bottom: 144px; }
+  .main-wrapper .steps-wrapper .right-side {
+    border-left: 2px solid black;
+    text-align: left;
+    width: 30%;
+    padding-top: 100px; }
 
 /* -- Colors -- */
 /* -- Fonts -- */
@@ -6085,6 +6145,12 @@ body {
   line-height: 50px;
   color: #070706;
   font-weight: 300; }
+
+.main-wrapper .steps-wrapper {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #070706; }
 
 /* -- Mixins -- */
 .register-wrapper {
@@ -6117,6 +6183,12 @@ body {
   color: #070706;
   font-weight: 300; }
 
+.main-wrapper .steps-wrapper {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #070706; }
+
 /* -- Mixins -- */
 .login-wrapper .login-form {
   max-width: 500px; }
@@ -6146,5 +6218,11 @@ body {
   line-height: 50px;
   color: #070706;
   font-weight: 300; }
+
+.main-wrapper .steps-wrapper {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #070706; }
 
 /* -- Mixins -- */
