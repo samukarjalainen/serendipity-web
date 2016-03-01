@@ -43,8 +43,8 @@ var sounds = {
             // Get the values from request or use placeholders
             var title = req.body.title || "Default title";
             var description = req.body.description || "Description placeholder";
-            var lat = req.body.lat || "99";
-            var long = req.body.long || "00";
+            var lat = parseFloat(req.body.lat) || 90.000000;
+            var long = parseFloat(req.body.long) || 180.000000;
             var path = req.file.path || "Default path";
 
             db.Sound.create({
