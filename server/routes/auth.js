@@ -68,7 +68,11 @@ var auth = {
         } catch (err) {
           console.log(err);
         }
+      } else {
+        res.json({ success: false, message: "Bad header " + authHeader });
       }
+    } else {
+      res.json({ success: false, message: "Not authenticated." });
     }
   },
 
