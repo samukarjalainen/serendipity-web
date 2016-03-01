@@ -6074,11 +6074,12 @@ body {
   .main-wrapper .main-hero-wrapper .hero-image {
     display: inline-block;
     margin: 0 auto;
-    height: 740px; }
+    height: 800px; }
 
 .main-wrapper .definition {
   text-align: center; }
   .main-wrapper .definition .definition-title {
+    /*padding-top: 200px;*/
     margin-top: 45px;
     margin-bottom: 45px; }
 
@@ -6117,12 +6118,41 @@ body {
     text-align: right;
     width: 30%;
     margin-left: 20%;
-    padding-bottom: 144px; }
+    padding-bottom: 144px;
+    /*position: absolute;
+      //left: 0;
+      //margin-left: 19%;
+      //float: right; */ }
   .main-wrapper .steps-wrapper .right-side {
     border-left: 2px solid black;
     text-align: left;
     width: 30%;
-    padding-top: 100px; }
+    padding-top: 100px;
+    /*float: left;
+      //position: absolute;
+      //right: 0;;
+      //margin-right: 24%; */ }
+
+.main-wrapper #map {
+  width: 800px;
+  height: 500px;
+  margin: 0 auto; }
+
+.main-wrapper .about-us {
+  background-image: url("../images/help-us.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  text-align: center; }
+  .main-wrapper .about-us .about-us-text {
+    font-size: 40px;
+    font-color: white;
+    display: block;
+    width: 66%;
+    margin: 60px auto 0;
+    padding: 20px;
+    margin-bottom: 60px; }
 
 /* -- Colors -- */
 /* -- Fonts -- */
