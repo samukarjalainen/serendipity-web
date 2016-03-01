@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('./server/database');
 var users = require('./server/routes/users');
+var sounds = require('./server/routes/sounds');
 
 var app = express();
 
@@ -76,6 +77,7 @@ db.sequelize.sync({}).then(function () {
 
   // Create dummy users
   users.createDummyUsers();
+  sounds.createDummySounds();
 });
 
 
