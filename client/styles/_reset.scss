@@ -10,6 +10,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  position: relative;
+  //min-height: 1100px;
+  background: {
+    image: url("../images/header-montagna.png");
+    repeat: no-repeat;
+    size: cover;
+    position: center center;
+    attachment: fixed;
+  }
+}
+
 a {
   &:hover {
     color: white;
@@ -35,6 +47,12 @@ a {
     }
   }
 }
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 
 .content-wrapper {
   min-height:100%;

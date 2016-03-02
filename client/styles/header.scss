@@ -4,12 +4,15 @@
 
 .header {
   @extend %navbar-font;
+  margin-bottom: 60px;
 
   .navbar-default {
     @include border-radius(0);
     border: none;
     background-color: transparent;
-    margin: 30px auto;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
 
     .navbar-nav {
       .navbar-user {

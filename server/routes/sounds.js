@@ -90,7 +90,8 @@ var sounds = {
         description: 'Lorem ipsum dolor sit amet.',
         lat: 65.000000,
         long: 25.000000,
-        path: 'dummyuser/dummysound1-123457890'
+        path: 'dummyuser/dummysound1-123457890',
+        UserId: 1
       }}).spread(function (sound, created) {
       db.Sound
         .findOrCreate({where: {
@@ -98,7 +99,8 @@ var sounds = {
           description: 'Lorem ipsum dolor sit amet.',
           lat: 65.001799,
           long: 25.004254,
-          path: 'dummyuser/dummysound2-123457890'
+          path: 'dummyuser/dummysound2-123457890',
+          UserId: 2
         }}).then(function () {
         return "created";
       })

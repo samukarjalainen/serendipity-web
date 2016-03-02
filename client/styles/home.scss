@@ -1,20 +1,35 @@
 @import "variables";
 
-body{
-  background: url("../images/header-montagna.png") no-repeat center;
-  -webkit-background-size: cover;
-  background-size:cover;
+//body{
+//  background: url("../images/header-montagna.png") no-repeat center;
+//  -webkit-background-size: cover;
+//  background-size:cover;
+//}
+
+.logo-wrapper {
+  margin-top: 120px;
+  text-align: center;
+  img {
+    height: 697px;
+  }
+}
+
+.main-wrapper .container {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .main-wrapper {
-  .main-hero-wrapper {
-    text-align: center;
-    .hero-image {
-      display: inline-block;
-      margin:0 auto;
-      height: 800px;
-    }
-  }
+  //.main-hero-wrapper {
+  //  text-align: center;
+  //  .hero-image {
+  //    display: inline-block;
+  //    margin:0 auto;
+  //    height: 800px;
+  //  }
+  //}
+  background-color: #fff;
+
 
   .definition {
     text-align: center;
@@ -32,6 +47,7 @@ body{
     background-repeat:   no-repeat;
     background-position: center center;
     width: 100%;
+    max-width: 1170px;
     text-align: center;
     margin-bottom: 30px;
 
@@ -72,7 +88,7 @@ body{
       .step-text {
 
       }
-  
+
     }
     .left-side {
       @include border-radius(0);
@@ -98,16 +114,17 @@ body{
     }
   }
 
-   #map {
-      width: 800px;
-      height: 500px;
-      margin:0 auto;
-			filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
-			filter: gray; /* IE6-9 */
-			-webkit-filter: grayscale(99%); /* Chrome 19+ & Safari 6+ */
-			-webkit-backface-visibility: hidden;  /* Fix for transition flickering */
-    }
-		
+  #map {
+    width: 768px;
+    height: 480px;
+
+    margin:0 auto;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(99%); /* Chrome 19+ & Safari 6+ */
+    -webkit-backface-visibility: hidden;  /* Fix for transition flickering */
+  }
+
 	.about-us {
     background-image: url("../images/help-us.png");
     background-size:     cover;
