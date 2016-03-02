@@ -13,7 +13,13 @@ var sounds = {
 
   getAll: function(req, res) {
     db.Sound.findAll().then(function (results) {
-      res.json(results);
+      var numResults = results.length;
+      console.log(TAG + "Results: " + numResults + " sounds found.");
+      if (numResults === 0) {
+        res.json({ message: "No sounds in database." });
+      } else {
+        res.json(results);
+      }
     });
   },
 
@@ -102,7 +108,7 @@ var sounds = {
   },
 
   // The function to get sounds that are near a user
-  getSoundsNearLocation: function (req, res) {
+  getAllByLocation: function (req, res) {
 
     console.log(TAG, "getSoundsNearLocation starting");
 

@@ -75,7 +75,7 @@ db.sequelize.sync({}).then(function () {
     console.log('Server started on port ' + server.address().port);
   });
 
-  // Create dummy users
+  // Create dummy users & sounds
   users.createDummyUsers();
   sounds.createDummySounds();
 });
