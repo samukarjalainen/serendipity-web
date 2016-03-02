@@ -6120,6 +6120,9 @@ body {
   .main-wrapper .steps-wrapper {
     position: relative;
     margin-bottom: 60px; }
+    .main-wrapper .steps-wrapper .steps-2-wrapper-inner {
+      height: 1133px;
+      overflow: hidden; }
     .main-wrapper .steps-wrapper .steps .step-number {
       font-size: 30px; }
     .main-wrapper .steps-wrapper .steps .step-title {

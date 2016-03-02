@@ -65,10 +65,14 @@
   }
 
   .steps-wrapper {
+    @extend %steps-font;
     position: relative;
     margin-bottom: 60px;
 
-    @extend %steps-font;
+    .steps-2-wrapper-inner {
+      height: 1133px;
+      overflow: hidden;
+    }
 
     .steps {
 
