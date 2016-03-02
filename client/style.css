@@ -6036,8 +6036,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 320px;
-  background: url("../images/ananas2-45.jpg") no-repeat center; }
+  height: 320px; }
   .footer .footer-hero-wrapper {
     text-align: center;
     margin-top: 30px; }
@@ -6091,12 +6090,9 @@ body {
   .logo-wrapper img {
     height: 697px; }
 
-.main-wrapper .container {
-  padding-left: 0;
-  padding-right: 0; }
-
 .main-wrapper {
-  background-color: #fff; }
+  background-color: #fff;
+  text-align: center; }
   .main-wrapper .definition {
     text-align: center; }
     .main-wrapper .definition .definition-title {
@@ -6111,7 +6107,7 @@ body {
     width: 100%;
     max-width: 1170px;
     text-align: center;
-    margin-bottom: 30px; }
+    display: inline-block; }
     .main-wrapper .help-us .help-us-text {
       display: block;
       width: 66%;
@@ -6134,20 +6130,23 @@ body {
       -moz-border-radius: 0;
       -ms-border-radius: 0;
       border-radius: 0;
-      border-right: 2px solid black;
+      border-right: 1px solid black;
       text-align: right;
       width: 30%;
       margin-left: 20%;
-      padding-bottom: 144px;
+      padding-bottom: 194px;
+      padding-top: 100px;
+      height: 100%;
       /*position: absolute;
       //left: 0;
       //margin-left: 19%;
       //float: right; */ }
     .main-wrapper .steps-wrapper .right-side {
-      border-left: 2px solid black;
+      border-left: 1px solid black;
       text-align: left;
       width: 30%;
-      padding-top: 100px;
+      padding-top: 250px;
+      height: 100%;
       /*float: left;
       //position: absolute;
       //right: 0;;
@@ -6165,15 +6164,17 @@ body {
     -webkit-backface-visibility: hidden;
     /* Fix for transition flickering */ }
   .main-wrapper .about-us {
-    background-image: url("../images/help-us.png");
+    background-image: url("../images/ananas2-45.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
-    text-align: center; }
+    max-width: 1170px;
+    text-align: center;
+    display: inline-block; }
     .main-wrapper .about-us .about-us-text {
       font-size: 40px;
-      font-color: white;
+      color: white;
       display: block;
       width: 66%;
       margin: 60px auto 0;

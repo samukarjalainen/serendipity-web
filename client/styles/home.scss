@@ -14,10 +14,6 @@
   }
 }
 
-.main-wrapper .container {
-  padding-left: 0;
-  padding-right: 0;
-}
 
 .main-wrapper {
   //.main-hero-wrapper {
@@ -29,6 +25,7 @@
   //  }
   //}
   background-color: #fff;
+  text-align: center;
 
 
   .definition {
@@ -49,7 +46,7 @@
     width: 100%;
     max-width: 1170px;
     text-align: center;
-    margin-bottom: 30px;
+    display: inline-block;
 
 
     .help-us-text {
@@ -92,21 +89,24 @@
     }
     .left-side {
       @include border-radius(0);
-      border-right: 2px solid black;
+      border-right: 1px solid black;
       text-align: right;
       width: 30%;
       margin-left: 20%;
-      padding-bottom: 144px;
+      padding-bottom: 194px;
+      padding-top: 100px;
+      height:100%;
       /*position: absolute;
       //left: 0;
       //margin-left: 19%;
       //float: right; */
     }
     .right-side {
-      border-left: 2px solid black;
+      border-left: 1px solid black;
       text-align: left;
       width: 30%;
-      padding-top: 100px;
+      padding-top: 250px;
+      height:100%;
       /*float: left;
       //position: absolute;
       //right: 0;;
@@ -126,18 +126,22 @@
   }
 
 	.about-us {
-    background-image: url("../images/help-us.png");
-    background-size:     cover;
-    background-repeat:   no-repeat;
-    background-position: center center;
+    background: {
+      image: url("../images/ananas2-45.jpg");
+      size: cover;
+      repeat: no-repeat;
+      position: center center;
+    }
 
     width: 100%;
+    max-width: 1170px;
     text-align: center;
+    display: inline-block;
 
 
     .about-us-text {
 			font-size: 40px;
-			font-color: white;
+			color: white;
       display: block;
       width: 66%;
       margin: 60px auto 0;
