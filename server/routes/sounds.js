@@ -47,11 +47,24 @@ var sounds = {
       }
       var user = auth.getUser(req);
       if (user) {
-        var username = user.username || 'test';
+        var username = user.username;
         console.log(TAG, 'username is ', username);
         db.User.findOne({ where: {username: username}}).then(function (user) {
           if (user) {
-            var headerBody = req.headers['body'];
+
+            console.log(req);
+
+            var headerBody;
+            try {
+              headerBody = JSON.parse(req.headers['body']);
+              console.log(TAG + "UPLOAD REQUEST HEADER ['body']");
+              console.log(headerBody);
+
+            } catch (err) {
+              console.log(TAG + "No header 'body' in the request")
+              console.log(headerBody);
+            }
+
             try {
               console.log(TAG + "UPLOAD REQUEST BODY");
               console.log(req.body);
@@ -59,22 +72,23 @@ var sounds = {
               console.log(TAG + "REQUEST BODY NOT FOUND");
               console.log(err);
             }
-            try {
-              console.log(TAG + "UPLOAD REQUEST HEADER ['body']");
-              console.log(headerBody);
-            } catch (err) {
-              console.log(TAG + "REQUEST HEADER ['body'] NOT FOUND");
-              console.log(err);
+
+
+            var title, description, lat, long;
+
+            if (headerBody) {
+              title = headerBody.title;
+              description = headerBody.description;
+              lat = parseFloat(headerBody.lat);
+              long = parseFloat(headerBody.long);
+            } else {
+              // Providing fallback placeholders, just in case
+              title = req.body.title ||"Default title";
+              description = req.body.description || "Description placeholder";
+              lat = parseFloat(req.body.lat) || 90.000000;
+              long = parseFloat(req.body.long) || 180.000000;
             }
 
-
-
-            // Get the values from request or use placeholders
-            // TODO: Remove placeholders once the mobile upload is fully functional
-            var title = req.body.title || headerBody.title ||"Default title";
-            var description = req.body.description || headerBody.description || "Description placeholder";
-            var lat = parseFloat(req.body.lat) || parseFloat(headerBody.lat) || 90.000000;
-            var long = parseFloat(req.body.long) || parseFloat(headerBody.long) || 180.000000;
             var path = req.file.path || "Default path";
 
             db.Sound.create({
@@ -89,6 +103,10 @@ var sounds = {
         }).then(function () {
           res.json({ success: true, error:null });
         });
+      } else {
+        console.log(TAG + "Could not find user");
+        res.status(401);
+        res.json({ success: false, message: "Could not find user" });
       }
     });
   },

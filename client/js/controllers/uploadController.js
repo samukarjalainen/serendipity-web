@@ -4,7 +4,7 @@ app
     $scope.uploadPic = function(file) {
       file.upload = Upload.upload({
         url: '/api/sounds/upload',
-        data: {file: file, username: $scope.username},
+        data: {file: file, title: $scope.title, description: $scope.description, lat: $scope.lat, long: $scope.long},
       });
 
       file.upload.then(function (response) {
