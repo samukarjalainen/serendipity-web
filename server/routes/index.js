@@ -10,14 +10,14 @@ var sounds = require('./sounds.js');
 router.post('/login', auth.login);
 router.get('/logout', auth.logout);
 router.post('/register', users.create);
-
+router.get('/sounds/get-all', sounds.getAll);
 
 // Routes that require user role (logging in)
 router.get('/api/user/:username', users.getOne);
 router.post('/api/users/update', users.update);
 router.post('/api/sounds/upload', sounds.create);
 router.post('/api/sounds/mysounds', sounds.getUserSounds);
-router.get('/api/sounds/get-all', sounds.getAll);
+
 router.post('/api/sounds/get-all-by-location', sounds.getAllByLocation);
 
 

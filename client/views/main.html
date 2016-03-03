@@ -92,8 +92,12 @@
               };
 
               mapWindow.setPosition(pos);
-              mapWindow.setContent('Hello world!');
+              mapWindow.setContent('You are here');
               mapDiv.setCenter(pos);
+
+              // Place sound markers
+              getAndParseSounds(mapDiv);
+
             }, function() {
               handleLocationError(true, mapWindow, mapDiv.getCenter());
             });
@@ -109,11 +113,42 @@
             'Error: The Geolocation service failed.' :
             'Error: Your browser doesn\'t support geolocation.');
         }
+
+        /**
+         * Make an asynchronous call to the backend that fetches sounds.
+         * When results are ready, place a marker on map for each sound.
+         * The sound title is set to marker title
+         *
+         * @param map google.maps.Map object on which the markers are placed
+         */
+        function getAndParseSounds(map) {
+          // TODO: Implement logic to only fetch nearby sounds
+          var sounds;
+          var xhttp = new XMLHttpRequest();
+
+          xhttp.open("GET", "/sounds/get-all", true);
+          xhttp.send();
+          xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+              sounds = JSON.parse(xhttp.responseText);
+              console.log(sounds);
+
+              // Loop through the sounds and get place them on the map
+              for (var i = 0; i < sounds.length; i++) {
+                var curSound = sounds[i];
+                var marker = new google.maps.Marker({
+                  position: { lat: parseFloat(curSound.lat), lng: parseFloat(curSound.long) },
+                  map: map,
+                  title: curSound.title
+                });
+              }
+            }
+          };
+        }
       </script>
       <script async defer
               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz7PBHLbH9Bh-sAJBOZ6-rQjULBf_1nys&callback=initMap">
       </script>
-
     </div>
 	</div>
 
