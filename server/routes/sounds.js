@@ -89,6 +89,13 @@ var sounds = {
               long = parseFloat(req.body.long) || 180.000000;
             }
 
+            // Check that the request body was correctly formatted
+            if (!validateGpsCoordinates(lat, long)) {
+              res.status(400);
+              res.json({success: false, message: "Bad request.", error: "Error in latitude or longitude format."});
+              return;
+            }
+
             var path = req.file.path || "Default path";
 
             db.Sound.create({
@@ -157,7 +164,7 @@ var sounds = {
 
 
     // Check that the request body was correctly formatted
-    if ((lat < -90.00 || lat > 90.00) || (long < -180.00 || long > 180.00)) {
+    if (!validateGpsCoordinates(lat, long)) {
       res.status(400);
       res.json({success: false, message: "Bad request.", error: "Error in latitude or longitude format."});
       return;
@@ -199,3 +206,11 @@ var sounds = {
 };
 
 module.exports = sounds;
+
+function validateGpsCoordinates(lat, long) {
+  if ((lat < -90.00 || lat > 90.00) || (long < -180.00 || long > 180.00)) {
+    return false;
+  } else {
+    return true;
+  }
+}
