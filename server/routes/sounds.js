@@ -58,6 +58,8 @@ var sounds = {
               console.log(TAG + "REQUEST BODY NOT FOUND");
               console.log(err);
             }
+            var body = req.headers['body'];
+            console.log(body);
             // Get the values from request or use placeholders
             // TODO: Remove placeholders once the mobile upload is fully functional
             var title = req.body.title || "Default title";
