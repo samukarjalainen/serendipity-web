@@ -51,6 +51,13 @@ var sounds = {
         console.log(TAG, 'username is ', username);
         db.User.findOne({ where: {username: username}}).then(function (user) {
           if (user) {
+            try {
+              console.log(TAG + "UPLOAD REQUEST BODY");
+              console.log(req.body);
+            } catch (err) {
+              console.log(TAG + "REQUEST BODY NOT FOUND");
+              console.log(err);
+            }
             // Get the values from request or use placeholders
             // TODO: Remove placeholders once the mobile upload is fully functional
             var title = req.body.title || "Default title";
