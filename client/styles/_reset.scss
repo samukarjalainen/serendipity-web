@@ -11,15 +11,10 @@ body {
 }
 
 body {
+  @extend %background-cover-fixed;
   position: relative;
   //min-height: 1100px;
-  background: {
-    image: url("../images/header-montagna.png");
-    repeat: no-repeat;
-    size: cover;
-    position: center center;
-    attachment: fixed;
-  }
+
 }
 
 a {

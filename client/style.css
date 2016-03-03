@@ -5825,6 +5825,7 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+/* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Fonts -- */
 html,
@@ -5834,7 +5835,7 @@ body {
   color: white; }
 
 .main-wrapper .help-us .help-us-text {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700; }
 
 .header {
@@ -5856,8 +5857,17 @@ body {
   line-height: 22px;
   font-weight: bold;
   color: #070706; }
+
+/* -- Misc placeholders -- */
+body, .main-wrapper .help-us, .main-wrapper .about-us {
+  background-image: url("../images/header-montagna.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; }
 
 /* -- Mixins -- */
+/* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Fonts -- */
 html,
@@ -5867,7 +5877,7 @@ body {
   color: white; }
 
 .main-wrapper .help-us .help-us-text {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700; }
 
 .header {
@@ -5889,6 +5899,14 @@ body {
   line-height: 22px;
   font-weight: bold;
   color: #070706; }
+
+/* -- Misc placeholders -- */
+body, .main-wrapper .help-us, .main-wrapper .about-us {
+  background-image: url("../images/header-montagna.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; }
 
 /* -- Mixins -- */
 html,
@@ -5900,12 +5918,7 @@ body {
   -moz-osx-font-smoothing: grayscale; }
 
 body {
-  position: relative;
-  background-image: url("../images/header-montagna.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed; }
+  position: relative; }
 
 a:hover {
   color: white; }
@@ -5935,6 +5948,7 @@ a:hover {
   padding-bottom: 320px;
   /* Height of the footer element */ }
 
+/* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Fonts -- */
 html,
@@ -5944,7 +5958,7 @@ body {
   color: white; }
 
 .main-wrapper .help-us .help-us-text {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700; }
 
 .header {
@@ -5966,6 +5980,14 @@ body {
   line-height: 22px;
   font-weight: bold;
   color: #070706; }
+
+/* -- Misc placeholders -- */
+body, .main-wrapper .help-us, .main-wrapper .about-us {
+  background-image: url("../images/header-montagna.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; }
 
 /* -- Mixins -- */
 .header {
@@ -5998,6 +6020,7 @@ body {
       height: 3px;
       background: white; }
 
+/* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Fonts -- */
 html,
@@ -6007,7 +6030,7 @@ body {
   color: white; }
 
 .main-wrapper .help-us .help-us-text {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700; }
 
 .header {
@@ -6029,6 +6052,14 @@ body {
   line-height: 22px;
   font-weight: bold;
   color: #070706; }
+
+/* -- Misc placeholders -- */
+body, .main-wrapper .help-us, .main-wrapper .about-us {
+  background-image: url("../images/header-montagna.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; }
 
 /* -- Mixins -- */
 .footer {
@@ -6051,6 +6082,7 @@ body {
     .footer .footer-hero-wrapper .uni-oulu-logo {
       opacity: 0.7; }
 
+/* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Fonts -- */
 html,
@@ -6060,7 +6092,7 @@ body {
   color: white; }
 
 .main-wrapper .help-us .help-us-text {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700; }
 
 .header {
@@ -6083,6 +6115,14 @@ body {
   font-weight: bold;
   color: #070706; }
 
+/* -- Misc placeholders -- */
+body, .main-wrapper .help-us, .main-wrapper .about-us {
+  background-image: url("../images/header-montagna.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; }
+
 /* -- Mixins -- */
 .logo-wrapper {
   margin-top: 120px;
@@ -6093,17 +6133,14 @@ body {
 .main-wrapper {
   background-color: #fff;
   text-align: center; }
+  .main-wrapper a:hover {
+    text-decoration: none; }
   .main-wrapper .definition {
     text-align: center; }
     .main-wrapper .definition .definition-title {
-      /*padding-top: 200px;*/
       margin-top: 45px;
       margin-bottom: 45px; }
   .main-wrapper .help-us {
-    background-image: url("../images/help-us.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
     width: 100%;
     max-width: 1170px;
     text-align: center;
@@ -6111,9 +6148,8 @@ body {
     .main-wrapper .help-us .help-us-text {
       display: block;
       width: 66%;
-      margin: 60px auto 0;
-      padding-top: 70px;
-      margin-bottom: 60px; }
+      margin: 60px auto 60px;
+      padding-top: 70px; }
     .main-wrapper .help-us .badge-image {
       width: 100px;
       padding-bottom: 40px; }
@@ -6139,38 +6175,25 @@ body {
       margin-left: 20%;
       padding-bottom: 194px;
       padding-top: 100px;
-      height: 100%;
-      /*position: absolute;
-      //left: 0;
-      //margin-left: 19%;
-      //float: right; */ }
+      height: 100%; }
     .main-wrapper .steps-wrapper .right-side {
       border-left: 1px solid black;
       text-align: left;
       width: 30%;
       padding-top: 250px;
-      height: 100%;
-      /*float: left;
-      //position: absolute;
-      //right: 0;;
-      //margin-right: 24%; */ }
+      height: 100%; }
   .main-wrapper #map {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-backface-visibility: hidden;
+    /* Fix for transition flickering */
     width: 768px;
     height: 480px;
-    margin: 0 auto;
-    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
-    /* Firefox 10+ */
-    filter: gray;
-    /* IE6-9 */
-    -webkit-filter: grayscale(99%);
-    /* Chrome 19+ & Safari 6+ */
-    -webkit-backface-visibility: hidden;
-    /* Fix for transition flickering */ }
+    margin: 0 auto; }
   .main-wrapper .about-us {
-    background-image: url("../images/ananas2-45.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
     width: 100%;
     max-width: 1170px;
     text-align: center;
@@ -6184,6 +6207,7 @@ body {
       padding: 20px;
       margin-bottom: 60px; }
 
+/* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Fonts -- */
 html,
@@ -6193,7 +6217,7 @@ body {
   color: white; }
 
 .main-wrapper .help-us .help-us-text {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700; }
 
 .header {
@@ -6215,6 +6239,14 @@ body {
   line-height: 22px;
   font-weight: bold;
   color: #070706; }
+
+/* -- Misc placeholders -- */
+body, .main-wrapper .help-us, .main-wrapper .about-us {
+  background-image: url("../images/header-montagna.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; }
 
 /* -- Mixins -- */
 .register-wrapper {
@@ -6231,6 +6263,7 @@ body {
       .register-wrapper .form-horizontal .btn-default:hover {
         opacity: 1; }
 
+/* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Fonts -- */
 html,
@@ -6240,7 +6273,7 @@ body {
   color: white; }
 
 .main-wrapper .help-us .help-us-text {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700; }
 
 .header {
@@ -6262,6 +6295,14 @@ body {
   line-height: 22px;
   font-weight: bold;
   color: #070706; }
+
+/* -- Misc placeholders -- */
+body, .main-wrapper .help-us, .main-wrapper .about-us {
+  background-image: url("../images/header-montagna.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; }
 
 /* -- Mixins -- */
 .login-wrapper {
@@ -6275,6 +6316,7 @@ body {
     margin: 30px auto 60px;
     background-color: rgba(0, 0, 0, 0.3); }
 
+/* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Fonts -- */
 html,
@@ -6284,7 +6326,7 @@ body {
   color: white; }
 
 .main-wrapper .help-us .help-us-text {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700; }
 
 .header {
@@ -6306,5 +6348,13 @@ body {
   line-height: 22px;
   font-weight: bold;
   color: #070706; }
+
+/* -- Misc placeholders -- */
+body, .main-wrapper .help-us, .main-wrapper .about-us {
+  background-image: url("../images/header-montagna.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; }
 
 /* -- Mixins -- */

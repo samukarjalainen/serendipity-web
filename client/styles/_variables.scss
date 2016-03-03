@@ -1,5 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 
+/* -- Misc variables -- */
+$bg-image: url("../images/header-montagna.png");
+
 /* -- Colors -- */
 $black: #070706;
 $main-color: #CCCCCC;
@@ -14,7 +17,7 @@ $light-gray: #e6e6e6;
 }
 
 %emphasis-font {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700;
 }
 
@@ -42,6 +45,17 @@ $light-gray: #e6e6e6;
   color: $black;
 }
 
+/* -- Misc placeholders -- */
+%background-cover-fixed {
+  background: {
+    image: $bg-image;
+    size: cover;
+    repeat: no-repeat;
+    position: center center;
+    attachment: fixed;
+  }
+}
+
 /* -- Mixins -- */
 @mixin vertical-align {
   position: relative;
@@ -64,4 +78,12 @@ $light-gray: #e6e6e6;
   -o-transition: $val;
   -ms-transition: $val;
   transition: $val;
+}
+
+@mixin filter($filter-type,$filter-amount) {
+  -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+  -moz-filter: $filter-type+unquote('(#{$filter-amount})');
+  -ms-filter: $filter-type+unquote('(#{$filter-amount})');
+  -o-filter: $filter-type+unquote('(#{$filter-amount})');
+  filter: $filter-type+unquote('(#{$filter-amount})');
 }
