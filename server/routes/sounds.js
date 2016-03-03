@@ -51,6 +51,7 @@ var sounds = {
         console.log(TAG, 'username is ', username);
         db.User.findOne({ where: {username: username}}).then(function (user) {
           if (user) {
+            var headerBody = req.headers['body'];
             try {
               console.log(TAG + "UPLOAD REQUEST BODY");
               console.log(req.body);
@@ -60,19 +61,20 @@ var sounds = {
             }
             try {
               console.log(TAG + "UPLOAD REQUEST HEADER ['body']");
-              var body = req.headers['body'];
-              console.log(body);
+              console.log(headerBody);
             } catch (err) {
               console.log(TAG + "REQUEST HEADER ['body'] NOT FOUND");
               console.log(err);
             }
 
+
+
             // Get the values from request or use placeholders
             // TODO: Remove placeholders once the mobile upload is fully functional
-            var title = req.body.title || req.headers['body'].title ||"Default title";
-            var description = req.body.description || req.headers['body'].description || "Description placeholder";
-            var lat = parseFloat(req.body.lat) || parseFloat(req.headers['body'].lat) || 90.000000;
-            var long = parseFloat(req.body.long) || parseFloat(req.headers['body'].long) || 180.000000;
+            var title = req.body.title || headerBody.title ||"Default title";
+            var description = req.body.description || headerBody.description || "Description placeholder";
+            var lat = parseFloat(req.body.lat) || parseFloat(headerBody.lat) || 90.000000;
+            var long = parseFloat(req.body.long) || parseFloat(headerBody.long) || 180.000000;
             var path = req.file.path || "Default path";
 
             db.Sound.create({
