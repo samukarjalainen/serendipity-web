@@ -1,12 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 
 /* -- Misc variables -- */
-$bg-image: url("../images/header-montagna.png");
+$bg-image: url("../images/black-mountain-50.jpg");
 
 /* -- Colors -- */
 $black: #070706;
 $main-color: #CCCCCC;
 $light-gray: #e6e6e6;
+
+/* -- Media queries -- */
+$mq-phone: "only screen and (max-width: 480px)";
+$mq-tablet: "only screen and (max-width: 768px)";
+$mq-desktop-small: "only screen and (max-width : 992px)";
+$mq-desktop-large: "only screen and (max-width : 1200px)";
 
 
 /* -- Fonts -- */

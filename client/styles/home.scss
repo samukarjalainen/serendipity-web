@@ -65,7 +65,6 @@
 
       .step-number {
         font-size: 30px;
-
       }
 
       .step-title {
@@ -89,23 +88,70 @@
       height:100%;
     }
     .right-side {
+      @include border-radius(0);
       border-left: 1px solid black;
       text-align: left;
       width: 30%;
       padding-top: 250px;
       height:100%;
     }
+
+    @media #{$mq-desktop-large} {
+      .left-side {
+        width: 30%;
+        margin-left: 20%;
+      }
+      .right-side {
+        width: 30%;
+        margin-right: 20%;
+      }
+    }
+
+    @media #{$mq-desktop-small} {
+      .left-side {
+        width: 50%;
+        margin-left: 0;
+      }
+      .right-side {
+        width: 50%;
+        margin-right: 0;
+      }
+    }
+
+    @media #{$mq-tablet} {
+      .left-side {
+        width: 50%;
+        margin-left: 0;
+      }
+      .right-side {
+        width: 50%;
+        margin-right: 0;
+      }
+    }
+
+    @media #{$mq-phone} {
+      .left-side {
+        width: 50%;
+        margin-left: 0;
+      }
+      .right-side {
+        width: 50%;
+        margin-right: 0;
+      }
+    }
+
+
   }
+
+
 
   #map {
     @include filter(grayscale,100%);
     -webkit-backface-visibility: hidden;  /* Fix for transition flickering */
-    width: 768px;
-    height: 480px;
-
+    max-width: 1170px;
+    height: 600px;
     margin:0 auto;
-
-
+    color: black;
   }
 
 	.about-us {
@@ -120,9 +166,8 @@
 			color: white;
       display: block;
       width: 66%;
-      margin: 60px auto 0;
+      margin: 60px auto;
 			padding: 20px;
-      margin-bottom: 60px;
     }
   }
 }

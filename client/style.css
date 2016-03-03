@@ -5827,6 +5827,7 @@ button.close {
 
 /* -- Misc variables -- */
 /* -- Colors -- */
+/* -- Media queries -- */
 /* -- Fonts -- */
 html,
 body {
@@ -5860,7 +5861,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/header-montagna.png");
+  background-image: url("../images/black-mountain-50.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -5869,6 +5870,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
 /* -- Mixins -- */
 /* -- Misc variables -- */
 /* -- Colors -- */
+/* -- Media queries -- */
 /* -- Fonts -- */
 html,
 body {
@@ -5902,7 +5904,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/header-montagna.png");
+  background-image: url("../images/black-mountain-50.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -5950,6 +5952,7 @@ a:hover {
 
 /* -- Misc variables -- */
 /* -- Colors -- */
+/* -- Media queries -- */
 /* -- Fonts -- */
 html,
 body {
@@ -5983,7 +5986,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/header-montagna.png");
+  background-image: url("../images/black-mountain-50.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -6022,6 +6025,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
 
 /* -- Misc variables -- */
 /* -- Colors -- */
+/* -- Media queries -- */
 /* -- Fonts -- */
 html,
 body {
@@ -6055,7 +6059,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/header-montagna.png");
+  background-image: url("../images/black-mountain-50.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -6084,6 +6088,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
 
 /* -- Misc variables -- */
 /* -- Colors -- */
+/* -- Media queries -- */
 /* -- Fonts -- */
 html,
 body {
@@ -6117,7 +6122,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/header-montagna.png");
+  background-image: url("../images/black-mountain-50.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -6177,11 +6182,43 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
       padding-top: 100px;
       height: 100%; }
     .main-wrapper .steps-wrapper .right-side {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      border-radius: 0;
       border-left: 1px solid black;
       text-align: left;
       width: 30%;
       padding-top: 250px;
       height: 100%; }
+    @media only screen and (max-width: 1200px) {
+      .main-wrapper .steps-wrapper .left-side {
+        width: 30%;
+        margin-left: 20%; }
+      .main-wrapper .steps-wrapper .right-side {
+        width: 30%;
+        margin-right: 20%; } }
+    @media only screen and (max-width: 992px) {
+      .main-wrapper .steps-wrapper .left-side {
+        width: 50%;
+        margin-left: 0; }
+      .main-wrapper .steps-wrapper .right-side {
+        width: 50%;
+        margin-right: 0; } }
+    @media only screen and (max-width: 768px) {
+      .main-wrapper .steps-wrapper .left-side {
+        width: 50%;
+        margin-left: 0; }
+      .main-wrapper .steps-wrapper .right-side {
+        width: 50%;
+        margin-right: 0; } }
+    @media only screen and (max-width: 480px) {
+      .main-wrapper .steps-wrapper .left-side {
+        width: 50%;
+        margin-left: 0; }
+      .main-wrapper .steps-wrapper .right-side {
+        width: 50%;
+        margin-right: 0; } }
   .main-wrapper #map {
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
@@ -6190,9 +6227,10 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     filter: grayscale(100%);
     -webkit-backface-visibility: hidden;
     /* Fix for transition flickering */
-    width: 768px;
-    height: 480px;
-    margin: 0 auto; }
+    max-width: 1170px;
+    height: 600px;
+    margin: 0 auto;
+    color: black; }
   .main-wrapper .about-us {
     width: 100%;
     max-width: 1170px;
@@ -6203,12 +6241,12 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
       color: white;
       display: block;
       width: 66%;
-      margin: 60px auto 0;
-      padding: 20px;
-      margin-bottom: 60px; }
+      margin: 60px auto;
+      padding: 20px; }
 
 /* -- Misc variables -- */
 /* -- Colors -- */
+/* -- Media queries -- */
 /* -- Fonts -- */
 html,
 body {
@@ -6242,7 +6280,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/header-montagna.png");
+  background-image: url("../images/black-mountain-50.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -6265,6 +6303,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
 
 /* -- Misc variables -- */
 /* -- Colors -- */
+/* -- Media queries -- */
 /* -- Fonts -- */
 html,
 body {
@@ -6298,7 +6337,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/header-montagna.png");
+  background-image: url("../images/black-mountain-50.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -6318,6 +6357,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
 
 /* -- Misc variables -- */
 /* -- Colors -- */
+/* -- Media queries -- */
 /* -- Fonts -- */
 html,
 body {
@@ -6351,7 +6391,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/header-montagna.png");
+  background-image: url("../images/black-mountain-50.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

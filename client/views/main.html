@@ -73,18 +73,48 @@
 
 	<!-- MAP -->
 	<div class="google-map">
-		<div id="map"></div>
-			<script>
-				function initMap() {
-					var mapDiv = document.getElementById('map');
-					var map = new google.maps.Map(mapDiv, {
-						center: {lat: 65.0167, lng: 25.4667},
-						zoom: 9
-					});
-				}
-			</script>
-			<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
-					async defer></script>
+		<div id="map">
+      <script>
+        function initMap() {
+          // Oulu centre 65.0136864,25.4775258
+          var mapDiv = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 65.013, lng: 25.477},
+            zoom: 12
+          });
+          var mapWindow = new google.maps.InfoWindow({map: mapDiv});
+
+          // Try HTML5 geolocation.
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+
+              mapWindow.setPosition(pos);
+              mapWindow.setContent('Hello world!');
+              mapDiv.setCenter(pos);
+            }, function() {
+              handleLocationError(true, mapWindow, mapDiv.getCenter());
+            });
+          } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, mapWindow, mapDiv.getCenter());
+          }
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+          infoWindow.setPosition(pos);
+          infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        }
+      </script>
+      <script async defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz7PBHLbH9Bh-sAJBOZ6-rQjULBf_1nys&callback=initMap">
+      </script>
+
+    </div>
 	</div>
 
 	<!-- OPEN EYES -->
@@ -103,7 +133,7 @@
 <!-- STEPS 2 -->
   <div class="steps-wrapper container clearfix">
     <div class="steps-2-wrapper-inner clearfix">
-      <div class="steps left-side col-xs-6">
+      <div class="steps left-side  col-lg-6 col-md-6 col-sm-6 col-xs-6">
         <h3 class="step-number">ME</h3>
         <h4 class="step-title">AND THE PROJECT</h4>
         <div class="step-text">
