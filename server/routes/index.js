@@ -4,6 +4,7 @@ var router = express.Router();
 var auth = require('./auth.js');
 var users = require('./users.js');
 var sounds = require('./sounds.js');
+var gcm = require('./gcm.js');
 
 
 // Public routes
@@ -11,6 +12,8 @@ router.post('/login', auth.login);
 router.get('/logout', auth.logout);
 router.post('/register', users.create);
 router.get('/sounds/get-all', sounds.getAll);
+router.post('/gcm-register', gcm.register);
+router.post('/gcm-unregister', gcm.unregister);
 
 // Routes that require user role (logging in)
 router.get('/api/user/:username', users.getOne);

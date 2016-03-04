@@ -16,6 +16,7 @@
     "morgan": "^1.6.1",
     "multer": "^1.1.0",
     "mysql": "^2.10.2",
+    "node-gcm": "^0.14.0",
     "sequelize": "^3.19.2",
     "serve-favicon": "^2.3.0"
   },

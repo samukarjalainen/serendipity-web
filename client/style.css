@@ -6131,10 +6131,10 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
 
 /* -- Mixins -- */
 .logo-wrapper {
-  margin-top: 120px;
+  margin-top: 60px;
   text-align: center; }
-  .logo-wrapper img {
-    height: 697px; }
+  .logo-wrapper img.logo-image {
+    max-height: 697px; }
 
 .main-wrapper {
   background-color: #fff;
@@ -6232,6 +6232,9 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     height: 600px;
     margin: 0 auto;
     color: black; }
+  @media only screen and (max-width: 480px) {
+    .main-wrapper #map {
+      height: 400px; } }
   .main-wrapper .about-us {
     width: 100%;
     max-width: 1170px;
