@@ -5862,7 +5862,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/black-mountain-50.jpg");
+  background-image: url("../images/city.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -5905,7 +5905,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/black-mountain-50.jpg");
+  background-image: url("../images/city.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -5987,7 +5987,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/black-mountain-50.jpg");
+  background-image: url("../images/city.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -6060,7 +6060,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/black-mountain-50.jpg");
+  background-image: url("../images/city.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -6123,7 +6123,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/black-mountain-50.jpg");
+  background-image: url("../images/city.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -6148,7 +6148,6 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
       margin-bottom: 45px; }
   .main-wrapper .help-us {
     width: 100%;
-    max-width: 1170px;
     text-align: center;
     display: inline-block; }
     .main-wrapper .help-us .help-us-text {
@@ -6228,8 +6227,8 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     filter: grayscale(100%);
     -webkit-backface-visibility: hidden;
     /* Fix for transition flickering */
-    max-width: 1170px;
-    height: 600px;
+    max-width: 80%;
+    height: 400px;
     margin: 0 auto;
     color: black; }
   @media only screen and (max-width: 480px) {
@@ -6237,7 +6236,6 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
       height: 400px; } }
   .main-wrapper .about-us {
     width: 100%;
-    max-width: 1170px;
     text-align: center;
     display: inline-block; }
     .main-wrapper .about-us .about-us-text {
@@ -6284,7 +6282,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/black-mountain-50.jpg");
+  background-image: url("../images/city.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -6341,7 +6339,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/black-mountain-50.jpg");
+  background-image: url("../images/city.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -6395,7 +6393,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/black-mountain-50.jpg");
+  background-image: url("../images/city.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -6438,7 +6436,7 @@ body {
 
 /* -- Misc placeholders -- */
 body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/black-mountain-50.jpg");
+  background-image: url("../images/city.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

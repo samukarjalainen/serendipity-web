@@ -31,7 +31,6 @@
   .help-us {
     @extend %background-cover-fixed;
     width: 100%;
-    max-width: 1170px;
     text-align: center;
     display: inline-block;
 
@@ -148,8 +147,8 @@
   #map {
     @include filter(grayscale,100%);
     -webkit-backface-visibility: hidden;  /* Fix for transition flickering */
-    max-width: 1170px;
-    height: 600px;
+    max-width: 80%;
+    height: 400px;
     margin:0 auto;
     color: black;
   }
@@ -163,7 +162,6 @@
 	.about-us {
     @extend %background-cover-fixed;
     width: 100%;
-    max-width: 1170px;
     text-align: center;
     display: inline-block;
 
