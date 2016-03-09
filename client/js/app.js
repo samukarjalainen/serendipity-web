@@ -14,7 +14,7 @@ app.config(function ($httpProvider, $routeProvider) {
   $httpProvider.interceptors.push('HttpInterceptor');
   $routeProvider
     .when('/', {
-      templateUrl: '../views/main.html',
+      templateUrl: '../views/home.html',
       controller: 'MainCtrl',
       controllerAs: 'main'
     })
