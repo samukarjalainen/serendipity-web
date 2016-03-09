@@ -7,152 +7,22 @@
 
 <div class="main-wrapper container-fluid">
 
-
-
   <!-- DEFINITION -->
   <div class="definition">
     <h1 class="definition-title">"THE JOY OF FINDING <br> VALUABLE THINGS BY CHANCE"</h1>
   </div>
 
-  <!-- HELP US -->
-  <div class="help-us">
-    <div class="help-us-text-wrapper">
-      <div class="help-us-text">
-        Help us create a contemporary-sound-culture for each village/city/town.
-        Let everyone discover the poetry of your favourite place, create your own soundtrack
-        and subscribe in the app to join and share!
-      </div>
-    </div>
-    <a href="https://itunes.apple.com/fi/genre/ios/id36?mt=8">
-      <img src="../images/app-store-badge.svg" alt="App Store" class="badge-image"/>
-    </a>
-    <a href="https://play.google.com/store">
-      <img src="../images/google-play-badge.png" alt="Google Play" class="badge-image"/>
-    </a>
+  <div ng-include="'views/home/help-us.html'"></div>
 
-  </div>
 
-  <!-- STEPS -->
-  <div class="steps-wrapper container clearfix">
-    <div class="steps left-side col-xs-6">
-      <h3 class="step-number">1</h3>
-      <h4 class="step-title">REACH YOUR SPOT</h4>
-      <div class="step-text">Where do you go when angry, to take a stroll and steam off a bit?
-        Where do you daydream when in love or simply serene? Choose your place in the city,
-        the one you find poetic and worth it .
-        Think about how to express the feelings this spot arise inside you and when exactly
-        during the day you like it the most!
-      </div>
-      <h3 class="step-number">3</h3>
-      <h4 class="step-title">ENRICH IT WITH YOUR MUSIC</h4>
-      <div class="step-text">
-        Grab your craziest friend (otherwise find a brand-new one) and start mixing stuff on a music program
-        to add soul to your basic-ambient recording and create your tune! Try to convey your sensation in the track,
-        personalization is the way </div>
-
-    </div>
-    <div class="steps right-side col-xs-6">
-      <h3 class="step-number">2</h3>
-      <h4 class="step-title">RECORD ITS SOUND </h4>
-      <div class="step-text">Take you phone/recorder/zoom and go out to record this ambient sound which will be the basis of your track!
-        Explore the surroundings, daytime, nightime, be brave! Record the moment you feel right,
-        no matter if crowd is shouting, or the city is quiet. Pick the best and keep it, listen to it and get inspiration
-      </div>
-      <h3 class="step-number">4</h3>
-      <h4 class="step-title">SHARE IT ON THE MAP
-      </h4>
-      <div class="step-text">Take you phone/recorder/zoom and go out to record this ambient sound which will be the
-        basis of your track! Explore the surroundings, daytime, nightime, be brave! Record the moment you feel right,
-        no matter if crowd is shouting, or the city is quiet. Pick the best and keep it, listen to it and get inspiration
-      </div>
-    </div>
-  </div>
+  <div ng-include="'views/home/steps-1.html'"></div>
 
   <!-- EXPLORE CITIES -->
   <div class="definition">
     <h1 class="definition-title">EXPLORE CITIES</h1>
   </div>
 
-	<!-- MAP -->
-	<div class="google-map">
-		<div id="map">
-      <script>
-        function initMap() {
-          // Oulu centre 65.0136864,25.4775258
-          var mapDiv = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 65.013, lng: 25.477},
-            zoom: 12
-          });
-          var mapWindow = new google.maps.InfoWindow({map: mapDiv});
-
-          // Try HTML5 geolocation.
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-              var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-              };
-
-              mapWindow.setPosition(pos);
-              mapWindow.setContent('You are here');
-              mapDiv.setCenter(pos);
-
-              // Place sound markers
-              getAndParseSounds(mapDiv);
-
-            }, function() {
-              handleLocationError(true, mapWindow, mapDiv.getCenter());
-            });
-          } else {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, mapWindow, mapDiv.getCenter());
-          }
-        }
-
-        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-          infoWindow.setPosition(pos);
-          infoWindow.setContent(browserHasGeolocation ?
-            'Error: The Geolocation service failed.' :
-            'Error: Your browser doesn\'t support geolocation.');
-        }
-
-        /**
-         * Make an asynchronous call to the backend that fetches sounds.
-         * When results are ready, place a marker on map for each sound.
-         * The sound title is set to marker title
-         *
-         * @param map google.maps.Map object on which the markers are placed
-         */
-        function getAndParseSounds(map) {
-          // TODO: Implement logic to only fetch nearby sounds
-          var sounds;
-          var xhttp = new XMLHttpRequest();
-
-          xhttp.open("GET", "/sounds/get-all", true);
-          xhttp.send();
-          xhttp.onreadystatechange = function() {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-              sounds = JSON.parse(xhttp.responseText);
-              console.log(sounds);
-
-              // Loop through the sounds and get place them on the map
-              for (var i = 0; i < sounds.length; i++) {
-                var curSound = sounds[i];
-                var marker = new google.maps.Marker({
-                  position: { lat: parseFloat(curSound.lat), lng: parseFloat(curSound.long) },
-                  map: map,
-                  title: curSound.title
-                });
-              }
-            }
-          };
-        }
-      </script>
-      <script async defer
-              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz7PBHLbH9Bh-sAJBOZ6-rQjULBf_1nys&callback=initMap">
-      </script>
-    </div>
-	</div>
+  <div ng-include="'views/home/map.html'"></div>
 
 	<!-- OPEN EYES -->
   <div class="definition">
@@ -165,56 +35,19 @@
 			<div class="about-us-text">
 				ABOUT US
 			</div>
+	  </div>
 	</div>
-	</div>
-<!-- STEPS 2 -->
-  <div class="steps-wrapper container clearfix">
-    <div class="steps-2-wrapper-inner clearfix">
-      <div class="steps left-side  col-lg-6 col-md-6 col-sm-6 col-xs-6">
-        <h3 class="step-number">ME</h3>
-        <h4 class="step-title">AND THE PROJECT</h4>
-        <div class="step-text">
-          This project started during summer semester 2015, at the Design & art University of
-          Bolzano. Developed with Zen metodology thanks to our project leader Andrea Maragno and Prof. Simone
-          Simonelli, this started as a wish of mine to reintroduce poetry in everyone’s life. It started as something
-          simplier than an application but then it grew towards its right shape
-        </div>
-        <h3 class="step-number">THE GUYS</h3>
-        <h4 class="step-title">WHO JOINED</h4>
-        <div class="step-text">
-          In the end four amazing informatics peo-
-          ple decided to join and take the chance and try to work, with a great effort I must say, under the supervision of
-          Davide Taibi. And like that, Florian, Philip, Mercy and Tisho challenged themselves (and myself too) through this
-          adventure! There are some though moment, specially when you have a lot to do else than SERENDIPITY, or
-          regarding the communication between me, a designer, and a programmer. Thus I think we all learn a lot and
-          I am greatly thankful to all
-        </div>
 
-      </div>
-      <div class="steps right-side col-xs-6">
-        <h3 class="step-number">SOFTWARE</h3>
-        <h4 class="step-title">FACTORY COURSE</h4>
-        <div class="step-text">During the semester I was suggested to submit SERENDIPITY to a wider jury, such as the
-          Software Factory course for the master of Informatic-science Faculty hel-ded by Prof. Davide Taibi. This innovative
-          approach towards the subject collect students from other faculty, specially informatics, to work in team as if you really
-          are a project developer. That simulation of course require a project to be developed better to be chosen, therefore I propose mine
-        </div>
-        <h3 class="step-number">DEVELOPER</h3>
-        <h4 class="step-title">SHARE IT ON THE MAP
-        </h4>
-        <div class="step-text">Last but not least, through all the graphic developement of this site and the idea of making it
-          real in general Prof.Matteo Moretti supervised and revisioned me. By giving hint, guding me trough the un-known world
-          of sites and html, and also with his example, like Repubblica popo-lare di Bolzano. One of his last project-from which I
-          took inspiration for the style.Further more I can say that I am glad for everyone who takes part in this and believe in
-          this unbelievably-superimport-antpartlyuseless-fun idea.
-          <br><br>
-          Thank you all
-          <br><br>
-          MARIA TERESA SCARABELLO
-        </div>
-      </div>
-    </div>
 
+
+  <div ng-include="'views/home/steps-2.html'"></div>
+
+  <div class="home-audio">
+    <p>The title</p>
+    <audio controls>
+      <source src="../uploads/vivaldi-spring.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
   </div>
 
   <!--<div class="jumbotron">-->

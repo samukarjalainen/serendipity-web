@@ -24,11 +24,14 @@
   <div class="content-wrapper">
 
     <!-- Header -->
-    <div ng-include="'views/header.html'"></div>
+    <div ng-include="'views/partials/header.html'"></div>
+
+    <!-- View -->
     <div class="view-wrapper">
       <div ng-view=""></div>
     </div>
-    <div ng-include="'views/footer.html'"></div>
+
+    <div ng-include="'views/partials/footer.html'"></div>
 
   </div>
 
@@ -62,6 +65,7 @@
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="js/app.js"></script>
+  <script src="js/main.js"></script>
   <script src="js/controllers/mainController.js"></script>
   <script src="js/controllers/aboutController.js"></script>
   <script src="js/controllers/usersController.js"></script>

@@ -2,7 +2,9 @@ node_modules/
 client/bower_components
 client/.sass-cache
 uploads/
+client/uploads/
 .sass-cache
+.idea/
 .idea
 *.iml
 *.DS_Store
