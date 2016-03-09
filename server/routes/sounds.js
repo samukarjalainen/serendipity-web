@@ -202,6 +202,52 @@ var sounds = {
         res.json(results);
       }
     })
+  },
+
+  downloadByIdFromParams: function (req, res) {
+    var soundIdParam = req.params.id;
+    var downloadUrl = "";
+
+    console.log(TAG + "Sound ID from params: " + soundIdParam);
+
+    db.Sound.findOne({ where: { id: soundIdParam } })
+      .then(function (sound) {
+        if (!sound) {
+          res.status(404);
+          res.json({
+            "status": 404,
+            "message": "Sound not found"
+          });
+          return 'error';
+        } else {
+          console.log(sound.path);
+          downloadUrl = sound.path;
+          res.download(downloadUrl);
+        }
+      });
+  },
+
+  downloadByIdFromHeaderOrBody: function (req, res) {
+    var soundId = req.body.soundid || req.headers['soundid'];
+    var downloadUrl = "";
+
+    console.log(TAG + "sound from body or header: " + soundId);
+
+    db.Sound.findOne({ where: { id: soundId } })
+      .then(function (sound) {
+        if (!sound) {
+          res.status(404);
+          res.json({
+            "status": 404,
+            "message": "Sound not found"
+          });
+          return 'error';
+        } else {
+          console.log(sound.path);
+          downloadUrl = sound.path;
+          res.download(downloadUrl);
+        }
+      });
   }
 };
 

@@ -13,8 +13,6 @@ body {
 body {
   @extend %background-cover-fixed;
   position: relative;
-  //min-height: 1100px;
-
 }
 
 a {
@@ -28,9 +26,7 @@ a {
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 4px;
 
-
   tbody {
-
     td {
       word-break: break-all;
       word-wrap:break-word;
