@@ -38,23 +38,24 @@ var sounds = {
   },
 
   create: function(req, res) {
+
     upload(req,res,function(err){
-      //console.log(req);
+
       if(err){
         console.log(err);
-        res.json({success: false, error: err});
+        res.json({ success: false, error: err });
         return;
       }
+
       var user = auth.getUser(req);
+
       if (user) {
         var username = user.username;
         console.log(TAG, 'username is ', username);
         db.User.findOne({ where: {username: username}}).then(function (user) {
           if (user) {
-
-            console.log(req);
-
             var headerBody;
+
             try {
               headerBody = JSON.parse(req.headers['body']);
               console.log(TAG + "UPLOAD REQUEST HEADER ['body']");
@@ -72,7 +73,6 @@ var sounds = {
               console.log(TAG + "REQUEST BODY NOT FOUND");
               console.log(err);
             }
-
 
             var title, description, lat, long;
 
@@ -97,6 +97,16 @@ var sounds = {
             }
 
             var path = req.file.path || "Default path";
+
+            console.log(TAG + "Path before: " + path);
+
+            if (path.indexOf('\\') !== -1) {
+              path = path.replace('client\\', '');
+            } else {
+              path = path.replace("client/", "");
+            }
+
+            console.log(TAG + "Path after: " + path);
 
             db.Sound.create({
               title: title,

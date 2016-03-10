@@ -1,0 +1,70 @@
+@import "variables";
+
+.home-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 15999;
+  background-color: rgba(black, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  @include transition(opacity 200ms ease-in-out);
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+
+    .home-audio {
+      transform: translate(0px, 0px);
+    }
+  }
+}
+
+.home-audio {
+  position: relative;
+  max-width: 620px;
+  top: calc(50% - 150px);
+  left: calc(50% - 310px);
+  padding: 20px 60px 30px;
+  color: black;
+  background-color: white;
+  box-shadow: 0 4px 20px 5px rgba(black, 0.5);
+  text-align: left;
+  transform: translate(0px, -50px);
+  @include transition(transform 150ms ease-in-out);
+
+
+
+  .close-button {
+    position: absolute;
+    top: -35px;
+    right: -33px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    cursor: pointer;
+
+  }
+
+  .audio-title {
+    @extend %emphasis-font;
+    margin-bottom: 10px;
+  }
+
+  .audio-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  #audio-controls-wrapper {
+    text-align: center;
+  }
+
+  audio {
+    width: 100%;
+  }
+
+}
