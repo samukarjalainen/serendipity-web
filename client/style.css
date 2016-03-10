@@ -6330,13 +6330,21 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   transition: transform 150ms ease-in-out; }
   .home-audio .close-button {
     position: absolute;
-    top: -35px;
-    right: -33px;
-    font-size: 30px;
+    top: 10px;
+    right: 11px;
+    font-size: 22px;
     text-align: center;
-    line-height: 30px;
-    color: white;
-    cursor: pointer; }
+    line-height: 22px;
+    color: #3C3C3C;
+    cursor: pointer;
+    transform: scale(1);
+    -webkit-transition: transform 150ms ease-in-out;
+    -moz-transition: transform 150ms ease-in-out;
+    -o-transition: transform 150ms ease-in-out;
+    -ms-transition: transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out; }
+    .home-audio .close-button:hover {
+      transform: scale(1.2); }
   .home-audio .audio-title {
     margin-bottom: 10px; }
   .home-audio .audio-description {
