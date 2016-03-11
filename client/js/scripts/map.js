@@ -63,7 +63,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
  * @param map google.maps.Map object on which the markers are placed
  */
 function getAndParseSounds(map) {
-  // TODO: Implement logic to only fetch nearby sounds
+  // TODO: Implement logic to only fetch nearby sounds. Map boundaries can be used for this
+  // TODO: Refactor xhttp back out of function call scope
   var sounds;
   var xhttp = new XMLHttpRequest();
 

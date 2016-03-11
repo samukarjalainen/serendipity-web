@@ -1,12 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 
 /* -- Misc variables -- */
-$bg-image: url("../images/city.png");
+$bg-image: url("../images/city-surface-blur.jpg");
 
 /* -- Colors -- */
 $black: #070706;
 $main-color: #CCCCCC;
 $light-gray: #e6e6e6;
+$nav-default: #777;
+$nav-active: white;
+$nav-hover: white;
 
 /* -- Media queries -- */
 $mq-phone: "only screen and (max-width: 480px)";
@@ -84,6 +87,14 @@ $mq-desktop-large: "only screen and (max-width : 1200px)";
   -o-transition: $val;
   -ms-transition: $val;
   transition: $val;
+}
+
+@mixin filter($filter-type,$filter-amount) {
+  -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+  -moz-filter: $filter-type+unquote('(#{$filter-amount})');
+  -ms-filter: $filter-type+unquote('(#{$filter-amount})');
+  -o-filter: $filter-type+unquote('(#{$filter-amount})');
+  filter: $filter-type+unquote('(#{$filter-amount})');
 }
 
 @mixin filter($filter-type,$filter-amount) {

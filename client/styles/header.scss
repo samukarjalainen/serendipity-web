@@ -14,6 +14,16 @@
     padding-top: 30px;
     padding-bottom: 30px;
 
+    .navbar-brand {
+      display: none;
+      color: $nav-default;
+      @include transition(color 100ms ease-in-out);
+
+      &:hover {
+        color: $nav-hover;
+      }
+    }
+
     .navbar-nav {
       .navbar-user {
         margin-top: 13px;
@@ -23,8 +33,11 @@
 
         li {
           a {
+            color: $nav-default;
+            @include transition(color 100ms ease-in-out);
+
             &:hover {
-              color: white;
+              color: $nav-hover;
             }
           }
         }
@@ -32,10 +45,10 @@
         li.active {
           a {
             background-color: transparent;
-            color: white;
+            color: $nav-active;
 
             &:hover {
-              color: white;
+              color: $nav-hover;
               background-color: transparent;
             }
           }

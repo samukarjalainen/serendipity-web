@@ -162,6 +162,7 @@ var sounds = {
     });
   },
 
+  // TODO: Refactor function to pass in variables on what area to search sounds for
   // The function to get sounds that are near a user
   getAllByLocation: function (req, res) {
 
