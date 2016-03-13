@@ -1,13 +1,13 @@
 $(document).ready(function(){
 
   var previousScroll = 0;
+  var $win = $(window);
 
   // Hide or show navigation depending on scroll
-  $(window).scroll(function(){
-
+  $win.scroll(function(){
     var currentScroll = $(this).scrollTop();
 
-    if (currentScroll > 0 && currentScroll < $(document).height() - $(window).height()){
+    if (currentScroll > 0 && currentScroll < $(document).height() - $win.height()){
 
       if (currentScroll > previousScroll){
         hideNav();
@@ -16,9 +16,7 @@ $(document).ready(function(){
       }
 
       previousScroll = currentScroll;
-
     }
-
   });
 
   function hideNav() {
