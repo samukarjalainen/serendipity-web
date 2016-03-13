@@ -6250,11 +6250,11 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
       width: 66%;
       margin: 60px auto 60px; }
     .main-wrapper .help-us a {
-      margin-right: 15px; }
-      .main-wrapper .help-us a:last-child {
-        margin-right: 0; }
+      margin-right: 8px;
+      margin-left: 8px;
+      display: inline-block; }
     .main-wrapper .help-us .badge-image {
-      width: 100px;
+      width: 120px;
       -webkit-transition: transform 150ms ease-in-out;
       -moz-transition: transform 150ms ease-in-out;
       -o-transition: transform 150ms ease-in-out;
