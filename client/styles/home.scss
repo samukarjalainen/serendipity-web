@@ -82,9 +82,6 @@
         font-size: 30px;
       }
 
-      .step-text {
-      }
-
       @media #{$mq-phone} {
         .step-number {
           font-size: 26px;
@@ -95,13 +92,13 @@
         }
       }
     }
+
     .left-side {
       @include border-radius(0);
       border-right: 1px solid transparent;
       text-align: right;
       width: 30%;
       margin-left: 20%;
-      padding-bottom: 194px;
       padding-top: 100px;
       height:100%;
     }
@@ -166,15 +163,17 @@
   #map {
     @include filter(grayscale,100%);
     -webkit-backface-visibility: hidden;  /* Fix for transition flickering */
-    max-width: 80%;
+    max-width: 60%;
     height: 400px;
     margin:0 auto;
     color: black;
-  }
 
-  @media #{$mq-phone} {
-    #map {
-      height: 400px;
+    @media #{$mq-tablet} {
+      max-width: 80%;
+    }
+
+    @media #{$mq-phone} {
+      max-width: 80%;
     }
   }
 

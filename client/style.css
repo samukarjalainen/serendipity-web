@@ -6264,7 +6264,6 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
       text-align: right;
       width: 30%;
       margin-left: 20%;
-      padding-bottom: 194px;
       padding-top: 100px;
       height: 100%; }
     .main-wrapper .steps-wrapper .right-side {
@@ -6317,13 +6316,16 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     filter: grayscale(100%);
     -webkit-backface-visibility: hidden;
     /* Fix for transition flickering */
-    max-width: 80%;
+    max-width: 60%;
     height: 400px;
     margin: 0 auto;
     color: black; }
-  @media only screen and (max-width: 480px) {
-    .main-wrapper #map {
-      height: 400px; } }
+    @media only screen and (max-width: 768px) {
+      .main-wrapper #map {
+        max-width: 80%; } }
+    @media only screen and (max-width: 480px) {
+      .main-wrapper #map {
+        max-width: 80%; } }
   .main-wrapper .about-us {
     width: 100%;
     text-align: center;
