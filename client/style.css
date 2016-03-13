@@ -6460,6 +6460,13 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   .home-audio audio {
     width: 100%; }
 
+@media only screen and (max-width: 480px) {
+  .home-audio {
+    width: 90%;
+    left: 5%;
+    top: calc(50% - 100px);
+    padding: 15px 35px; } }
+
 /* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Media queries -- */

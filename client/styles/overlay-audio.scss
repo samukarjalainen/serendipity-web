@@ -70,3 +70,12 @@
     width: 100%;
   }
 }
+
+@media #{$mq-phone} {
+  .home-audio {
+    width: 90%;
+    left: 5%;
+    top: calc(50% - 100px);
+    padding: 15px 35px;
+  }
+}
