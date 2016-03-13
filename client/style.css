@@ -5946,7 +5946,8 @@ a:hover {
 
 .content-wrapper {
   min-height: 100%;
-  position: relative; }
+  position: relative;
+  margin-top: 10vh; }
 
 .view-wrapper {
   padding-bottom: 320px;
@@ -6214,7 +6215,6 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   text-align: center; }
   .logo-wrapper img.logo-image {
     display: inline-block;
-    margin-top: 10vh;
     height: 75vh;
     -webkit-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.8));
     -moz-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.8));

@@ -15,8 +15,8 @@
           <li ng-class="{active:isActive('/')}"><a href="#/">Home</a></li>
           <li ng-if="loggedInUser" ng-class="{active:isActive('/dashboard')}"><a ng-href="#/dashboard">Dashboard</a></li>
           <li ng-if="loggedInUser" ng-class="{active:isActive('/upload')}"><a ng-href="#/upload">Upload</a></li>
-          <li ng-if="loggedInUser" ng-class="{active:isActive('/users')}"><a ng-href="#/users">Users</a> </li>
-          <li ng-if="loggedInUser" ng-class="{active:isActive('/sounds')}"><a ng-href="#/sounds">Sounds</a></li>
+          <li ng-if="loggedInUser && admin" ng-class="{active:isActive('/users')}"><a ng-href="#/users">Users</a> </li>
+          <li ng-if="loggedInUser && admin" ng-class="{active:isActive('/sounds')}"><a ng-href="#/sounds">Sounds</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
           <li ng-if="!loggedInUser" ng-class="{active:isActive('/register')}"><a ng-href="#/register">Register</a></li>
