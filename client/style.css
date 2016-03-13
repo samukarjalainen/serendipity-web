@@ -6064,6 +6064,19 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   .header .navbar-collapse {
     background-color: black; } }
 
+@media only screen and (max-width: 768px) {
+  .header .navbar-default .navbar-toggle {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    background-color: black;
+    border: 1px solid white; }
+    .header .navbar-default .navbar-toggle .icon-bar {
+      background-color: white; }
+  .header .navbar-default .navbar-nav > li.active:after {
+    display: none; } }
+
 /* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Media queries -- */
@@ -6117,7 +6130,8 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     text-align: center;
     margin-top: 30px; }
     .footer .footer-hero-wrapper .footer-hero-text {
-      margin-bottom: 30px; }
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7); }
     .footer .footer-hero-wrapper a {
       display: inline-block;
       margin-right: 60px; }
@@ -6125,9 +6139,20 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
         margin-right: 0; }
       .footer .footer-hero-wrapper a .footer-hero-image {
         margin-top: 15px;
-        height: 150px; }
+        height: 150px;
+        -webkit-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.8));
+        -moz-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.8));
+        -ms-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.8));
+        -o-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.8));
+        filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.8)); }
       .footer .footer-hero-wrapper a .uni-oulu-logo {
         opacity: 0.7; }
+
+@media only screen and (max-width: 480px) {
+  .footer .footer-hero-wrapper a {
+    margin-right: 30px; }
+    .footer .footer-hero-wrapper a .footer-hero-image {
+      height: 130px; } }
 
 /* -- Misc variables -- */
 /* -- Colors -- */

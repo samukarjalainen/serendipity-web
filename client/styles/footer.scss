@@ -14,6 +14,7 @@
     .footer-hero-text {
       @extend %footer-font;
       margin-bottom: 30px;
+      text-shadow: 1px 1px 1px rgba(black, 0.7);
     }
 
     a {
@@ -27,10 +28,25 @@
       .footer-hero-image {
         margin-top: 15px;
         height: 150px;
+        @include filter(drop-shadow, 0px 0px 3px rgba(black, 0.8));
       }
 
       .uni-oulu-logo {
         opacity: 0.7;
+      }
+    }
+  }
+}
+
+@media #{$mq-phone} {
+  .footer {
+    .footer-hero-wrapper {
+      a {
+        margin-right: 30px;
+
+        .footer-hero-image {
+          height: 130px;
+        }
       }
     }
   }

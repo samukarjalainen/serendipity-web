@@ -79,7 +79,6 @@
         @include border-radius(0);
         background-color: black;
         border: 1px solid white;
-        //position: absolute;
 
         .icon-bar {
           background-color: white;
@@ -103,6 +102,31 @@
 
     .navbar-collapse {
       background-color: black;
+    }
+  }
+
+  @media #{$mq-tablet} {
+    .navbar-default {
+
+      .navbar-toggle {
+        @include border-radius(0);
+        background-color: black;
+        border: 1px solid white;
+
+        .icon-bar {
+          background-color: white;
+        }
+      }
+
+      .navbar-nav {
+        & > {
+          li.active {
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
     }
   }
 }
