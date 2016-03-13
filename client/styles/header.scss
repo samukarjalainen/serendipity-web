@@ -4,7 +4,7 @@
 
 .header {
   @extend %navbar-font;
-  margin-bottom: 200px;
+  //margin-bottom: 200px;
 
   .navbar-default {
     @include border-radius(0);
@@ -79,7 +79,8 @@
         @include border-radius(0);
         background-color: black;
         border: 1px solid white;
-        
+        //position: absolute;
+
         .icon-bar {
           background-color: white;
         }

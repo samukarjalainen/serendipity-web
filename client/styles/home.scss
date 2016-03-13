@@ -1,18 +1,20 @@
 @import "variables";
 
 .logo-wrapper {
-  margin-top: 60px;
   text-align: center;
+
   img.logo-image {
-    max-height: 697px;
+    display: inline-block;
+    margin-top: 10vh;
+    height: 75vh;
     @include filter(drop-shadow, 0px 0px 3px rgba(black, 0.8));
   }
+}
 
-  @media #{$mq-phone} {
-    .img-responsive {
-      margin-left: 10px;
-      margin-right: 10px;
-    }
+@media #{$mq-phone} {
+  .logo-wrapper {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 
@@ -29,6 +31,7 @@
 
   .definition {
     text-align: center;
+
     .definition-title {
       @extend %serendipity-h1-font;
       margin-top: 45px;
@@ -48,12 +51,19 @@
       display: block;
       width: 66%;
       margin: 60px auto 60px;
-      padding-top: 70px;
+      padding-top: 60px;
     }
 
     .badge-image {
       width: 100px;
       padding-bottom: 40px;
+    }
+
+    @media #{$mq-phone} {
+      .help-us-text {
+        padding-top: 0;
+        width: 90%;
+      }
     }
   }
 
@@ -61,11 +71,6 @@
     @extend %steps-font;
     position: relative;
     margin-bottom: 60px;
-
-    .steps-2-wrapper-inner {
-      height: 1133px;
-      overflow: hidden;
-    }
 
     .steps {
       .step-number {
@@ -80,10 +85,20 @@
       .step-text {
       }
 
+      @media #{$mq-phone} {
+        .step-number {
+          font-size: 26px;
+        }
+
+        .step-title {
+          font-size: 26px;
+        }
+      }
+
     }
     .left-side {
       @include border-radius(0);
-      border-right: 1px solid black;
+      border-right: 1px solid transparent;
       text-align: right;
       width: 30%;
       margin-left: 20%;
@@ -137,10 +152,14 @@
       .left-side {
         width: 50%;
         margin-left: 0;
+        padding-left: 0;
+        padding-right: 10px;
       }
       .right-side {
         width: 50%;
         margin-right: 0;
+        padding-right: 0;
+        padding-left: 10px;
       }
     }
   }
