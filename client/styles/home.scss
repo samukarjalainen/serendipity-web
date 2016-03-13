@@ -43,6 +43,7 @@
     width: 100%;
     text-align: center;
     display: inline-block;
+    padding: 40px 0;
 
     .help-us-text {
       @extend %emphasis-font;
@@ -51,12 +52,24 @@
       max-width: 1140px;
       width: 66%;
       margin: 60px auto 60px;
-      padding-top: 60px;
+    }
+
+    a {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
 
     .badge-image {
       width: 100px;
-      padding-bottom: 40px;
+      @include transition(transform 150ms ease-in-out);
+      @include transform(scale,1.0);
+
+      &:hover {
+        @include transform(scale,1.2);
+      }
     }
 
     @media #{$mq-phone} {

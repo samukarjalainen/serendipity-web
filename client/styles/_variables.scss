@@ -104,3 +104,11 @@ $mq-desktop-large: "only screen and (max-width : 1200px)";
   -o-filter: $filter-type+unquote('(#{$filter-amount})');
   filter: $filter-type+unquote('(#{$filter-amount})');
 }
+
+@mixin transform($transform-type,$transform-amount) {
+  -webkit-transform: $transform-type+unquote('(#{$transform-amount})');
+  -moz-transform: $transform-type+unquote('(#{$transform-amount})');
+  -ms-transform: $transform-type+unquote('(#{$transform-amount})');
+  -o-transform: $transform-type+unquote('(#{$transform-amount})');
+  transform: $transform-type+unquote('(#{$transform-amount})');
+}
