@@ -6010,6 +6010,20 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   left: 0;
   right: 0;
   z-index: 1; }
+  .header .navbar-default.is-hidden {
+    opacity: 0;
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out; }
+  .header .navbar-default.is-visible {
+    opacity: 1;
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out; }
   .header .navbar-default .navbar-brand {
     display: none;
     color: #777;
@@ -6046,23 +6060,22 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     background: white; }
 
 @media only screen and (max-width: 480px) {
-  .header .navbar-default {
-    background-color: transparent; }
-    .header .navbar-default .navbar-toggle {
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      -ms-border-radius: 0;
-      border-radius: 0;
-      background-color: black;
-      border: 1px solid white; }
-      .header .navbar-default .navbar-toggle .icon-bar {
-        background-color: white; }
-    .header .navbar-default .navbar-nav {
-      text-align: right; }
-      .header .navbar-default .navbar-nav > li.active:after {
-        display: none; }
+  .header .navbar-default .navbar-toggle {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    background-color: black;
+    border: 1px solid white; }
+    .header .navbar-default .navbar-toggle .icon-bar {
+      background-color: white; }
+  .header .navbar-default .navbar-nav {
+    text-align: right; }
+    .header .navbar-default .navbar-nav > li.active:after {
+      display: none; }
   .header .navbar-collapse {
-    background-color: black; } }
+    background-color: black;
+    border-color: white; } }
 
 @media only screen and (max-width: 768px) {
   .header .navbar-default .navbar-toggle {
@@ -6232,6 +6245,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     .main-wrapper .help-us .help-us-text {
       text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
       display: block;
+      max-width: 1140px;
       width: 66%;
       margin: 60px auto 60px;
       padding-top: 60px; }

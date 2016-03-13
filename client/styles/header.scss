@@ -19,6 +19,16 @@
     right: 0;
     z-index: 1;
 
+    &.is-hidden {
+      opacity: 0;
+      @include transition(all 150ms ease-in-out);
+    }
+
+    &.is-visible {
+      opacity: 1;
+      @include transition(all 150ms ease-in-out);
+    }
+
     .navbar-brand {
       display: none;
       color: $nav-default;
@@ -30,9 +40,6 @@
     }
 
     .navbar-nav {
-      .navbar-user {
-      }
-
       & > {
         li {
           a {
@@ -73,7 +80,7 @@
 
   @media #{$mq-phone} {
     .navbar-default {
-      background-color: transparent;
+      //background-color: transparent;
 
       .navbar-toggle {
         @include border-radius(0);
@@ -102,6 +109,7 @@
 
     .navbar-collapse {
       background-color: black;
+      border-color: white;
     }
   }
 
