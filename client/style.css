@@ -5996,17 +5996,22 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
 
 /* -- Mixins -- */
 .header {
-  margin-bottom: 60px; }
+  margin-bottom: 200px; }
   .header .navbar-default {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     -ms-border-radius: 0;
     border-radius: 0;
     border: none;
-    background-color: transparent;
+    background-color: black;
     margin: 0 auto;
-    padding-top: 30px;
-    padding-bottom: 30px; }
+    padding-top: 10px;
+    padding-bottom: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; }
     .header .navbar-default .navbar-brand {
       display: none;
       color: #777;
@@ -6017,9 +6022,9 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
       transition: color 100ms ease-in-out; }
       .header .navbar-default .navbar-brand:hover {
         color: white; }
-    .header .navbar-default .navbar-nav .navbar-user {
-      margin-top: 13px; }
     .header .navbar-default .navbar-nav > li a {
+      padding-top: 10px;
+      padding-bottom: 10px;
       color: #777;
       -webkit-transition: color 100ms ease-in-out;
       -moz-transition: color 100ms ease-in-out;
@@ -6041,6 +6046,24 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
       width: 40px;
       height: 3px;
       background: white; }
+  @media only screen and (max-width: 480px) {
+    .header .navbar-default {
+      background-color: transparent; }
+      .header .navbar-default .navbar-toggle {
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        border-radius: 0;
+        background-color: black;
+        border: 1px solid white; }
+        .header .navbar-default .navbar-toggle .icon-bar {
+          background-color: white; }
+      .header .navbar-default .navbar-nav {
+        text-align: right; }
+        .header .navbar-default .navbar-nav > li.active:after {
+          display: none; }
+    .header .navbar-collapse {
+      background-color: black; } }
 
 /* -- Misc variables -- */
 /* -- Colors -- */
@@ -6096,14 +6119,16 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     margin-top: 30px; }
     .footer .footer-hero-wrapper .footer-hero-text {
       margin-bottom: 30px; }
-    .footer .footer-hero-wrapper .footer-hero-image {
-      margin-top: 15px;
-      height: 150px;
+    .footer .footer-hero-wrapper a {
+      display: inline-block;
       margin-right: 60px; }
-      .footer .footer-hero-wrapper .footer-hero-image:last-child {
+      .footer .footer-hero-wrapper a:last-child {
         margin-right: 0; }
-    .footer .footer-hero-wrapper .uni-oulu-logo {
-      opacity: 0.7; }
+      .footer .footer-hero-wrapper a .footer-hero-image {
+        margin-top: 15px;
+        height: 150px; }
+      .footer .footer-hero-wrapper a .uni-oulu-logo {
+        opacity: 0.7; }
 
 /* -- Misc variables -- */
 /* -- Colors -- */
@@ -6158,6 +6183,10 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     -ms-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.8));
     -o-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.8));
     filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.8)); }
+  @media only screen and (max-width: 480px) {
+    .logo-wrapper .img-responsive {
+      margin-left: 10px;
+      margin-right: 10px; } }
 
 .main-wrapper {
   background-color: #fff;
