@@ -1,1 +1,10 @@
 @import "variables";
+  #map {
+    @include filter(grayscale,100%);
+    -webkit-backface-visibility: hidden;  /* Fix for transition flickering */
+    max-width: 80%;
+    height: 400px;
+    margin:0 auto;
+    color: black;
+  }
+	

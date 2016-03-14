@@ -1,5 +1,33 @@
 <div class="dashboard-wrapper container" ng-controller="DashboardCtrl">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad at deserunt eos eveniet, modi nulla
-    pariatur reiciendis repudiandae sequi! Alias beatae consequuntur
-    dolorem exercitationem itaque magni minima veniam, vitae?</p>
+
+  <!-- OVERLAY & AUDIO PLAYER-->
+  <div ng-include="'views/home/overlay-audio.html'"></div>
+	
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+			<th>Edit</th>
+			<th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+			<tr ng-repeat="sound in sounds">
+				<td>{{ sound.title }}</td>
+				<td>{{ sound.description }}</td>
+				<td><a href="/#/upload" style="color:#FFFFFF">Upload</a></td>
+				<td><button type="button">Delete</button></td>
+			<!--<tr>
+				<td>hi</td>
+				<td>test</td>
+				<td><a href="/#/upload">Upload</a></td>
+				<td><button type="button">Delete</button></td>
+			</tr>-->
+			</tr>
+    </tbody>
+  </table>
+  <!-- MAP -->
+  <div ng-include="'views/home/map.html'"></div>
+
 </div>
