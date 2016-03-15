@@ -1,29 +1,49 @@
+var $win = $(window);
+var previousScroll = 0;
+var currentScroll;
+var $bgElements = [];
+
+
 $(document).ready(function(){
 
-  var previousScroll = 0;
-  var $win = $(window);
+  $body = $('body');
+  $helpUs = $('.help-us');
 
-  // Hide or show navigation depending on scroll
+  $bgElements.push($body);
+  $bgElements.push($helpUs);
+
+  // Things that happen when window is scrolled go in here
   $win.scroll(function(){
-    var currentScroll = $(this).scrollTop();
 
-    if (currentScroll > 0 && currentScroll < $(document).height() - $win.height()){
+    currentScroll = $(this).scrollTop();
 
-      if (currentScroll > previousScroll){
-        hideNav();
-      } else {
-        showNav();
-      }
+    // Hide or show navigation depending on scroll
+    navigationScroll();
 
-      previousScroll = currentScroll;
-    }
+    // Parallax effect
+    backgroundImageParallax(currentScroll);
+
   });
-
-  function hideNav() {
-    $(".header > .navbar").removeClass("is-visible").addClass("is-hidden");
-  }
-  function showNav() {
-    $(".header > .navbar").removeClass("is-hidden").addClass("is-visible");
-  }
-
 });
+
+function hideNav() {
+  $(".header > .navbar").removeClass("is-visible").addClass("is-hidden");
+}
+function showNav() {
+  $(".header > .navbar").removeClass("is-hidden").addClass("is-visible");
+}
+
+function navigationScroll() {
+  if (currentScroll > 0 && currentScroll < $(document).height() - $win.height()){
+    if (currentScroll > previousScroll){
+      hideNav();
+    } else {
+      showNav();
+    }
+    previousScroll = currentScroll;
+  }
+}
+
+function backgroundImageParallax(currentScroll) {
+
+}
