@@ -22,35 +22,62 @@ var tracks = {
   create: function (req, res) {
 
     uploadTrack(req,res,function(err) {
-
       if(err){
         console.log(err);
         res.json({ success: false, error: err });
         return;
       } else {
-        var title = req.body.title || 'Default title';
-        var description = req.body.description || 'Default description';
-        var type = req.body.type || 'Default type';
-        var path = req.file.path || "Default path";
+        console.log(req.body);
+        // Check that the request has required attributes
+        if (req.body.title && req.body.description && req.body.type) {
 
-        console.log(TAG + "Path before: " + path);
+          // Get vars
+          var title = req.body.title || 'Default title';
+          var description = req.body.description || 'Default description';
+          var type = req.body.type || 'Default type';
+          var path = req.file.path || "Default path";
 
-        if (path.indexOf('\\') !== -1) {
-          path = path.replace('client\\', '');
+          // Hack the path
+          console.log(TAG + "Path before: " + path);
+          if (path.indexOf('\\') !== -1) {
+            path = path.replace('client\\', '');
+          } else {
+            path = path.replace("client/", "");
+          }
+          console.log(TAG + "Path after: " + path);
+
+          // Update or create db entry
+          db.Track.upsert({
+            title: title,
+            description: description,
+            type: type,
+            path: path
+          })
+          .then(function (result) {
+            if (result) {
+              res.status(200);
+              res.json({
+                success: true,
+                message: "Track uploaded succesfully."
+              });
+            } else {
+              res.status(200);
+              res.json({
+                success: false,
+                message: "A sound with those properties already found."
+              });
+            }
+          });
+
         } else {
-          path = path.replace("client/", "");
+          res.status(400);
+          res.json({
+            success: false,
+            message: "Missing request property (title, description or type)."
+          });
         }
-
-        console.log(TAG + "Path after: " + path);
-
-        res.json({success: true});
-
       }
-
-
-
     });
-
 
   }
 
