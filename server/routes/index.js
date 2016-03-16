@@ -4,6 +4,7 @@ var router = express.Router();
 var auth = require('./auth.js');
 var users = require('./users.js');
 var sounds = require('./sounds.js');
+var tracks = require('./tracks.js');
 var gcm = require('./gcm.js');
 
 
@@ -18,6 +19,7 @@ router.get('/sounds/download/:id', sounds.downloadByIdFromParams);
 router.post('/sounds/download', sounds.downloadByIdFromHeaderOrBody);
 router.get('/sounds/create-dummy-sounds', sounds.createDummySounds);
 router.get('/users/create-dummy-users', users.createDummyUsers);
+router.get('/tracks/get-all', tracks.getAll);
 
 // Routes that require user role (logging in)
 router.get('/api/user/:username', users.getOne);
@@ -31,6 +33,7 @@ router.post('/api/sounds/get-all-by-location', sounds.getAllByLocation);
 // Admin user routes
 router.get('/api/users', users.getAll);
 router.get('/api/sounds', sounds.getAll);
+router.post('/api/tracks/upload', tracks.create);
 
 
 module.exports = router;
