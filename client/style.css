@@ -6640,6 +6640,19 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   background-attachment: fixed; }
 
 /* -- Mixins -- */
+#map {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-backface-visibility: hidden;
+  /* Fix for transition flickering */
+  max-width: 80%;
+  height: 400px;
+  margin: 0 auto;
+  color: black; }
+
 /* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Media queries -- */

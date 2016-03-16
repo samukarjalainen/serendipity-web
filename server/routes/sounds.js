@@ -189,10 +189,6 @@ var sounds = {
     var longDiffMax = long + longDiffValue;
 
 
-    // Formulate query:
-    // SELECT * FROM sounds
-    // WHERE (LAT BETWEEN latBoundary_floor AND latBoundary_ceil)
-    // AND (LONG BETWEEN longBoundary_floor AND longBoundary_ceil);
     db.Sound.findAll({
       where: {
         $and: {
@@ -259,6 +255,14 @@ var sounds = {
           res.download(downloadUrl);
         }
       });
+  },
+
+  edit: function (req, res) {
+    var user = req.user;
+  },
+
+  getOverlayTracks: function (req, res) {
+
   }
 };
 

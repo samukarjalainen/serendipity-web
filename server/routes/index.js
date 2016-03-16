@@ -16,6 +16,8 @@ router.post('/gcm-register', gcm.register);
 router.post('/gcm-unregister', gcm.unregister);
 router.get('/sounds/download/:id', sounds.downloadByIdFromParams);
 router.post('/sounds/download', sounds.downloadByIdFromHeaderOrBody);
+router.get('/sounds/create-dummy-sounds', sounds.createDummySounds);
+router.get('/users/create-dummy-users', users.createDummyUsers);
 
 // Routes that require user role (logging in)
 router.get('/api/user/:username', users.getOne);
