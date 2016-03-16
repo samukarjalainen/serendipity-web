@@ -80,7 +80,7 @@ var users = {
     // TODO: Finish this function
   },
 
-  createDummyUsers: function () {
+  createDummyUsers: function (req, res) {
     var adminHash = bcrypt.hashSync('admin', bcrypt.genSaltSync(10));
     var testHash = bcrypt.hashSync('test', bcrypt.genSaltSync(10));
     db.User
@@ -104,10 +104,11 @@ var users = {
           city: 'Oulu',
           country: 'Finland'
         }}).then(function () {
-        return "created";
+        res.redirect('/');
       })
     }).catch(function(error) {
       console.log("The default 'admin' and 'test' users already in db");
+      res.redirect('/');
     });
   }
 };

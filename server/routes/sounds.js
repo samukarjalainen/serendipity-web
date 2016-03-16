@@ -60,10 +60,8 @@ var sounds = {
               headerBody = JSON.parse(req.headers['body']);
               console.log(TAG + "UPLOAD REQUEST HEADER ['body']");
               console.log(headerBody);
-
             } catch (err) {
-              console.log(TAG + "No header 'body' in the request")
-              console.log(headerBody);
+              console.log(TAG + "No header 'body' in the request");
             }
 
             try {
@@ -155,10 +153,11 @@ var sounds = {
           path: 'dummyuser/dummysound2-123457890',
           UserId: 2
         }}).then(function () {
-        return "created";
+        res.redirect('/');
       })
     }).catch(function(error) {
       console.log("Dummy sounds already in db");
+      res.redirect('/');
     });
   },
 
