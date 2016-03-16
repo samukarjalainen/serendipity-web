@@ -15,8 +15,8 @@ app.config(function ($httpProvider, $routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: '../views/home.html',
-      controller: 'MainCtrl',
-      controllerAs: 'main'
+      controller: 'HomeCtrl',
+      controllerAs: 'home'
     })
     .when('/users', {
       templateUrl: '../views/users.html',
