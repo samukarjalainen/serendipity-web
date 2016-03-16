@@ -61,6 +61,15 @@ app.config(function ($httpProvider, $routeProvider) {
         requiredAdmin: true
       }
     })
+    .when('/tracks', {
+      templateUrl: '../views/tracks.html',
+      controller: 'UploadCtrl',
+      controllerAs: 'upload',
+      access: {
+        requiredLogin: true,
+        requiredAdmin: true
+      }
+    })
     .otherwise({
       redirectTo: '/'
     })
