@@ -1,11 +1,11 @@
 // Cache DOM
 var $window = $('window');
-var $overlay = $('.home-overlay');
-var $audioModal = $overlay.find('.home-audio');
+var $overlay = $('.overlay');
+var $audioModal = $overlay.find('.audio');
 var $audioTitle = $overlay.find('.audio-title');
 var $audioDesc = $overlay.find('.audio-description');
 var $closeBtn = $overlay.find('.close-button');
-var homeAudio = document.getElementById('home-player');
+var homeAudio = document.getElementById('player-home');
 var homeAudioSrcElem = document.getElementById('audio-source-mp3');
 
 /**
@@ -73,7 +73,6 @@ function getAndParseSounds(map) {
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
       sounds = JSON.parse(xhttp.responseText);
-      console.log(sounds);
 
       // Loop through the sounds and get place them on the map
       for (var i = 0; i < sounds.length; i++) {

@@ -5837,7 +5837,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .home-audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -5880,7 +5880,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .home-audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -5983,7 +5983,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .home-audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6121,7 +6121,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .home-audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6198,7 +6198,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .home-audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6402,7 +6402,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .home-audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6435,7 +6435,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   background-attachment: fixed; }
 
 /* -- Mixins -- */
-.home-overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -6450,13 +6450,13 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   -o-transition: opacity 200ms ease-in-out;
   -ms-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out; }
-  .home-overlay.is-open {
+  .overlay.is-open {
     opacity: 1;
     pointer-events: all; }
-    .home-overlay.is-open .home-audio {
+    .overlay.is-open .audio {
       transform: translate(0px, 0px); }
 
-.home-audio {
+.audio {
   position: relative;
   max-width: 620px;
   top: calc(50% - 150px);
@@ -6472,7 +6472,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   -o-transition: transform 150ms ease-in-out;
   -ms-transition: transform 150ms ease-in-out;
   transition: transform 150ms ease-in-out; }
-  .home-audio .close-button {
+  .audio .close-button {
     position: absolute;
     top: 10px;
     right: 11px;
@@ -6487,20 +6487,20 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     -o-transition: transform 150ms ease-in-out;
     -ms-transition: transform 150ms ease-in-out;
     transition: transform 150ms ease-in-out; }
-    .home-audio .close-button:hover {
+    .audio .close-button:hover {
       transform: scale(1.2); }
-  .home-audio .audio-title {
+  .audio .audio-title {
     margin-bottom: 10px; }
-  .home-audio .audio-description {
+  .audio .audio-description {
     font-size: 14px;
     margin-bottom: 20px; }
-  .home-audio #audio-controls-wrapper {
+  .audio #audio-controls-wrapper {
     text-align: center; }
-  .home-audio audio {
+  .audio audio {
     width: 100%; }
 
 @media only screen and (max-width: 480px) {
-  .home-audio {
+  .audio {
     width: 90%;
     left: 5%;
     top: calc(50% - 100px);
@@ -6516,7 +6516,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .home-audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6573,7 +6573,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .home-audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6627,7 +6627,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .home-audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6683,7 +6683,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .home-audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title {
   font-size: 23px;
   font-weight: 700; }
 
