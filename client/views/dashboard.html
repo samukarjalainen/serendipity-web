@@ -2,7 +2,7 @@
 
   <!-- OVERLAY & AUDIO PLAYER-->
   <div ng-include="'views/home/overlay-audio.html'"></div>
-	
+
   <table class="table table-hover">
     <thead>
     <tr>
@@ -16,7 +16,7 @@
 			<tr ng-repeat="sound in sounds">
 				<td>{{ sound.title }}</td>
 				<td>{{ sound.description }}</td>
-				<td><a href="/#/upload" style="color:#FFFFFF">Upload</a></td>
+				<td><button class="btn btn-serendipity" ng-click="openEditor(sound)">EDIT</button></td>
 				<td><button type="button">Delete</button></td>
 			<!--<tr>
 				<td>hi</td>

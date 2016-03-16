@@ -44,6 +44,24 @@ a {
   padding-right: 0;
 }
 
+.btn-serendipity {
+  @include border-radius(0);
+  color: white;
+  background-color: $btn-text;
+  border: {
+    width: 2px;
+    style: solid;
+    color: $btn-border;
+  }
+  font-weight: 700;
+  @include transition(all 100ms ease-in-out);
+
+  &:hover {
+    color: $btn-text;
+    background-color: $btn-bg;
+  }
+}
+
 
 .content-wrapper {
   min-height:100%;
