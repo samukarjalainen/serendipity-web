@@ -40,7 +40,7 @@ app.service('SoundService', ['$http', function ($http) {
     $http.get('/sounds/get-all')
     .then(function (successResponse) {
       var data = successResponse.data;
-      console.log(data);
+      //console.log(data);
       sounds = successResponse.data;
       allSoundsFetched = true;
     }, function (errorResponse) {

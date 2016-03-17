@@ -20,10 +20,7 @@ $(document).ready(function(){
     // Hide or show navigation depending on scroll
     navigationScroll();
 
-    // Parallax effect
-    backgroundImageParallax(currentScroll);
-
-  });
+    });
 });
 
 function hideNav() {
@@ -42,8 +39,4 @@ function navigationScroll() {
     }
     previousScroll = currentScroll;
   }
-}
-
-function backgroundImageParallax(currentScroll) {
-
 }

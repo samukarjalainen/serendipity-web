@@ -7,7 +7,8 @@ var app = angular.module('serendipityApp',[
   'ngRoute',
   'ngSanitize',
   'ngTouch',
-  'ngFileUpload'
+  'ngFileUpload',
+  'ngMap'
 ]);
 
 app.config(function ($httpProvider, $routeProvider) {
