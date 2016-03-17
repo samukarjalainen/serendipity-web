@@ -19,8 +19,8 @@ app.controller('MapCtrl', ['$scope', 'NgMap', 'SoundService', function($scope, N
   NgMap.getMap().then(function(map) {
 
     $scope.sounds = SoundService.getSounds();
-    console.log(TAG + "sounds");
-    console.log($scope.sounds);
+    //console.log(TAG + "sounds");
+    //console.log($scope.sounds);
 
     // Oulu centre coordinates
     var pos = {
@@ -133,8 +133,8 @@ app.controller('MapCtrl', ['$scope', 'NgMap', 'SoundService', function($scope, N
       marker.addListener('click', playSound);
     }
 
-    console.log(TAG + "markers");
-    console.log($scope.markers);
+    //console.log(TAG + "markers");
+    //console.log($scope.markers);
 
   }
 
