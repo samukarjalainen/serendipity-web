@@ -6,8 +6,12 @@ app.service('SoundService', ['$http', function ($http) {
   var curUsersSoundsFetched = false;
   var sounds = [];
   var userSounds = [];
+  var currentSoundMarker = {};
 
   var getSounds = function () {
+    if (!allSoundsFetched) {
+      fetchSounds();
+    }
     return sounds;
   };
 
@@ -35,12 +39,19 @@ app.service('SoundService', ['$http', function ($http) {
     return allSoundsFetched;
   };
 
+  var setCurrentSoundMarker = function (path) {
+    currentSoundMarker = path;
+    console.log(TAG + "currentSoundMarker: " + currentSoundMarker);
+  };
+
+  var getCurrentSoundMarker = function () {
+    return currentSoundMarker;
+  };
+
   // Get sounds
   var fetchSounds = function () {
     $http.get('/sounds/get-all')
     .then(function (successResponse) {
-      var data = successResponse.data;
-      //console.log(data);
       sounds = successResponse.data;
       allSoundsFetched = true;
     }, function (errorResponse) {
@@ -76,7 +87,8 @@ app.service('SoundService', ['$http', function ($http) {
     fetchSounds: fetchSounds,
     soundsFetched: soundsFetched,
     fetchUserSounds: fetchUserSounds,
-    userSoundsFetched: userSoundsFetched
-
+    userSoundsFetched: userSoundsFetched,
+    getCurrentSoundMarker: getCurrentSoundMarker,
+    setCurrentSoundMarker: setCurrentSoundMarker
   }
 }]);

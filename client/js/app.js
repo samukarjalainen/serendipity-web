@@ -64,6 +64,7 @@ app.config(function ($httpProvider, $routeProvider) {
     })
     .when('/tracks', {
       templateUrl: '../views/tracks.html',
+      controller: 'TracksCtrl',
       access: {
         requiredLogin: true,
         requiredAdmin: true

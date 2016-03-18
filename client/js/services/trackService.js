@@ -6,6 +6,9 @@ app.service('TrackService', ['$http', function ($http) {
   var tracks = [];
 
   var getTracks = function () {
+    if (!audioTracksFetched) {
+      fetchTracks();
+    }
     return tracks;
   };
 
@@ -31,11 +34,16 @@ app.service('TrackService', ['$http', function ($http) {
     });
   };
 
+  var setTracksFetched = function (value) {
+    audioTracksFetched = value;
+  };
+
   return {
     getTracks: getTracks,
     setTracks: setTracks,
-    fetchTracks: fetchTracks,
+    updateTracks: fetchTracks,
     tracksFetched: tracksFetched,
-
+    setTracksFetched: setTracksFetched
   }
+
 }]);
