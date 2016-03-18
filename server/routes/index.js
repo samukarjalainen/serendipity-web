@@ -28,7 +28,9 @@ router.post('/api/sounds/upload', sounds.create);
 router.post('/api/sounds/mysounds', sounds.getUserSounds);
 
 router.post('/api/sounds/get-all-by-location', sounds.getAllByLocation);
-
+//TO DO
+router.post('api/sounds/update', sounds.update);
+router.delete('/api/sounds/delete', sounds.delete);
 
 // Admin user routes
 router.get('/api/users', users.getAll);

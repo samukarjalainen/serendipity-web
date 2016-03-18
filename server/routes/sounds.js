@@ -23,6 +23,10 @@ var sounds = {
     });
   },
 
+	
+	//SELECT *
+	//FROM sound
+	//WHERE id = soundId
   getOne: function(req, res) {
     // TODO: Implement
   },
@@ -126,12 +130,45 @@ var sounds = {
     });
   },
 
+	
+	//UPDATE sound 
+	//SET title = 'x', description = 'y', path =  'z'
+	//WHERE id = SoundId and UserId = UserId
+	//TO DO
   update: function(req, res) {
-    // TODO: Finish this function
+		/*
+		console.log(req.body.id);
+    if (req.body.id && typeof req.body.id !== 'undefined') {
+      db.User.update(req.body, { where : { id: req.body.id } }
+      ).then(function () {
+        console.log("User with ID: " + req.body.id + " updated successfully");
+        res.status(200);
+        res.json({ success: true, message: "User updated succesfully" });
+      }).catch(function (err) {
+        console.log("Error updating user");
+        console.log(err);
+        res.status(400);
+        res.json({ success: false, message: err.message, errors: err.errors });
+      });
+    } else {
+      console.log("Request ID undefined");
+      res.status(400);
+      res.json({ success: false, message: "Request ID undefined" });
+    }
+		*/
   },
 
+	
+	//DELETE FROM sound where id= soundId;
+	//TO DO
   delete: function(req, res) {
-    // TODO: Finish this function
+		/*
+		var soundId = req.body.soundid || req.headers['soundid'];
+
+    console.log(TAG + "sound from body or header: " + soundId);
+
+    db.Sound.delete({ where: { id: soundId } });
+		*/
   },
 
   createDummySounds: function (req, res) {
