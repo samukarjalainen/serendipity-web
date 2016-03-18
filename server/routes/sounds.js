@@ -23,12 +23,20 @@ var sounds = {
     });
   },
 
-	
-	//SELECT *
-	//FROM sound
-	//WHERE id = soundId
   getOne: function(req, res) {
-    // TODO: Implement
+    var soundId = req.params.id;
+    db.Sound.findOne({ where: { id: soundId }})
+      .then(function (sound) {
+      if (!sound || typeof sound == 'undefined') {
+        res.status(404);
+        res.json({
+          "status": 404,
+          "message": "Sound not found"
+        });
+      } else {
+        res.json(sound);
+      }
+    })
   },
 
   getUserSounds: function (req, res) {
@@ -169,6 +177,16 @@ var sounds = {
 
     db.Sound.delete({ where: { id: soundId } });
 		*/
+		db.Sound.remove({
+            _id: req.params.sound_id
+        }, function(err, sound) {
+            if (err)
+                res.send(err);
+
+            res.json({ message: 'Successfully deleted' });
+        });
+				
+
   },
 
   createDummySounds: function (req, res) {
