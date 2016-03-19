@@ -8,6 +8,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
+      <th>Status</th>
 			<th>Edit</th>
 			<th>Delete</th>
     </tr>
@@ -16,6 +17,7 @@
 			<tr ng-repeat="sound in sounds">
 				<td>{{ sound.title }}</td>
 				<td>{{ sound.description }}</td>
+        <td>{{ sound.status }}</td>
 				<td><button class="btn btn-serendipity" ng-click="openEditor(sound)">Edit</button></td>
 				<td><button type="submit" class="btn btn-danger" data-sound-id=sound.id ng-click="deleteSound()">Delete</button></td>
 			</tr>
