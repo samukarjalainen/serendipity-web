@@ -1,0 +1,22 @@
+@import "variables";
+
+.editor-wrapper {
+  background-color: rgba(black, 0.8);
+  margin: 50px auto;
+  padding: 20px;
+
+  .sound-title, .track-title {
+    @extend %emphasis-font;
+    margin-bottom: 10px;
+  }
+
+  .sound-description, .track-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  audio {
+    width: 100%;
+  }
+
+}

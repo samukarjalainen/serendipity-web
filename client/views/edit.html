@@ -1,0 +1,47 @@
+<!-- EDITOR -->
+<div class="editor-overlay" ng-controller="EditCtrl">
+  <div class="container">
+    <div class="editor-wrapper clearfix">
+
+      <!-- SOUNDS -->
+      <div class="col-lg-6 col-xs-12">
+        <div class="form-group sounds">
+          <label for="sounds-dropdown">Sounds:</label>
+          <select class="form-control" id="sounds-dropdown" ng-model="soundSelect" ng-change="updateSoundInfo()">
+            <option ng-repeat="sound in sounds" value="{{sound.path}}">{{sound.title}}</option>
+          </select>
+        </div>
+        <div class="sound-info">
+          <div class="sound-title">{{currentSound.title}}</div>
+          <div class="sound-description">{{currentSound.description}}</div>
+          <div class="sound-loc">{{currentSound.lat}} {{currentSound.long}}</div>
+        </div>
+
+        <audio id="sound-audio" ng-src="{{soundSelect}}" controls></audio>
+      </div>
+
+      <!-- TRACKS -->
+      <div class="col-lg-6 col xs-12">
+        <div class="form-group tracks">
+          <label for="tracks-dropdown">Tracks:</label>
+          <select class="form-control" id="tracks-dropdown" ng-model="trackSelect" ng-change="updateTrackInfo()">
+            <option ng-repeat="track in tracks" value="{{track.path}}">{{track.title}}</option>
+          </select>
+        </div>
+        <div class="track-title">{{currentTrack.title}}</div>
+        <div class="track-type">{{currentTrack.type}}</div>
+        <div class="track-description">{{currentTrack.description}}</div>
+        <audio id="track-audio" ng-src="{{trackSelect}}" controls></audio>
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+</div>

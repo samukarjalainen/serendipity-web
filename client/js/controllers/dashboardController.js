@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('DashboardCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller('DashboardCtrl', ['$scope', '$http', '$location', function ($scope, $http, $location) {
 
 	$scope.sounds = [];
 
@@ -15,7 +15,8 @@ app.controller('DashboardCtrl', ['$scope', '$http', function ($scope, $http) {
 		console.log($scope.sounds);
 
   $scope.openEditor = function (sound) {
-    console.log(sound);
+    //console.log(sound);
+    $location.path('/edit');
   };
 
 }]);

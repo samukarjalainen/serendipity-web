@@ -62,6 +62,10 @@ a {
   }
 }
 
+.form-control {
+  @include border-radius(0);
+}
+
 
 .content-wrapper {
   min-height:100%;

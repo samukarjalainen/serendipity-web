@@ -1,4 +1,4 @@
-app.controller('PlayerCtrl', ['$scope', '$rootScope', 'SoundService', function($scope, $rootScope, SoundService) {
+app.controller('PlayerCtrl', ['$scope', '$rootScope', '$sce', 'SoundService', function($scope, $rootScope, $sce, SoundService) {
 
   var TAG = 'PlayerCtrl: ';
 
@@ -30,6 +30,10 @@ app.controller('PlayerCtrl', ['$scope', '$rootScope', 'SoundService', function($
     }
 
     $scope.source = source;
+    $scope.trustedSrc = $sce.trustAsResourceUrl($scope.source);
+    console.log(TAG + "scope source: " + $scope.source);
+
+
 
     // Set the source and refresh player
     $scope.audioSrc.src = source;
@@ -47,6 +51,7 @@ app.controller('PlayerCtrl', ['$scope', '$rootScope', 'SoundService', function($
       $scope.audioDesc.html('<span class="text-muted">No description</span>');
 
     // Pop the overlay and player window
+
     openAudioModal();
 
   }

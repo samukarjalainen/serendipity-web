@@ -15,6 +15,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -5837,7 +5838,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -5880,7 +5881,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -5964,6 +5965,12 @@ a:hover {
     color: #555;
     background-color: white; }
 
+.form-control {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
+
 .content-wrapper {
   min-height: 100%;
   position: relative;
@@ -5983,7 +5990,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6121,7 +6128,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6198,7 +6205,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6402,7 +6409,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6516,7 +6523,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6573,7 +6580,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6627,7 +6634,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6683,7 +6690,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6727,3 +6734,58 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     opacity: 0.8; }
     .upload-wrapper .form-horizontal .btn-default:hover {
       opacity: 1; }
+
+/* -- Misc variables -- */
+/* -- Colors -- */
+/* -- Media queries -- */
+/* -- Fonts -- */
+html,
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: white; }
+
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
+  font-size: 23px;
+  font-weight: 700; }
+
+.header {
+  font-size: 18px;
+  text-transform: uppercase; }
+
+.footer .footer-hero-wrapper .footer-hero-text {
+  opacity: 0.7;
+  font-size: 26px; }
+
+.main-wrapper .definition .definition-title {
+  font-size: 40px;
+  line-height: 50px;
+  color: #070706;
+  font-weight: 300; }
+
+.main-wrapper .steps-wrapper {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #070706; }
+
+/* -- Misc placeholders -- */
+body, .main-wrapper .help-us, .main-wrapper .about-us {
+  background-image: url("../images/city-surface-blur.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; }
+
+/* -- Mixins -- */
+.editor-wrapper {
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 50px auto;
+  padding: 20px; }
+  .editor-wrapper .sound-title, .editor-wrapper .track-title {
+    margin-bottom: 10px; }
+  .editor-wrapper .sound-description, .editor-wrapper .track-description {
+    font-size: 14px;
+    margin-bottom: 20px; }
+  .editor-wrapper audio {
+    width: 100%; }

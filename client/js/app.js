@@ -70,10 +70,24 @@ app.config(function ($httpProvider, $routeProvider) {
         requiredAdmin: true
       }
     })
+  .when('/edit', {
+    templateUrl: '../views/edit.html',
+    controller: 'EditCtrl',
+    access: {
+      requiredLogin: true
+    }
+  })
     .otherwise({
       redirectTo: '/'
     })
 });
+
+app.filter("trustUrl", ['$sce', function ($sce) {
+  console.log('App: $sce trustUrl called');
+  return function (recordingUrl) {
+    return $sce.trustAsResourceUrl(recordingUrl);
+  };
+}]);
 
 app.run(function($rootScope, $window, $location, AuthenticationFactory) {
   AuthenticationFactory.check();
