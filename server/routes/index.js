@@ -19,6 +19,7 @@ router.get('/sounds/download/:id', sounds.downloadByIdFromParams);
 router.post('/sounds/download', sounds.downloadByIdFromHeaderOrBody);
 router.get('/sounds/create-dummy-sounds', sounds.createDummySounds);
 router.get('/users/create-dummy-users', users.createDummyUsers);
+router.get('/tracks/create-from-json', tracks.createFromJson);
 router.get('/tracks/get-all', tracks.getAll);
 
 // Routes that require user role (logging in)

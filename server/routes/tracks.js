@@ -2,6 +2,8 @@ var db = require('../database');
 var Sequelize = require('sequelize');
 var auth = require('./auth.js');
 var uploadTrack = require('../middleware/multer-upload-track.js');
+var fs = require('fs');
+var path = require("path");
 var TAG = 'api/routes/tracks.js: ';
 
 var tracks = {
@@ -78,6 +80,63 @@ var tracks = {
         }
       }
     });
+
+  },
+
+  createFromJson: function (req, res) {
+
+    //console.log(path.join(__dirname, "../../client/sounds/tracks"));
+    var files = fs.readdirSync(path.join(__dirname, "../../client/sounds/tracks"));
+    console.log(files);
+
+    var data =
+    [
+      {
+        "title": "Tip Toe",
+        "description": "Chippery synth tune.",
+        "type": "Classical",
+        "path": "sounds/tracks/tip_toe_synth_strings.mp3",
+        "file": "tip_toe_synth_strings.mp3"
+      }
+    ];
+
+    console.log(TAG + "Raw data");
+    console.log(data);
+
+
+
+    data.forEach(function (track) {
+
+      files.forEach(function (file) {
+        if (track.file == file) {
+          // db.Track.upsert({
+          //   title: track.title,
+          //   description: track.description,
+          //   type: track.type,
+          //   path: track.path
+          // })
+          // .then(function (result) {
+          //   if (result) {
+          //     res.status(200);
+          //     res.json({
+          //       success: true,
+          //       message: "Tracks uploaded succesfully."
+          //     });
+          //   } else {
+          //     res.status(200);
+          //     res.json({
+          //       success: false,
+          //       message: "A sound with those properties already found."
+          //     });
+          //   }
+          // });
+        }
+      });
+
+
+    });
+
+    res.json({success: true});
 
   }
 
