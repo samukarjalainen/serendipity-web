@@ -1,6 +1,7 @@
 var db = require('../database');
 var Sequelize = require('sequelize');
 var upload = require('../middleware/multer-upload.js');
+var uploadRemix = require('../middleware/multer-upload-remixed.js');
 var auth = require('./auth.js');
 var TAG = 'api/routes/sounds.js: ';
 
@@ -138,8 +139,8 @@ var sounds = {
     });
   },
 
-	
-	//UPDATE sound 
+
+	//UPDATE sound
 	//SET title = 'x', description = 'y', path =  'z'
 	//WHERE id = SoundId and UserId = UserId
 	//TO DO
@@ -166,7 +167,7 @@ var sounds = {
 		*/
   },
 
-	
+
 	//DELETE FROM sound where id= soundId;
 	//TO DO
   delete: function(req, res) {
@@ -185,7 +186,7 @@ var sounds = {
 
             res.json({ message: 'Successfully deleted' });
         });
-				
+
 
   },
 
@@ -315,7 +316,11 @@ var sounds = {
     var user = req.user;
   },
 
-  getOverlayTracks: function (req, res) {
+  remix: function (req, res) {
+
+    console.log(TAG + "Remix");
+
+    res.json({success:true});
 
   }
 };

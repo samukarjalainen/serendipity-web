@@ -25,9 +25,11 @@ router.get('/tracks/get-all', tracks.getAll);
 router.get('/api/user/:username', users.getOne);
 router.post('/api/users/update', users.update);
 router.post('/api/sounds/upload', sounds.create);
+router.post('/api/sounds/upload-remix', sounds.remix);
 router.post('/api/sounds/mysounds', sounds.getUserSounds);
 router.post('/api/sounds/get-all-by-location', sounds.getAllByLocation);
 router.get('/api/sounds/:id', sounds.getOne);
+
 //TO DO
 router.post('api/sounds/update', sounds.update);
 router.delete('/api/sounds/delete', sounds.delete);
