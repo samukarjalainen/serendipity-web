@@ -138,20 +138,14 @@ var sounds = {
     });
   },
 
-	
-	//UPDATE sound 
-	//SET title = 'x', description = 'y', path =  'z'
-	//WHERE id = SoundId and UserId = UserId
-	//TO DO
   update: function(req, res) {
-		/*
 		console.log(req.body.id);
     if (req.body.id && typeof req.body.id !== 'undefined') {
-      db.User.update(req.body, { where : { id: req.body.id } }
+      db.Sound.update(req.body, { where : { id: req.body.id } }
       ).then(function () {
-        console.log("User with ID: " + req.body.id + " updated successfully");
+        console.log("Sound with ID: " + req.body.id + " updated successfully");
         res.status(200);
-        res.json({ success: true, message: "User updated succesfully" });
+        res.json({ success: true, message: "Sound updated succesfully" });
       }).catch(function (err) {
         console.log("Error updating user");
         console.log(err);
@@ -163,7 +157,6 @@ var sounds = {
       res.status(400);
       res.json({ success: false, message: "Request ID undefined" });
     }
-		*/
   },
 
 	
@@ -171,12 +164,21 @@ var sounds = {
 	//TO DO
   delete: function(req, res) {
 		/*
+		    var collection =  db.Sound.findAll();
+    collection.remove({ _id: req.params.id }, function(err, sound){
+        if (err) throw err;
+
+        res.json(sound);
+    });
+		*/
+		/*
 		var soundId = req.body.soundid || req.headers['soundid'];
 
     console.log(TAG + "sound from body or header: " + soundId);
 
     db.Sound.delete({ where: { id: soundId } });
 		*/
+		/*
 		db.Sound.remove({
             _id: req.params.sound_id
         }, function(err, sound) {
@@ -185,8 +187,37 @@ var sounds = {
 
             res.json({ message: 'Successfully deleted' });
         });
-				
+				*/
 
+/*
+				db.sound.remove({		
+				var soundId = req.params.id;
+    db.Sound.findOne({ where: { id: soundId }}
+		)}).then(function (sound) {
+      if (!sound || typeof sound == 'undefined') {
+        res.status(404);
+        res.json({
+          "status": 404,
+          "message": "Sound not found"
+        });
+      } else {
+        res.json(sound);
+      }
+    })
+		*/
+		
+				/*
+      if (!sound || typeof sound == 'undefined') {
+        res.status(404);
+        res.json({
+          "status": 404,
+          "message": "Sound not found"
+        });
+      } else {
+        res.json(sound);
+      }
+    })
+*/
   },
 
   createDummySounds: function (req, res) {
