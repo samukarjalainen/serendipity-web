@@ -349,59 +349,95 @@ var sounds = {
 
   remix: function (req, res) {
 
+    // TODO: Implement logic for creating new file / deleting the old one
+    // TODO: Implement logic for setting the output volume
+
     var mkdirp = require('mkdirp');
 
     console.log(TAG + "Remix");
     var user = auth.getUser(req);
-    console.log(req.body);
 
-    var soundVol = req.body.soundVol;
-    var trackVol = req.body.trackVol;
-    var newFile = req.body.newFile;
+    if (user) {
+      console.log(req.body);
 
-
-
-    // Set up the variables for mp3 conversion
-    var dateNow = Date.now().toString();
-    var basePath = '~/serendipity-web/client/';
-    //var basePath = '/client/'
-    var soundPath = basePath + req.body.sound.path;
-    var trackPath = basePath + req.body.track.path;
-    var outputPath = basePath + 'sounds/uploads/' + user.username + '/';
+      var soundVol = req.body.soundVol;
+      var trackVol = req.body.trackVol;
+      var newFile = req.body.newFile;
 
 
-    console.log(soundPath);
-    console.log(trackPath);
-    console.log(outputPath);
+      // Set up the variables for mp3 conversion
+      console.log(TAG + "Current dir: " + __dirname);
 
-    //mkdirp.sync(outputPath);
-
-    outputPath = outputPath + 'remix-' + dateNow + '.mp3';
-
-    var command = 'ffmpeg -i ' + soundPath + ' -i ' + trackPath + ' -filter_complex amix=duration=shortest ' + outputPath;
-    console.log(TAG + "THE COMMAND: " + command);
+      var dateNow = Date.now().toString();
+      var basePath = '~/serendipity-web/client/';
+      var soundPath = basePath + req.body.sound.path;
+      var trackPath = basePath + req.body.track.path;
+      var outputPath = basePath + 'sounds/uploads/' + user.username + '/';
 
 
-    var exec = require('child_process').exec;
-    var child = exec(command, function (error, stdout, stderr) {
-      console.log('stdout: ' + stdout);
-      console.log('stderr: ' + stderr);
-      if (error !== null) {
-        console.log('exec error: ' + error);
-      }
-    });
+      console.log(soundPath);
+      console.log(trackPath);
+      console.log(outputPath);
 
-    // var execFile = require('child_process').execFile;
-    // var child = execFile('ffmpeg', ['-i', soundPath, '-i', trackPath, '-filter_complex', 'amix=duration=shortest', outputPath], function (error, stdout, stderr) {
-    //   if (error) {
-    //     throw error;
-    //   }
-    //   console.log(stdout);
-    // });
+      mkdirp.sync(outputPath + 'remix/');
+
+      outputPath = outputPath + 'remix-' + dateNow + '.mp3';
+
+      var command = 'ffmpeg -i ' + soundPath + ' -i ' + trackPath + ' -filter_complex amix=duration=shortest ' + outputPath;
+      console.log(TAG + "THE COMMAND: " + command);
 
 
+      var exec = require('child_process').exec;
+      var child = exec(command, function (error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
 
-    res.json({success:true});
+        if (error !== null) {
+          console.log('exec error: ' + error);
+          res.status(500);
+          res.json({success: false, error: error});
+        } else {
+          // Set up vars
+          var title = req.body.sound.title + '[' + req.body.track.title + ']';
+          var description = req.body.sound.description;
+          var lat = req.body.sound.lat;
+          var long = req.body.sound.long;
+          var path = outputPath;
+
+          // Trim the path for the file
+          console.log(TAG + "Path before: " + path);
+          if (path.indexOf('\\') !== -1) {
+            path = path.replace('~\\serendipity-web\\client\\', '');
+          } else {
+            path = path.replace("~/serendipity-web/client/", "");
+          }
+          console.log(TAG + "Path after: " + path);
+
+          db.Sound.create({
+            title: title,
+            description: description,
+            status: 'remix',
+            lat: lat,
+            long: long,
+            path: path,
+            UserId: user.id
+          }).then(function (result) {
+            console.log(TAG + "Sound created in db");
+            console.log(result);
+            res.status(200);
+            res.json({success: true, message: 'Remixed successfully'});
+          }, function (err) {
+            res.status(500);
+            res.json({success: false, message: 'Error on saving the sound to db', error: err})
+          });
+
+        }
+      });
+
+    } else {
+      res.status(403);
+      res.json({success: false, message: "User not found"});
+    }
 
   }
 };
