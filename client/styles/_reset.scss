@@ -60,6 +60,8 @@ a {
     color: $btn-text;
     background-color: $btn-bg;
   }
+
+  //&:focus, &:active {outline: rgba(white, 0.5);}
 }
 
 .form-control {

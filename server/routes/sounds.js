@@ -319,6 +319,27 @@ var sounds = {
   remix: function (req, res) {
 
     console.log(TAG + "Remix");
+    console.log(req.body);
+
+    var soundVol = req.body.soundVol;
+    var trackVol = req.body.trackVol;
+    var newFile = req.body.newFile;
+
+    var soundPath = req.body.sound.path;
+    var trackPath = req.body.track.path;
+    console.log(soundPath);
+    console.log(trackPath);
+
+    // Set up the variables for mp3 conversion
+    var execFile = require('child_process').execFile;
+    var child = execFile('node', ['--version'], function (error, stdout, stderr) {
+      if (error) {
+        throw error;
+      }
+      console.log(stdout);
+    });
+
+
 
     res.json({success:true});
 

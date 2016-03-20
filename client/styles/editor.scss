@@ -15,8 +15,22 @@
     margin-bottom: 20px;
   }
 
+  .track-type {
+    text-transform: capitalize;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
   audio {
     width: 100%;
+  }
+
+  .combined-wrap {
+    text-align: center;
+  }
+
+  .audio-combined-controls {
+    display: inline-block;
   }
 
 }
