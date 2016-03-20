@@ -376,6 +376,7 @@ var sounds = {
       var soundPath = basePath + req.body.sound.path;
       var trackPath = basePath + req.body.track.path;
       var outputPath = basePath + 'sounds/uploads/' + user.username + '/';
+      var title = req.body.sound.title + '[' + req.body.track.title + ']';
 
       var fileTitle = title;
       fileTitle.replace(/\s+/g, "");
@@ -407,7 +408,6 @@ var sounds = {
           res.json({success: false, error: error});
         } else {
           // Set up vars
-          var title = req.body.sound.title + '[' + req.body.track.title + ']';
           var description = req.body.sound.description;
           var lat = req.body.sound.lat;
           var long = req.body.sound.long;
