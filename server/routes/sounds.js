@@ -349,6 +349,8 @@ var sounds = {
 
   remix: function (req, res) {
 
+    var mkdirp = require('mkdirp');
+
     console.log(TAG + "Remix");
     var user = auth.getUser(req);
     console.log(req.body);
@@ -361,14 +363,20 @@ var sounds = {
 
     // Set up the variables for mp3 conversion
     var dateNow = Date.now().toString();
-    var basePath = '~/serendipity-web/client/';
+    //var basePath = '~/serendipity-web/client/';
+    var basePath = '/client/'
     var soundPath = basePath + req.body.sound.path;
     var trackPath = basePath + req.body.track.path;
-    var outputPath = basePath + 'sounds/uploads/' + user.username + '/remix/remix-' + dateNow + '.mp3';
+    var outputPath = basePath + 'sounds/uploads/' + user.username + '/remix/';
+
 
     console.log(soundPath);
     console.log(trackPath);
     console.log(outputPath);
+
+    mkdirp.sync(outputPath);
+
+    outputPath = outputPath + 'remix-' + dateNow + '.mp3';
 
 
     var execFile = require('child_process').execFile;
