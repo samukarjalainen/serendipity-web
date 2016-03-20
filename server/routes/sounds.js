@@ -353,6 +353,7 @@ var sounds = {
     // TODO: Implement logic for setting the output volume
 
     var mkdirp = require('mkdirp');
+    var path = require('path');
 
     console.log(TAG + "Remix");
     var user = auth.getUser(req);
@@ -376,11 +377,11 @@ var sounds = {
       var trackPath = basePath + req.body.track.path;
       var outputPath = basePath + 'sounds/uploads/' + user.username + '/';
 
-      // var fileTitle = title;
-      // fileTitle.replace(/\s+/g, "");
-      // fileTitle.replace("[", "");
-      // fileTitle.replace("]", "");
-      // console.log(fileTitle);
+      var fileTitle = title;
+      fileTitle.replace(/\s+/g, "");
+      fileTitle.replace("[", "");
+      fileTitle.replace("]", "");
+      console.log(fileTitle);
 
 
       console.log(soundPath);
