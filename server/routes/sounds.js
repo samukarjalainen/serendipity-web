@@ -359,24 +359,24 @@ var sounds = {
     var user = auth.getUser(req);
 
     if (user) {
-      console.log(req.body);
-
       var soundVol = req.body.soundVol;
       var trackVol = req.body.trackVol;
       var newFile = req.body.newFile;
 
 
       // Set up the variables for mp3 conversion
-      var clientDir = path.join(__dirname, '../../client/');
-      console.log(TAG + "Current dir: " + __dirname);
-      console.log(TAG + "Client dir:" + clientDir);
+      var basePath = path.join(__dirname, '../../client/');
+      console.log(TAG + "Client dir: " + basePath);
 
       var dateNow = Date.now().toString();
-      var basePath = '~/serendipity-web/client/';
+      //var basePath = '~/serendipity-web/client/';
       var soundPath = basePath + req.body.sound.path;
       var trackPath = basePath + req.body.track.path;
       var outputPath = basePath + 'sounds/uploads/' + user.username + '/';
       var title = req.body.sound.title + '[' + req.body.track.title + ']';
+      var description = req.body.sound.description;
+      var lat = req.body.sound.lat;
+      var long = req.body.sound.long;
 
       var fileTitle = title;
       fileTitle.replace(/\s+/g, "");
@@ -384,10 +384,6 @@ var sounds = {
       fileTitle.replace("]", "");
       console.log(fileTitle);
 
-
-      console.log(soundPath);
-      console.log(trackPath);
-      console.log(outputPath);
 
       mkdirp.sync(outputPath + 'remix/');
 
@@ -397,6 +393,7 @@ var sounds = {
       console.log(TAG + "THE COMMAND: " + command);
 
 
+      // Execute mp3 encoding
       var exec = require('child_process').exec;
       var child = exec(command, function (error, stdout, stderr) {
         console.log('stdout: ' + stdout);
@@ -408,27 +405,29 @@ var sounds = {
           res.json({success: false, error: error});
         } else {
           // Set up vars
-          var description = req.body.sound.description;
-          var lat = req.body.sound.lat;
-          var long = req.body.sound.long;
-          var path = outputPath;
 
-          // Trim the path for the file
-          console.log(TAG + "Path before: " + path);
-          if (path.indexOf('\\') !== -1) {
-            path = path.replace('~\\serendipity-web\\client\\', '');
+
+          // Trim the filePath for the file
+          var filePath = outputPath;
+          console.log(TAG + "Path before: " + filePath);
+
+          if (filePath.indexOf('\\') !== -1) {
+            filePath = filePath.replace('\\home\\admin\\serendipity-web\\client\\', '');
           } else {
-            path = path.replace("~/serendipity-web/client/", "");
+            filePath = filePath.replace(basePath, "");
           }
-          console.log(TAG + "Path after: " + path);
 
+          console.log(TAG + "Path after: " + filePath);
+
+
+          // Save the sound to DB
           db.Sound.create({
             title: title,
             description: description,
             status: 'remix',
             lat: lat,
             long: long,
-            path: path,
+            path: filePath,
             UserId: user.id
           }).then(function (result) {
             console.log(TAG + "Sound created in db");
