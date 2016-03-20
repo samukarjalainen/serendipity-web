@@ -34,3 +34,16 @@
   }
 
 }
+
+.message-area {
+  position: absolute;
+  bottom: -100px;
+  left: calc(50% - 114px);
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+
+  h4 {
+    display: inline-block;
+  }
+}

@@ -5965,6 +5965,12 @@ a:hover {
     color: #555;
     background-color: white; }
 
+.alert {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
+
 .form-control {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -5979,6 +5985,17 @@ a:hover {
 .view-wrapper {
   padding-bottom: 320px;
   /* Height of the footer element */ }
+
+.animate-if.ng-enter, .animate-if.ng-leave {
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s; }
+
+.animate-if.ng-enter,
+.animate-if.ng-leave.ng-leave-active {
+  opacity: 0; }
+
+.animate-if.ng-leave,
+.animate-if.ng-enter.ng-enter-active {
+  opacity: 1; }
 
 /* -- Misc variables -- */
 /* -- Colors -- */
@@ -6796,4 +6813,14 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   .editor-wrapper .combined-wrap {
     text-align: center; }
   .editor-wrapper .audio-combined-controls {
+    display: inline-block; }
+
+.message-area {
+  position: absolute;
+  bottom: -100px;
+  left: calc(50% - 114px);
+  margin: 0 auto;
+  display: block;
+  text-align: center; }
+  .message-area h4 {
     display: inline-block; }

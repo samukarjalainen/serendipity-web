@@ -1,4 +1,4 @@
-app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', function ($scope, $rootScope, $http, $routeParams) {
+app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', '$timeout', function ($scope, $rootScope, $http, $routeParams, $timeout) {
 
   var TAG = 'EditCtrl: ';
 
@@ -51,7 +51,6 @@ app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', fun
     if (soundElement.src === '' || trackElement.src === '') {
       console.log(TAG + "source empty");
     } else {
-
       soundElement.play();
       trackElement.play();
       //soundElement[soundElement.paused ? 'play' : 'pause']();
@@ -91,10 +90,21 @@ app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', fun
     $http.post('/api/sounds/upload-remix', {sound: sound, track: track, soundVol: sndVolFloat, trackVol: trckVolFloat, newFile: newFileVal})
     .then(function (successResponse) {
       console.log(successResponse);
+      $scope.remixSuccess = true;
+      $timeout(function () {
+        $scope.remixSuccess = false;
+      }, 5000);
     }, function (errorResponse) {
       console.log(errorResponse)
     });
+  };
 
+  $scope.toggleMessage = function () {
+    if (!$scope.remixSuccess) {
+      $scope.remixSuccess = true;
+    } else {
+      $scope.remixSuccess = false;
+    }
   }
 
 }]);

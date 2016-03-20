@@ -64,6 +64,11 @@ a {
   //&:focus, &:active {outline: rgba(white, 0.5);}
 }
 
+.alert {
+  @include border-radius(0);
+
+}
+
 .form-control {
   @include border-radius(0);
 }

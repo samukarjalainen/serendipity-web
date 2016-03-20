@@ -32,7 +32,6 @@
         <div class="track-type">{{currentTrack.type}}</div>
         <div class="track-description">{{currentTrack.description}}</div>
         <audio id="track-audio" ng-src="{{trackSelect}}" controls></audio>
-
       </div>
 
       <!-- COMBINE -->
@@ -47,9 +46,12 @@
             <button class="btn btn-serendipity" ng-click="pauseBoth()"><i class="glyphicon glyphicon-pause"></i></button>
             <button class="btn btn-serendipity" ng-click="stopBoth()"><i class="glyphicon glyphicon-stop"></i></button>
             <button class="btn btn-success" ng-click="saveSoundRemix()">Save</button>
+            <button class="btn btn-success" ng-click="toggleMessage()">Toggle</button>
           </div>
         </div>
-
+        <div class="message-area">
+          <h4 class="alert alert-success animate-if" ng-if="remixSuccess">Remix saved successfully</h4>
+        </div>
       </div>
 
 
