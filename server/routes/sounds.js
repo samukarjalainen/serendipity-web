@@ -375,12 +375,12 @@ var sounds = {
       var soundPath = basePath + req.body.sound.path;
       var trackPath = basePath + req.body.track.path;
       var outputPath = basePath + 'sounds/uploads/' + user.username + '/';
-      var title = req.body.sound.title + '[' + req.body.track.title + ']';
-      var fileTitle = title;
-      fileTitle.replace(/\s+/g, "");
-      fileTitle.replace("[", "");
-      fileTitle.replace("]", "");
-      console.log(fileTitle);
+
+      // var fileTitle = title;
+      // fileTitle.replace(/\s+/g, "");
+      // fileTitle.replace("[", "");
+      // fileTitle.replace("]", "");
+      // console.log(fileTitle);
 
 
       console.log(soundPath);
@@ -389,7 +389,7 @@ var sounds = {
 
       mkdirp.sync(outputPath + 'remix/');
 
-      outputPath = outputPath + fileTitle + dateNow + '.mp3';
+      outputPath = outputPath + 'remix-' + dateNow + '.mp3';
 
       var command = 'ffmpeg -i ' + soundPath + ' -i ' + trackPath + ' -filter_complex amix=duration=shortest ' + outputPath;
       console.log(TAG + "THE COMMAND: " + command);
@@ -406,6 +406,7 @@ var sounds = {
           res.json({success: false, error: error});
         } else {
           // Set up vars
+          var title = req.body.sound.title + '[' + req.body.track.title + ']';
           var description = req.body.sound.description;
           var lat = req.body.sound.lat;
           var long = req.body.sound.long;
