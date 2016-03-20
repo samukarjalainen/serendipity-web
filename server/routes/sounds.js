@@ -363,29 +363,41 @@ var sounds = {
 
     // Set up the variables for mp3 conversion
     var dateNow = Date.now().toString();
-    //var basePath = '~/serendipity-web/client/';
-    var basePath = '/client/'
+    var basePath = '~/serendipity-web/client/';
+    //var basePath = '/client/'
     var soundPath = basePath + req.body.sound.path;
     var trackPath = basePath + req.body.track.path;
-    var outputPath = basePath + 'sounds/uploads/' + user.username + '/remix/';
+    var outputPath = basePath + 'sounds/uploads/' + user.username + '/';
 
 
     console.log(soundPath);
     console.log(trackPath);
     console.log(outputPath);
 
-    mkdirp.sync(outputPath);
+    //mkdirp.sync(outputPath);
 
     outputPath = outputPath + 'remix-' + dateNow + '.mp3';
 
+    var command = 'ffmpeg -i ' + soundPath + ' -i ' + trackPath + ' -filter_complex amix=duration=shortest ' + outputPath;
+    console.log(TAG + "THE COMMAND: " + command);
 
-    var execFile = require('child_process').execFile;
-    var child = execFile('ffmpeg', ['-i', soundPath, '-i', trackPath, '-filter_complex', 'amix=duration=shortest', outputPath], function (error, stdout, stderr) {
-      if (error) {
-        throw error;
+
+    var exec = require('child_process').exec;
+    var child = exec(command, function (error, stdout, stderr) {
+      console.log('stdout: ' + stdout);
+      console.log('stderr: ' + stderr);
+      if (error !== null) {
+        console.log('exec error: ' + error);
       }
-      console.log(stdout);
     });
+
+    // var execFile = require('child_process').execFile;
+    // var child = execFile('ffmpeg', ['-i', soundPath, '-i', trackPath, '-filter_complex', 'amix=duration=shortest', outputPath], function (error, stdout, stderr) {
+    //   if (error) {
+    //     throw error;
+    //   }
+    //   console.log(stdout);
+    // });
 
 
 
