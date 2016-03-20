@@ -366,13 +366,21 @@ var sounds = {
 
 
       // Set up the variables for mp3 conversion
+      var clientDir = path.join(__dirname, '../../client/');
       console.log(TAG + "Current dir: " + __dirname);
+      console.log(TAG + "Client dir:" + clientDir);
 
       var dateNow = Date.now().toString();
       var basePath = '~/serendipity-web/client/';
       var soundPath = basePath + req.body.sound.path;
       var trackPath = basePath + req.body.track.path;
       var outputPath = basePath + 'sounds/uploads/' + user.username + '/';
+      var title = req.body.sound.title + '[' + req.body.track.title + ']';
+      var fileTitle = title;
+      fileTitle.replace(/\s+/g, "");
+      fileTitle.replace("[", "");
+      fileTitle.replace("]", "");
+      console.log(fileTitle);
 
 
       console.log(soundPath);
@@ -381,7 +389,7 @@ var sounds = {
 
       mkdirp.sync(outputPath + 'remix/');
 
-      outputPath = outputPath + 'remix-' + dateNow + '.mp3';
+      outputPath = outputPath + fileTitle + dateNow + '.mp3';
 
       var command = 'ffmpeg -i ' + soundPath + ' -i ' + trackPath + ' -filter_complex amix=duration=shortest ' + outputPath;
       console.log(TAG + "THE COMMAND: " + command);
@@ -398,7 +406,6 @@ var sounds = {
           res.json({success: false, error: error});
         } else {
           // Set up vars
-          var title = req.body.sound.title + '[' + req.body.track.title + ']';
           var description = req.body.sound.description;
           var lat = req.body.sound.lat;
           var long = req.body.sound.long;
@@ -423,7 +430,6 @@ var sounds = {
             UserId: user.id
           }).then(function (result) {
             console.log(TAG + "Sound created in db");
-            console.log(result);
             res.status(200);
             res.json({success: true, message: 'Remixed successfully'});
           }, function (err) {
