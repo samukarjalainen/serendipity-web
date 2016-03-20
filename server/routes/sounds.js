@@ -191,7 +191,7 @@ var sounds = {
 				*/
 
 /*
-				db.sound.remove({		
+				db.sound.remove({
 				var soundId = req.params.id;
     db.Sound.findOne({ where: { id: soundId }}
 		)}).then(function (sound) {
@@ -206,7 +206,7 @@ var sounds = {
       }
     })
 		*/
-		
+
 				/*
       if (!sound || typeof sound == 'undefined') {
         res.status(404);
@@ -350,20 +350,29 @@ var sounds = {
   remix: function (req, res) {
 
     console.log(TAG + "Remix");
+    var user = auth.getUser(req);
     console.log(req.body);
 
     var soundVol = req.body.soundVol;
     var trackVol = req.body.trackVol;
     var newFile = req.body.newFile;
 
-    var soundPath = req.body.sound.path;
-    var trackPath = req.body.track.path;
-    console.log(soundPath);
-    console.log(trackPath);
+
 
     // Set up the variables for mp3 conversion
+    var dateNow = Date.now().toString();
+    var basePath = '~/serendipity-web/client/';
+    var soundPath = basePath + req.body.sound.path;
+    var trackPath = basePath + req.body.track.path;
+    var outputPath = basePath + 'sounds/uploads/' + user.username + '/remix/remix-' + dateNow + '.mp3';
+
+    console.log(soundPath);
+    console.log(trackPath);
+    console.log(outputPath);
+
+
     var execFile = require('child_process').execFile;
-    var child = execFile('node', ['--version'], function (error, stdout, stderr) {
+    var child = execFile('ffmpeg', ['-i', soundPath, '-i', trackPath, '-filter_complex', 'amix=duration=shortest', outputPath], function (error, stdout, stderr) {
       if (error) {
         throw error;
       }
