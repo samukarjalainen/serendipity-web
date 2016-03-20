@@ -362,12 +362,7 @@ var sounds = {
       var soundVol = req.body.soundVol;
       var trackVol = req.body.trackVol;
       var newFile = req.body.newFile;
-
-
-      // Set up the variables for mp3 conversion
       var basePath = path.join(__dirname, '../../client/');
-      console.log(TAG + "Client dir: " + basePath);
-
       var dateNow = Date.now().toString();
       //var basePath = '~/serendipity-web/client/';
       var soundPath = basePath + req.body.sound.path;
@@ -382,13 +377,13 @@ var sounds = {
       fileTitle.replace(/\s+/g, "");
       fileTitle.replace("[", "");
       fileTitle.replace("]", "");
+
+      // Debug stuff
       console.log(fileTitle);
+      console.log(TAG + "Client dir: " + basePath);
 
-
-      mkdirp.sync(outputPath + 'remix/');
-
+      // Populate the ffmpeg command
       outputPath = outputPath + 'remix-' + dateNow + '.mp3';
-
       var command = 'ffmpeg -i ' + soundPath + ' -i ' + trackPath + ' -filter_complex amix=duration=shortest ' + outputPath;
       console.log(TAG + "THE COMMAND: " + command);
 
@@ -404,23 +399,17 @@ var sounds = {
           res.status(500);
           res.json({success: false, error: error});
         } else {
-          // Set up vars
-
-
           // Trim the filePath for the file
           var filePath = outputPath;
           console.log(TAG + "Path before: " + filePath);
-
           if (filePath.indexOf('\\') !== -1) {
             filePath = filePath.replace('\\home\\admin\\serendipity-web\\client\\', '');
           } else {
             filePath = filePath.replace(basePath, "");
           }
-
           console.log(TAG + "Path after: " + filePath);
 
-
-          // Save the sound to DB
+          // Save the sound in DB
           db.Sound.create({
             title: title,
             description: description,
