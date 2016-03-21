@@ -19,7 +19,7 @@
 				<td>{{ sound.description }}</td>
         <td>{{ sound.status }}</td>
 				<td><button class="btn btn-serendipity" ng-click="openEditor(sound)">Edit</button></td>
-				<td><button type="submit" class="btn btn-danger" data-sound-id=sound.id ng-click="deleteSound()">Delete</button></td>
+				<td><button type="submit" class="btn btn-danger" data-sound-id=sound.id ng-click="deleteSound(sound)">Delete</button></td>
 			</tr>
     </tbody>
   </table>

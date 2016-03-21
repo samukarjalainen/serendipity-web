@@ -10,11 +10,21 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$location', function ($scop
 			console.log(successResponse);
 		}, function errorCallback( errorResponse) {
 			console.log(errorResponse);
-
 		});
 		console.log($scope.sounds);
 
 
+
+  $scope.deleteSound = function (sound) {
+    console.log(sound);
+
+    $http.post('/api/sounds/delete-sound', sound)
+    .then(function (successResponse) {
+      console.log(successResponse);
+    }, function (errorResponse) {
+      console.log(errorResponse);
+    });
+  };
 		//Delelting sounds
 /*		$scope.deleteSound = function() {
 			$http.post('/the/route/in/question/', params).then(function (successCallback), function (errorCallback)
@@ -43,7 +53,7 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$location', function ($scop
     };
 		*/
   $scope.openEditor = function (sound) {
-    //console.log(sound);
+    console.log(sound);
     $location.path('/edit');
   };
 

@@ -33,7 +33,7 @@ router.get('/api/sounds/:id', sounds.getOne);
 router.post('/api/sounds/update', sounds.update);
 
 //TO DO
-router.delete('/api/sounds/:id', sounds.delete);
+router.post('/api/sounds/delete-sound', sounds.delete);
 
 // Admin user routes
 router.get('/api/users', users.getAll);

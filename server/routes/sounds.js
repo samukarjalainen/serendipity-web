@@ -164,6 +164,57 @@ var sounds = {
 	//DELETE FROM sound where id= soundId;
 	//TO DO
   delete: function(req, res) {
+    console.log(TAG + "delete called");
+    console.log(req.body);
+
+    // Check that user info is set
+    var user = auth.getUser(req);
+
+    if (user) {
+
+      // Check user role
+      if (user.role === 'admin') {
+        // User is admin, permit deleting any sounds
+      } else {
+        // Check that the user is trying to delete sounds that belong to them
+        if (user.id === req.body.UserId) {
+          // Delete sound
+          db.Sound.destroy({
+            where: {
+              id: req.body.id
+            }
+          }).then(function(rowsDeleted) {
+            console.log(TAG + "rows deleted: " + rowsDeleted);
+            res.status(200);
+            res.json({success: true, message: "Sound deleted."});
+          }, function(err){
+            console.log(err);
+            res.status(500);
+            res.json({success: false, message: "An error occurred", error: err});
+          });
+        } else {
+          // User is not admin and was trying to delete sounds not belonging to them
+          res.status(403);
+          res.json({success: false, message: "Unauthorized"});
+        }
+      }
+
+      var path = require('path');
+      var basePath = path.join(__dirname, '../../client/');
+      var soundPath = basePath + req.body.path;
+      console.log(soundPath);
+
+
+    } else {
+      res.status(401);
+      res.json({success: false, message: "Not logged in"});
+    }
+
+
+
+
+
+
 		/*
 		    var collection =  db.Sound.findAll();
     collection.remove({ _id: req.params.id }, function(err, sound){
