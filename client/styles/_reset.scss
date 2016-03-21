@@ -44,8 +44,12 @@ a {
   padding-right: 0;
 }
 
-.btn-serendipity {
+.btn {
   @include border-radius(0);
+  @include transition(all 100ms ease-in-out);
+}
+
+.btn-serendipity {
   color: white;
   background-color: $btn-text;
   border: {
@@ -54,7 +58,6 @@ a {
     color: $btn-border;
   }
   font-weight: 700;
-  @include transition(all 100ms ease-in-out);
 
   &:hover {
     color: $btn-text;

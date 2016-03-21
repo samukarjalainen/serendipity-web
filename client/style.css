@@ -5945,22 +5945,24 @@ a:hover {
   padding-left: 0;
   padding-right: 0; }
 
-.btn-serendipity {
+.btn {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0;
-  color: white;
-  background-color: #555;
-  border-width: 2px;
-  border-style: solid;
-  border-color: transparent;
-  font-weight: 700;
   -webkit-transition: all 100ms ease-in-out;
   -moz-transition: all 100ms ease-in-out;
   -o-transition: all 100ms ease-in-out;
   -ms-transition: all 100ms ease-in-out;
   transition: all 100ms ease-in-out; }
+
+.btn-serendipity {
+  color: white;
+  background-color: #555;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  font-weight: 700; }
   .btn-serendipity:hover {
     color: #555;
     background-color: white; }
