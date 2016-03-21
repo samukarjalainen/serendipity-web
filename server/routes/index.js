@@ -39,6 +39,7 @@ router.post('/api/sounds/delete-sound', sounds.delete);
 router.get('/api/users', users.getAll);
 router.get('/api/sounds', sounds.getAll);
 router.post('/api/tracks/upload', tracks.create);
+router.post('/api/tracks/delete-track', tracks.delete);
 
 
 module.exports = router;

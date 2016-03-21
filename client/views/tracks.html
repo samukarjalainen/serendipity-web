@@ -10,12 +10,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="track in tracks">
+    <tr ng-repeat="track in tracks" class="animate-if">
       <td>{{ track.id }}</td>
       <td>{{ track.title }}</td>
       <td>{{ track.description }}</td>
       <td>{{ track.type }}</td>
       <td>{{ track.path }}</td>
+      <td><button type="submit" class="btn btn-danger" data-sound-id=sound.id ng-click="deleteTrack(track)">Delete</button></td>
     </tr>
     </tbody>
   </table>

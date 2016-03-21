@@ -4,6 +4,7 @@ app.controller('TracksCtrl', ['$scope', '$http', 'TrackService', function ($scop
 
   var TAG = 'TracksCtrl: ';
 
+  // Get tracks
   $http.get('/tracks/get-all')
   .then(function (successResponse) {
     $scope.tracks = successResponse.data;
@@ -12,6 +13,23 @@ app.controller('TracksCtrl', ['$scope', '$http', 'TrackService', function ($scop
   }, function (errorResponse) {
     console.log(errorResponse)
   });
+
+  // Delete tracks
+  $scope.deleteTrack = function (track) {
+    console.log(track);
+
+    $http.post('/api/tracks/delete-track', track)
+    .then(function (successResponse) {
+      // Remove deleted track from scope
+      for (var i = 0; i < $scope.tracks.length; i++) {
+        if ($scope.tracks[i].id === track.id) {
+          $scope.tracks.splice(i, 1);
+        }
+      }
+    }, function (errorResponse) {
+      console.log(errorResponse);
+    });
+  };
 
 
 

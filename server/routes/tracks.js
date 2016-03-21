@@ -83,6 +83,37 @@ var tracks = {
 
   },
 
+  delete: function (req, res) {
+    console.log(TAG + "delete called");
+    console.log(req.body);
+
+    // Check that user info is set
+    var user = auth.getUser(req);
+
+    if (user) {
+      // Check user role
+      if (user.role === 'admin') {
+        // User is admin, permit deleting any track
+        console.log(TAG + "User is admin, deleting");
+        deleteTrack(req, res);
+      } else {
+        // User was not admin
+        res.status(403);
+        res.json({success: false, message: "Unauthorized"});
+      }
+
+      // TODO: Remove the file from filesystem
+      var path = require('path');
+      var basePath = path.join(__dirname, '../../client/');
+      var soundPath = basePath + req.body.path;
+      console.log(soundPath);
+
+    } else {
+      res.status(401);
+      res.json({success: false, message: "Not logged in"});
+    }
+  },
+
   createFromJson: function (req, res) {
 
     //console.log(path.join(__dirname, "../../client/sounds/tracks"));
@@ -143,3 +174,19 @@ var tracks = {
 };
 
 module.exports = tracks;
+
+function deleteTrack(req, res) {
+  db.Track.destroy({
+    where: {
+      id: req.body.id
+    }
+  }).then(function(rowsDeleted) {
+    console.log(TAG + "rows deleted: " + rowsDeleted);
+    res.status(200);
+    res.json({success: true, message: "Sound deleted."});
+  }, function(err){
+    console.log(err);
+    res.status(500);
+    res.json({success: false, message: "An error occurred", error: err});
+  });
+}
