@@ -5,11 +5,12 @@
   <div id="map">
     <!--<ng-map center="65.013, 25.443" zoom="6"></ng-map>-->
 
-    <div map-lazy-load="https://maps.google.com/maps/api/js"
+    <div class="map-outer" map-lazy-load="https://maps.google.com/maps/api/js"
          map-lazy-load-params="{{googleMapsUrl}}">
-      <ng-map>
-        <!--<marker ng-repeat="marker in markers" position="{{marker.position}}"></marker>-->
-      </ng-map>
+      <ng-map class="map-inner" default-style="false"></ng-map>
+      <!--<ng-map>-->
+        <!--&lt;!&ndash;<marker ng-repeat="marker in markers" position="{{marker.position}}"></marker>&ndash;&gt;-->
+      <!--</ng-map>-->
     </div>
 
     <!--<script-->

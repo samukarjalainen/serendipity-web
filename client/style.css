@@ -6695,9 +6695,15 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   -webkit-backface-visibility: hidden;
   /* Fix for transition flickering */
   max-width: 80%;
-  height: 400px;
+  height: auto;
   margin: 0 auto;
   color: black; }
+
+.map-outer {
+  height: 500px; }
+
+.map-inner {
+  height: 100%; }
 
 /* -- Misc variables -- */
 /* -- Colors -- */
