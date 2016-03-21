@@ -161,8 +161,6 @@ var sounds = {
   },
 
 
-	//DELETE FROM sound where id= soundId;
-	//TO DO
   delete: function(req, res) {
     console.log(TAG + "delete called");
     console.log(req.body);
@@ -171,27 +169,16 @@ var sounds = {
     var user = auth.getUser(req);
 
     if (user) {
-
       // Check user role
       if (user.role === 'admin') {
         // User is admin, permit deleting any sounds
+        console.log(TAG + "User is admin, deleting");
+        deleteSound(req, res);
       } else {
         // Check that the user is trying to delete sounds that belong to them
         if (user.id === req.body.UserId) {
           // Delete sound
-          db.Sound.destroy({
-            where: {
-              id: req.body.id
-            }
-          }).then(function(rowsDeleted) {
-            console.log(TAG + "rows deleted: " + rowsDeleted);
-            res.status(200);
-            res.json({success: true, message: "Sound deleted."});
-          }, function(err){
-            console.log(err);
-            res.status(500);
-            res.json({success: false, message: "An error occurred", error: err});
-          });
+          deleteSound(req, res);
         } else {
           // User is not admin and was trying to delete sounds not belonging to them
           res.status(403);
@@ -199,77 +186,17 @@ var sounds = {
         }
       }
 
+      // TODO: Remove the file from filesystem
       var path = require('path');
       var basePath = path.join(__dirname, '../../client/');
       var soundPath = basePath + req.body.path;
       console.log(soundPath);
-
 
     } else {
       res.status(401);
       res.json({success: false, message: "Not logged in"});
     }
 
-
-
-
-
-
-		/*
-		    var collection =  db.Sound.findAll();
-    collection.remove({ _id: req.params.id }, function(err, sound){
-        if (err) throw err;
-
-        res.json(sound);
-    });
-		*/
-		/*
-		var soundId = req.body.soundid || req.headers['soundid'];
-
-    console.log(TAG + "sound from body or header: " + soundId);
-
-    db.Sound.delete({ where: { id: soundId } });
-		*/
-		/*
-		db.Sound.remove({
-            _id: req.params.sound_id
-        }, function(err, sound) {
-            if (err)
-                res.send(err);
-
-            res.json({ message: 'Successfully deleted' });
-        });
-				*/
-
-/*
-				db.sound.remove({
-				var soundId = req.params.id;
-    db.Sound.findOne({ where: { id: soundId }}
-		)}).then(function (sound) {
-      if (!sound || typeof sound == 'undefined') {
-        res.status(404);
-        res.json({
-          "status": 404,
-          "message": "Sound not found"
-        });
-      } else {
-        res.json(sound);
-      }
-    })
-		*/
-
-				/*
-      if (!sound || typeof sound == 'undefined') {
-        res.status(404);
-        res.json({
-          "status": 404,
-          "message": "Sound not found"
-        });
-      } else {
-        res.json(sound);
-      }
-    })
-*/
   },
 
   createDummySounds: function (req, res) {
@@ -497,4 +424,20 @@ function validateGpsCoordinates(lat, long) {
   } else {
     return true;
   }
+}
+
+function deleteSound(req, res) {
+  db.Sound.destroy({
+    where: {
+      id: req.body.id
+    }
+  }).then(function(rowsDeleted) {
+    console.log(TAG + "rows deleted: " + rowsDeleted);
+    res.status(200);
+    res.json({success: true, message: "Sound deleted."});
+  }, function(err){
+    console.log(err);
+    res.status(500);
+    res.json({success: false, message: "An error occurred", error: err});
+  });
 }

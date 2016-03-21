@@ -2,6 +2,8 @@
 
 app.controller('DashboardCtrl', ['$scope', '$http', '$location', function ($scope, $http, $location) {
 
+  var TAG = "DashboardCtrl: ";
+
 	$scope.sounds = [];
 
 	$http.post('/api/sounds/mysounds').
@@ -20,7 +22,12 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$location', function ($scop
 
     $http.post('/api/sounds/delete-sound', sound)
     .then(function (successResponse) {
-      console.log(successResponse);
+      // Remove deleted sound from scope
+      for (var i = 0; i < $scope.sounds.length; i++) {
+        if ($scope.sounds[i].id === sound.id) {
+          $scope.sounds.splice(i, 1);
+        }
+      }
     }, function (errorResponse) {
       console.log(errorResponse);
     });
