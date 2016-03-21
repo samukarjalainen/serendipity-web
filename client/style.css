@@ -6396,7 +6396,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     -webkit-backface-visibility: hidden;
     /* Fix for transition flickering */
     max-width: 60%;
-    height: 400px;
+    height: auto;
     margin: 0 auto;
     color: black; }
     @media only screen and (max-width: 768px) {

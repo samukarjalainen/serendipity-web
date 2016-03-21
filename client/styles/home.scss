@@ -175,7 +175,7 @@
     @include filter(grayscale,100%);
     -webkit-backface-visibility: hidden;  /* Fix for transition flickering */
     max-width: 60%;
-    height: 400px;
+    height: auto;
     margin:0 auto;
     color: black;
 
