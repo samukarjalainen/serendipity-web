@@ -47,6 +47,7 @@
             <button class="btn btn-serendipity" ng-click="stopBoth()"><i class="glyphicon glyphicon-stop"></i></button>
             <button class="btn btn-success" ng-click="saveSoundRemix()">Save</button>
             <button class="btn btn-success" ng-click="toggleMessage()">Toggle</button>
+            <button class="btn btn-default" ng-click="toggleModal()">Modal</button>
           </div>
         </div>
         <div class="message-area">
@@ -54,13 +55,15 @@
         </div>
       </div>
 
-
-
-
-
-
+      <!-- MODAL -->
+      <div class="serendipity-modal-bg">
+        <div class="serendipity-modal-box clearfix">
+          <div class="loading-image-wrap">
+          </div>
+          <h4 class="loading-text">{{modalText}}</h4>
+        </div>
+      </div>
 
     </div>
   </div>
-
 </div>

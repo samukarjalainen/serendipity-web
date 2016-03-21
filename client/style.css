@@ -6832,3 +6832,52 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   text-align: center; }
   .message-area h4 {
     display: inline-block; }
+
+.serendipity-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 15999;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 200ms ease-in-out;
+  -moz-transition: opacity 200ms ease-in-out;
+  -o-transition: opacity 200ms ease-in-out;
+  -ms-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out; }
+  .serendipity-modal-bg.is-open {
+    opacity: 1;
+    pointer-events: all; }
+    .serendipity-modal-bg.is-open .serendipity-modal-box {
+      transform: translate(0px, 0px); }
+  .serendipity-modal-bg .serendipity-modal-box {
+    position: relative;
+    max-width: 380px;
+    top: calc(50% - 125px);
+    left: calc(50% - 190px);
+    padding: 30px;
+    color: black;
+    background-color: white;
+    box-shadow: 0 4px 20px 5px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    transform: translate(0px, -50px);
+    -webkit-transition: transform 150ms ease-in-out;
+    -moz-transition: transform 150ms ease-in-out;
+    -o-transition: transform 150ms ease-in-out;
+    -ms-transition: transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out; }
+    .serendipity-modal-bg .serendipity-modal-box .loading-image-wrap {
+      margin: 0 auto;
+      height: 150px;
+      width: 150px;
+      overflow: hidden;
+      background-image: url(../images/loading.gif);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: auto; }
+    .serendipity-modal-bg .serendipity-modal-box .loading-text {
+      display: block;
+      text-align: center; }

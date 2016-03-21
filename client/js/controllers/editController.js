@@ -3,6 +3,8 @@ app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', '$t
   var TAG = 'EditCtrl: ';
 
   $scope.newFile = false;
+  $scope.modalBg = angular.element('.serendipity-modal-bg');
+  $scope.modalBox = angular.element('.serendipity-modal-box');
 
   var soundId = $routeParams.id;
   var soundElement = document.getElementById('sound-audio');
@@ -71,12 +73,14 @@ app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', '$t
   };
 
   $scope.saveSoundRemix = function () {
+    // Debug stuff
     console.log($scope.currentSound);
     console.log($scope.currentTrack);
     console.log("sound volume: " + soundElement.volume.toFixed(2));
     console.log("track volume: " + trackElement.volume.toFixed(2));
     console.log($scope.newFile);
 
+    // Set vars
     var sndvolFixed = soundElement.volume.toFixed(2);
     var sndVolFloat = parseFloat(sndvolFixed);
     var trckVolFixed = trackElement.volume.toFixed(2);
@@ -85,12 +89,17 @@ app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', '$t
     var track = $scope.currentTrack;
     var newFileVal = $scope.newFile;
 
+    // Open modal
+    $scope.modalText = "Processing request...";
+    $scope.openProcessingModal();
 
     // Make a request
     $http.post('/api/sounds/upload-remix', {sound: sound, track: track, soundVol: sndVolFloat, trackVol: trckVolFloat, newFile: newFileVal})
     .then(function (successResponse) {
       console.log(successResponse);
       $scope.remixSuccess = true;
+      $scope.modalText = "Remix finished!";
+      $scope.closeProcessingModal();
       $timeout(function () {
         $scope.remixSuccess = false;
       }, 5000);
@@ -105,6 +114,33 @@ app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', '$t
     } else {
       $scope.remixSuccess = false;
     }
-  }
+  };
+
+  $scope.toggleModal = function () {
+    $scope.openProcessingModal();
+
+    $timeout(function () {
+      $scope.modalText = "Remix finished!";
+      $scope.closeProcessingModal();
+    }, 3000);
+  };
+
+  (function () {
+    $scope.modalBg.click(function (event) {
+      if (this == event.target) {
+        $scope.closeProcessingModal();
+      }
+    });
+  })();
+
+  $scope.openProcessingModal = function () {
+    $scope.modalBg.addClass('is-open');
+    $scope.modalBox.addClass('is-open');
+  };
+
+  $scope.closeProcessingModal = function () {
+    $scope.modalBg.removeClass('is-open');
+    $scope.modalBox.removeClass('is-open');
+  };
 
 }]);

@@ -47,3 +47,57 @@
     display: inline-block;
   }
 }
+
+.serendipity-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 15999;
+  background-color: rgba(black, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  @include transition(opacity 200ms ease-in-out);
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+
+    .serendipity-modal-box {
+      transform: translate(0px, 0px);
+    }
+  }
+
+  .serendipity-modal-box {
+    position: relative;
+    max-width: 380px;
+    top: calc(50% - 125px);
+    left: calc(50% - 190px);
+    padding: 30px;
+    color: black;
+    background-color: white;
+    box-shadow: 0 4px 20px 5px rgba(black, 0.5);
+    text-align: left;
+    transform: translate(0px, -50px);
+    @include transition(transform 150ms ease-in-out);
+
+    .loading-image-wrap {
+      margin: 0 auto;
+      height: 150px;
+      width: 150px;
+      overflow: hidden;
+      background: {
+        image: url(../images/loading.gif);
+        position: center center;
+        repeat: no-repeat;
+        size: auto;
+      }
+    }
+
+    .loading-text {
+      display: block;
+      text-align: center;
+    }
+  }
+}
