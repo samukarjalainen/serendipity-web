@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('DashboardCtrl', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+app.controller('DashboardCtrl', ['$scope', '$http', '$location', 'SoundService', function ($scope, $http, $location, SoundService) {
 
   var TAG = "DashboardCtrl: ";
 
@@ -32,11 +32,11 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$location', function ($scop
       console.log(errorResponse);
     });
   };
-  
+
   // Open editor
   $scope.openEditor = function (sound) {
-    console.log(sound);
-    $location.path('/edit');
+    SoundService.setCurrentSoundId(sound.id);
+    $location.path('/edit', sound);
   };
 
 }]);

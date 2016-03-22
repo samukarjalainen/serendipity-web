@@ -1,4 +1,4 @@
-app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', '$timeout', function ($scope, $rootScope, $http, $routeParams, $timeout) {
+app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', '$timeout', 'SoundService', function ($scope, $rootScope, $http, $routeParams, $timeout, SoundService) {
 
   var TAG = 'EditCtrl: ';
 
@@ -6,7 +6,7 @@ app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', '$t
   $scope.modalBg = angular.element('.serendipity-modal-bg');
   $scope.modalBox = angular.element('.serendipity-modal-box');
 
-  var soundId = $routeParams.id;
+  var soundId = SoundService.getCurrentSoundId();
   var soundElement = document.getElementById('sound-audio');
   var trackElement = document.getElementById('track-audio');
 
@@ -14,7 +14,7 @@ app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', '$t
     $scope.sounds = response.data;
     angular.forEach($scope.sounds, function (snd) {
       if (snd.id == soundId) {
-        //console.log(TAG + "Found!");
+        console.log(TAG + "Found!");
         //$scope.currentSound = snd;
         //console.log($scope.currentSound);
       }

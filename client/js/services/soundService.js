@@ -7,6 +7,7 @@ app.service('SoundService', ['$http', function ($http) {
   var sounds = [];
   var userSounds = [];
   var currentSoundMarker = {};
+  var currentSoundId = -1;
 
   var getSounds = function () {
     if (!allSoundsFetched) {
@@ -76,6 +77,14 @@ app.service('SoundService', ['$http', function ($http) {
     });
     console.log($scope.sounds);
   };
+  
+  var setCurrentSoundId = function (value) {
+    currentSoundId = value;
+  };
+  
+  var getCurrentSoundId = function () {
+    return currentSoundId;
+  };
 
   return {
     getSounds: getSounds,
@@ -89,6 +98,8 @@ app.service('SoundService', ['$http', function ($http) {
     fetchUserSounds: fetchUserSounds,
     userSoundsFetched: userSoundsFetched,
     getCurrentSoundMarker: getCurrentSoundMarker,
-    setCurrentSoundMarker: setCurrentSoundMarker
+    setCurrentSoundMarker: setCurrentSoundMarker,
+    getCurrentSoundId: getCurrentSoundId,
+    setCurrentSoundId: setCurrentSoundId
   }
 }]);

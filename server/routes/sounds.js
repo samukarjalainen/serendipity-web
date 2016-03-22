@@ -315,7 +315,7 @@ var sounds = {
           return 'error';
         } else {
           console.log(sound.path);
-          downloadUrl = sound.path;
+          downloadUrl = "client/" + sound.path;
           res.download(downloadUrl);
         }
       });
