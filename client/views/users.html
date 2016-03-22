@@ -1,31 +1,29 @@
 <div class="users-wrapper container" ng-controller="UsersCtrl">
-  <table class="table table-hover">
+  <table class="table table-hover animate-if" ng-if="users.length > 0">
     <thead>
       <tr>
         <th>Id</th>
+        <th>Role</th>
         <th>Username</th>
         <th>E-mail</th>
-        <th>Password</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>City</th>
         <th>Country</th>
         <th>Created</th>
-        <th>Updated</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="user in users">
         <td>{{ user.id }}</td>
+        <td>{{ user.role }}</td>
         <td>{{ user.username }}</td>
         <td>{{ user.email }}</td>
-        <td>{{ user.password }}</td>
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
         <td>{{ user.city }}</td>
         <td>{{ user.country }}</td>
         <td>{{ user.createdAt | date }}</td>
-        <td>{{ user.updatedAt }}</td>
       </tr>
     </tbody>
   </table>

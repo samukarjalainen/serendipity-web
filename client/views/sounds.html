@@ -1,5 +1,5 @@
 <div class="sounds-wrapper container" ng-controller="SoundsCtrl">
-  <table class="table table-hover">
+  <table class="table table-hover animate-if" ng-if="sounds.length > 0">
     <thead>
     <tr>
       <th>Id</th>
@@ -30,3 +30,5 @@
     </tbody>
   </table>
 </div>
+
+<div ng-include="'views/upload.html'"></div>
