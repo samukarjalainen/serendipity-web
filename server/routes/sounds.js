@@ -359,10 +359,16 @@ var sounds = {
       // Debug stuff
       console.log(fileTitle);
       console.log(TAG + "Client dir: " + basePath);
+      console.log(TAG + "Sound Vol: " + soundVol);
+      console.log(TAG + "Track Vol: " + trackVol);
 
       // Populate the ffmpeg command
+      // EXAMPLE:
+      // ffmpeg -i tip_toe_synth_strings.mp3 -i vivaldi-spring.mp3 -filter_complex "[0:a]aformat=sample_fmts=fltp:sample_rates=44100:channel_layouts=stereo,volume=1.0[a0]; [1:a]aformat=sample_fmts=fltp:sample_rates =44100:channel_layouts=stereo,volume=0.1[a1]; [a0][a1]amerge=inputs=2[a]" -map "[a]" -ac 2 -c:a libmp3lame output.mp3
       outputPath = outputPath + 'remix-' + dateNow + '.mp3';
-      var command = 'ffmpeg -i ' + soundPath + ' -i ' + trackPath + ' -filter_complex amix=duration=shortest ' + outputPath;
+      var command = 'ffmpeg -i ' + soundPath + ' -i ' + trackPath + ' -filter_complex \"[0:a]aformat=sample_fmts=fltp:sample_rates=44100:channel_layouts=stereo,volume=' + soundVol +'[a0]; [1:a]aformat=sample_fmts=fltp:sample_rates =44100:channel_layouts=stereo,volume=' + trackVol + '[a1]; [a0][a1]amerge=inputs=2[a]\" -map \"[a]\" -ac 2 -c:a libmp3lame ' + outputPath;
+      // PREVIOUSLY WORKING COMMAND
+      // var command = 'ffmpeg -i ' + soundPath + ' -i ' + trackPath + ' -filter_complex amix=duration=shortest ' + outputPath;
       console.log(TAG + "THE COMMAND: " + command);
 
 
