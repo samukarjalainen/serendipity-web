@@ -5933,8 +5933,7 @@ a:hover {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 4px; }
+  background-color: rgba(0, 0, 0, 0.7); }
   .table tbody td {
     word-break: break-all;
     word-wrap: break-word; }
@@ -6603,7 +6602,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     width: 100%;
     padding: 30px 30px 30px 0;
     margin: 30px auto 60px;
-    background-color: rgba(0, 0, 0, 0.3); }
+    background-color: rgba(0, 0, 0, 0.7); }
     .register-wrapper .form-horizontal .btn-default {
       color: #FFF;
       opacity: 0.8; }
@@ -6662,7 +6661,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     width: 100%;
     padding: 30px;
     margin: 30px auto 60px;
-    background-color: rgba(0, 0, 0, 0.3); }
+    background-color: rgba(0, 0, 0, 0.7); }
 
 /* -- Misc variables -- */
 /* -- Colors -- */
@@ -6778,7 +6777,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   width: 100%;
   padding: 30px 30px 30px 0;
   margin: 30px auto 60px;
-  background-color: rgba(0, 0, 0, 0.3); }
+  background-color: rgba(0, 0, 0, 0.7); }
   .upload-wrapper .form-horizontal .btn-default {
     color: #FFF;
     opacity: 0.8; }
@@ -6829,7 +6828,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
 
 /* -- Mixins -- */
 .editor-wrapper {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.7);
   margin: 50px auto;
   padding: 20px; }
   .editor-wrapper .sound-title, .editor-wrapper .track-title {
