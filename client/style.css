@@ -5962,16 +5962,35 @@ a:hover {
   border-width: 2px;
   border-style: solid;
   border-color: transparent;
-  font-weight: 700; }
+  font-weight: 400; }
   .btn-serendipity:hover {
     color: #555;
     background-color: white; }
+
+.btn-link {
+  padding: 10px 50px;
+  color: rgba(230, 230, 230, 0.9);
+  background-color: rgba(38, 38, 38, 0.9);
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(230, 230, 230, 0.9);
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.03em; }
+  .btn-link:hover {
+    background-color: rgba(230, 230, 230, 0.9);
+    color: rgba(38, 38, 38, 0.9);
+    border-color: rgba(38, 38, 38, 0.9);
+    text-decoration: none; }
 
 .alert {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0; }
+
+.alert-shadow {
+  box-shadow: 1px 1px 6px 6px rgba(0, 0, 0, 0.5); }
 
 .form-control {
   -webkit-border-radius: 0;
@@ -6059,6 +6078,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   z-index: 1; }
   .header .navbar-default.is-hidden {
     opacity: 0;
+    pointer-events: none;
     -webkit-transition: all 150ms ease-in-out;
     -moz-transition: all 150ms ease-in-out;
     -o-transition: all 150ms ease-in-out;
@@ -6066,6 +6086,7 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     transition: all 150ms ease-in-out; }
   .header .navbar-default.is-visible {
     opacity: 1;
+    pointer-events: all;
     -webkit-transition: all 150ms ease-in-out;
     -moz-transition: all 150ms ease-in-out;
     -o-transition: all 150ms ease-in-out;
@@ -6704,6 +6725,10 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
 
 .map-inner {
   height: 100%; }
+
+.editor-link-wrap {
+  margin: 10px auto 40px;
+  text-align: center; }
 
 /* -- Misc variables -- */
 /* -- Colors -- */

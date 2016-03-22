@@ -3,6 +3,11 @@
   <!-- OVERLAY & AUDIO PLAYER-->
   <div ng-include="'views/home/overlay-audio.html'"></div>
 
+  <!-- EDITOR LINK -->
+  <div class="editor-link-wrap">
+    <button class="btn btn-link" ng-click="openEditor(sound)">OPEN MIXER</button>
+  </div>
+
   <table class="table table-hover animate-if" ng-if="sounds.length > 0">
     <thead>
     <tr>
@@ -23,6 +28,7 @@
 			</tr>
     </tbody>
   </table>
+
   <!-- MAP -->
   <div ng-include="'views/home/map.html'"></div>
 

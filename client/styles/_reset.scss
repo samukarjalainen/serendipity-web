@@ -57,7 +57,7 @@ a {
     style: solid;
     color: $btn-border;
   }
-  font-weight: 700;
+  font-weight: 400;
 
   &:hover {
     color: $btn-text;
@@ -67,9 +67,33 @@ a {
   //&:focus, &:active {outline: rgba(white, 0.5);}
 }
 
+.btn-link {
+  padding: 10px 50px;
+  color: $btn-link-text;
+  background-color: $btn-link-bg;
+  border: {
+    width: 2px;
+    style: solid;
+    color: $btn-link-border;
+  }
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+
+  &:hover {
+    background-color: $btn-link-text;
+    color: $btn-link-bg;
+    border-color: $btn-link-bg;
+    text-decoration: none;
+  }
+}
+
 .alert {
   @include border-radius(0);
+}
 
+.alert-shadow {
+  box-shadow: 1px 1px 6px 6px rgba(0,0,0, 0.5);
 }
 
 .form-control {

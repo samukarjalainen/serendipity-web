@@ -16,6 +16,11 @@ $btn-text: #555;
 $btn-bg: white;
 $btn-border: transparent;
 
+// link-button
+$btn-link-text: rgba(230, 230, 230, 0.9);
+$btn-link-bg: rgba(38, 38, 38, 0.9);
+$btn-link-border: rgba(230, 230, 230, 0.9);
+
 /* -- Media queries -- */
 $mq-phone: "only screen and (max-width: 480px)";
 $mq-tablet: "only screen and (max-width: 768px)";

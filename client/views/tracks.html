@@ -1,5 +1,5 @@
 <div class="sounds-wrapper container" ng-controller="TracksCtrl">
-  <table class="table table-hover">
+  <table class="table table-hover animate-if" ng-if="tracks.length > 0">
     <thead>
     <tr>
       <th>Id</th>
@@ -10,7 +10,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="track in tracks" class="animate-if">
+    <tr ng-repeat="track in tracks">
       <td>{{ track.id }}</td>
       <td>{{ track.title }}</td>
       <td>{{ track.description }}</td>

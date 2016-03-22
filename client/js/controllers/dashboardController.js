@@ -10,11 +10,9 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$location', 'SoundService',
 	$http.post('/api/sounds/mysounds').
 		then(function successCallback(successResponse) {
 			$scope.sounds = successResponse.data;
-			console.log(successResponse);
 		}, function errorCallback( errorResponse) {
 			console.log(errorResponse);
 		});
-		console.log($scope.sounds);
 
   // Delete sound
   $scope.deleteSound = function (sound) {
@@ -34,9 +32,9 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$location', 'SoundService',
   };
 
   // Open editor
-  $scope.openEditor = function (sound) {
-    SoundService.setCurrentSoundId(sound.id);
-    $location.path('/edit', sound);
+  $scope.openEditor = function () {
+    //SoundService.setCurrentSoundId(sound.id);
+    $location.path('/edit');
   };
 
 }]);

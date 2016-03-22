@@ -6,7 +6,7 @@
       <!-- SOUNDS -->
       <div class="col-lg-6 col-xs-12">
         <div class="form-group sounds">
-          <label for="sounds-dropdown">Sounds:</label>
+          <label for="sounds-dropdown">Sounds</label>
           <select class="form-control" id="sounds-dropdown" ng-model="soundSelect" ng-change="updateSoundInfo()">
             <option ng-repeat="sound in sounds" value="{{sound.path}}">{{sound.title}}</option>
           </select>
@@ -23,7 +23,7 @@
       <!-- TRACKS -->
       <div class="col-lg-6 col xs-12">
         <div class="form-group tracks">
-          <label for="tracks-dropdown">Tracks:</label>
+          <label for="tracks-dropdown">Tracks</label>
           <select class="form-control" id="tracks-dropdown" ng-model="trackSelect" ng-change="updateTrackInfo()">
             <option ng-repeat="track in tracks" value="{{track.path}}">{{track.title}}</option>
           </select>
@@ -51,15 +51,14 @@
           </div>
         </div>
         <div class="message-area">
-          <h4 class="alert alert-success animate-if" ng-if="remixSuccess">Remix saved successfully</h4>
+          <h4 class="alert alert-success alert-shadow animate-if" ng-if="remixSuccess"><span class="glyphicon glyphicon-ok"></span> Remix saved successfully</h4>
         </div>
       </div>
 
       <!-- MODAL -->
       <div class="serendipity-modal-bg">
         <div class="serendipity-modal-box clearfix">
-          <div class="loading-image-wrap">
-          </div>
+          <div class="loading-image-wrap"></div>
           <h4 class="loading-text">{{modalText}}</h4>
         </div>
       </div>
