@@ -32,4 +32,33 @@
   <!-- MAP -->
   <div ng-include="'views/home/map.html'"></div>
 
+	<!-- User Table -->
+	<br>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th>E-mail</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>City</th>
+				<th>Country</th>
+				<th>Joined</th>
+				<th>Edit</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ user.username }}</td>
+				<td>{{ user.email }}</td>
+				<td>{{ user.firstName }}</td>
+				<td>{{ user.lastName }}</td>
+				<td>{{ user.city }}</td>
+				<td>{{ user.country }}</td>
+				<td>{{ user.createdAt | date }}</td>
+				<td><button class="btn btn-serendipity" ng-click="">Edit</button></td>
+			</tr>
+		</tbody>
+	</table>
+
 </div>

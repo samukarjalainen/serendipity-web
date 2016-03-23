@@ -37,4 +37,13 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$location', 'SoundService',
     $location.path('/edit');
   };
 
+	// Get current user's data
+	$http.get('/api/user/' + localStorage.username).then(function successCallback(response) {
+		$scope.user = response.data;
+	}, function errorCallback(response){
+		console.log("Error fetching data");
+		console.log(response);
+		console.log(user);
+	});
+
 }]);
