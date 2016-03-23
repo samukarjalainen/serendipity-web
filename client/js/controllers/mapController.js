@@ -55,60 +55,6 @@ app.controller('MapCtrl', ['$scope', '$rootScope', '$location', '$timeout', 'NgM
 
 
 
-
-  //function playSound() {
-  //  // Set the source for the sound
-  //  var source = this.path.toString();
-  //
-  //  // Hack for MS Windows
-  //  if (source.indexOf('\\') !== -1) {
-  //    source = source.replace(/\\/g, '/');
-  //  }
-  //
-  //  $scope.source = source;
-  //
-  //  // Set the source and refresh player
-  //  $scope.audioSrc.src = source;
-  //  $scope.player.load();
-  //
-  //  // Set the player's content to be the current sound
-  //  if (this.title.length > 0)
-  //    $scope.audioTitle.html(this.title);
-  //  else
-  //    $scope.audioTitle.html('<span class="text-muted">No title</span>');
-  //
-  //  if (this.desc.length > 0)
-  //    $scope.audioDesc.html(this.desc);
-  //  else
-  //    $scope.audioDesc.html('<span class="text-muted">No description</span>');
-  //
-  //  // Pop the overlay and player window
-  //  openAudioModal();
-  //
-  //}
-  //
-  //function openAudioModal() {
-  //  $scope.overlay.addClass('is-open');
-  //  $scope.audioModal.addClass('is-open');
-  //}
-  //
-  //function closeAudioModal() {
-  //  $scope.player.pause();
-  //  $scope.overlay.removeClass('is-open');
-  //  $scope.audioModal.removeClass('is-open');
-  //}
-  //
-  //(function () {
-  //
-  //  $scope.overlay.click(function (event) {
-  //    if (this == event.target) {
-  //      closeAudioModal();
-  //    }
-  //  });
-  //
-  //})();
-
-
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(browserHasGeolocation ?
@@ -117,7 +63,6 @@ app.controller('MapCtrl', ['$scope', '$rootScope', '$location', '$timeout', 'NgM
   }
 
   function getAndParseSounds(map) {
-
     // Loop through the sounds and get place them on the map
     for (var i = 0; i < $scope.sounds.length; i++) {
       var curSound = $scope.sounds[i];
@@ -134,16 +79,8 @@ app.controller('MapCtrl', ['$scope', '$rootScope', '$location', '$timeout', 'NgM
       marker.addListener('click', function () {
         SoundService.setCurrentSoundMarker(this);
         $rootScope.$emit('OpenPlayer', this);
-        //var $overlay = angular.element('.overlay');
-        //var $audioModal = $overlay.find('.audio');
-        //$overlay.addClass('is-open');
-        //$audioModal.addClass('is-open');
       });
     }
-
-    //console.log(TAG + "markers");
-    //console.log($scope.markers);
-
   }
 
 

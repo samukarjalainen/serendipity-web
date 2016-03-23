@@ -15,7 +15,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -5997,6 +5996,18 @@ a:hover {
   -ms-border-radius: 0;
   border-radius: 0; }
 
+.form-horizontal {
+  max-width: 620px;
+  width: 100%;
+  padding: 30px 30px 30px 0;
+  margin: 30px auto 60px;
+  background-color: rgba(0, 0, 0, 0.7); }
+  .form-horizontal .btn-default {
+    color: #FFF;
+    opacity: 0.8; }
+    .form-horizontal .btn-default:hover {
+      opacity: 1; }
+
 .content-wrapper {
   min-height: 100%;
   position: relative;
@@ -6728,61 +6739,6 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
 .editor-link-wrap {
   margin: 10px auto 40px;
   text-align: center; }
-
-/* -- Misc variables -- */
-/* -- Colors -- */
-/* -- Media queries -- */
-/* -- Fonts -- */
-html,
-body {
-  font-family: 'Lato', sans-serif;
-  font-size: 16px;
-  color: white; }
-
-.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
-  font-size: 23px;
-  font-weight: 700; }
-
-.header {
-  font-size: 18px;
-  text-transform: uppercase; }
-
-.footer .footer-hero-wrapper .footer-hero-text {
-  opacity: 0.7;
-  font-size: 26px; }
-
-.main-wrapper .definition .definition-title {
-  font-size: 40px;
-  line-height: 50px;
-  color: #070706;
-  font-weight: 300; }
-
-.main-wrapper .steps-wrapper {
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: bold;
-  color: #070706; }
-
-/* -- Misc placeholders -- */
-body, .main-wrapper .help-us, .main-wrapper .about-us {
-  background-image: url("../images/city-surface-blur.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed; }
-
-/* -- Mixins -- */
-.upload-wrapper .form-horizontal {
-  max-width: 620px;
-  width: 100%;
-  padding: 30px 30px 30px 0;
-  margin: 30px auto 60px;
-  background-color: rgba(0, 0, 0, 0.7); }
-  .upload-wrapper .form-horizontal .btn-default {
-    color: #FFF;
-    opacity: 0.8; }
-    .upload-wrapper .form-horizontal .btn-default:hover {
-      opacity: 1; }
 
 /* -- Misc variables -- */
 /* -- Colors -- */

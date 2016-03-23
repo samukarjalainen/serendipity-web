@@ -8,7 +8,6 @@
       <th>Status</th>
       <th>Latitude</th>
       <th>Longitude</th>
-      <th>Path</th>
       <th>Created</th>
       <th>Modified</th>
       <th>User ID</th>
@@ -22,9 +21,8 @@
       <td>{{ sound.status }}</td>
       <td>{{ sound.lat }}</td>
       <td>{{ sound.long }}</td>
-      <td>{{ sound.path }}</td>
-      <td>{{ sound.createdAt }}</td>
-      <td>{{ sound.updatedAt }}</td>
+      <td>{{ sound.createdAt | date}}</td>
+      <td>{{ sound.updatedAt | date}}</td>
       <td>{{ sound.UserId }}</td>
     </tr>
     </tbody>
