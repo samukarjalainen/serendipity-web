@@ -1,8 +1,7 @@
 app
   .controller('UploadCtrl', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
 
-    // TODO: Refactor from uploadPic to uploadSound
-    $scope.uploadPic = function(file) {
+    $scope.uploadSound = function(file) {
       file.upload = Upload.upload({
         url: '/api/sounds/upload',
         data: {file: file, title: $scope.title, description: $scope.description, lat: $scope.lat, long: $scope.long},

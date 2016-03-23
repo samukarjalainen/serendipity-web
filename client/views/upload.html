@@ -1,6 +1,5 @@
 <div class="upload-wrapper container" ng-controller="UploadCtrl">
 
-  <!-- TODO: Refactor from uploadPic to uploadSound -->
   <div class="form-group">
     <form name="myForm">
       <div class="form-horizontal">
@@ -41,20 +40,20 @@
         <div class="form-group">
           <label class="control-label" for="file"></label>
           <div class="col-sm-9 col-sm-offset-3">
-            <input type="file" id="file" ngf-select ng-model="picFile" name="file" accept="audio/*" ngf-max-size="2MB" required ngf-model-invalid="errorFiles">
+            <input type="file" id="file" ngf-select ng-model="soundFile" name="file" accept="audio/*" ngf-max-size="2MB" required ngf-model-invalid="errorFiles">
             <i ng-show="myForm.file.$error.required">*required</i><br>
             <i ng-show="myForm.file.$error.maxSize">File too large
               {{errorFiles[0].size / 1000000|number:1}}MB: max 2M</i>
-            <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button class="btn btn-warning" ng-click="picFile = null" ng-show="picFile">Remove</button>
+            <img ng-show="myForm.file.$valid" ngf-thumbnail="soundFile" class="thumb"> <button class="btn btn-warning" ng-click="soundFile = null" ng-show="soundFile">Remove</button>
             <br>
-            <button class="btn btn-primary" ng-disabled="!myForm.$valid" ng-click="uploadPic(picFile)">Submit</button>
+            <button class="btn btn-primary" ng-disabled="!myForm.$valid" ng-click="uploadSound(soundFile)">Submit</button>
           </div>
         </div>
 
-        <span class="progress" ng-show="picFile.progress >= 0">
-          <div style="width:{{picFile.progress}}%" ng-bind="picFile.progress + '%'"></div>
+        <span class="progress" ng-show="soundFile.progress >= 0">
+          <div style="width:{{soundFile.progress}}%" ng-bind="soundFile.progress + '%'"></div>
         </span>
-        <span ng-show="picFile.result">Upload Successful</span>
+        <span ng-show="soundFile.result">Upload Successful</span>
         <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
       </div>
 
