@@ -21,7 +21,7 @@
       </thead>
       <tbody>
       <tr ng-repeat="sound in sounds" class="animate-if">
-        <td>{{ sound.title }}</td>
+        <td ng-click="showSoundInfo(sound)">{{ sound.title }}</td>
         <td>{{ sound.description }}</td>
         <td>{{ sound.status }}</td>
         <td><button class="btn btn-serendipity" ng-click="openEditor(sound)">Edit</button></td>

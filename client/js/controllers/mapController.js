@@ -21,39 +21,67 @@ app.controller('MapCtrl', ['$scope', '$rootScope', '$location', '$timeout', 'NgM
       $scope.sounds = SoundService.getSounds();
 
       // Oulu centre coordinates
-      var pos = {
-        lat: 65.0136864,
-        lng: 25.4775258
-      };
+      $scope.pos = {};
+
 
       var mapWindow = new google.maps.InfoWindow({map: map});
 
       // Get user's location
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-          pos.lat = position.coords.latitude;
-          pos.lng = position.coords.longitude;
 
-          mapWindow.setPosition(pos);
+
+          $scope.pos.lat = position.coords.latitude;
+          $scope.pos.lng = position.coords.longitude;
+
+          mapWindow.setPosition($scope.pos);
           mapWindow.setContent('You are here');
-          map.setCenter(pos);
+          //map.setCenter(pos);
 
         }, function() {
           handleLocationError(true, mapWindow, map.getCenter());
         });
       } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, mapWindow, map.getCenter());
+        $scope.pos = {
+          lat: 65.0136864,
+          lng: 25.4775258
+        };
       }
 
       getAndParseSounds(map);
 
       map.setZoom(12);
-      map.setCenter(pos);
+      $scope.lat = parseFloat($scope.pos.lat);
+      $scope.lng = parseFloat($scope.pos.lng);
+      //map.setCenter($scope.pos);
+
+      // Listener for map center change to make the transition smooth.
+      map.addListener('center_changed', function () {
+        map.panTo(map.getCenter());
+      });
+
+      $scope.map = map;
     });
   }, 100);
 
+  $rootScope.$on('ShowSoundInfo', setMapCenter);
 
+  function setMapCenter(event, pos) {
+    console.log(TAG + "setMapCenter called");
+    if ($scope.map) {
+      console.log(TAG + "Map found");
+      console.log(pos);
+      $scope.pos.lat = parseFloat(pos.lat);
+      $scope.pos.lng = parseFloat(pos.lng);
+      console.log($scope.pos.lat);
+      console.log($scope.pos.lng);
+      // $scope.map.panTo(new google.maps.LatLng(lat, lng));
+      // $scope.map.setCenter(new google.maps.LatLng(lat, lng));
+      // NgMap.getMap().then(function (map) {
+      //   map.setCenter({lat: lat, lng: lng});
+      // });
+    }
+  }
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);

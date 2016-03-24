@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('DashboardCtrl', ['$scope', '$http', '$location', 'SoundService', function ($scope, $http, $location, SoundService) {
+app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', 'SoundService', function ($scope, $rootScope, $http, $location, SoundService) {
 
   var TAG = "DashboardCtrl: ";
 
@@ -13,6 +13,23 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$location', 'SoundService',
 		}, function errorCallback( errorResponse) {
 			console.log(errorResponse);
 		});
+
+  $scope.showSoundInfo = function (sound) {
+    // Broadcast event to map
+    var pos = {
+      lat: sound.lat,
+      lng: sound.long
+    };
+    console.log(TAG + "showSoundInfo pos: ");
+    console.log(pos);
+    $rootScope.$emit('ShowSoundInfo', pos);
+  };
+
+  // Open editor
+  $scope.openEditor = function () {
+    //SoundService.setCurrentSoundId(sound.id);
+    $location.path('/edit');
+  };
 
   // Delete sound
   $scope.deleteSound = function (sound) {
@@ -29,12 +46,6 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$location', 'SoundService',
     }, function (errorResponse) {
       console.log(errorResponse);
     });
-  };
-
-  // Open editor
-  $scope.openEditor = function () {
-    //SoundService.setCurrentSoundId(sound.id);
-    $location.path('/edit');
   };
 
 	// Get current user's data
