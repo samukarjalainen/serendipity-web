@@ -1,32 +1,34 @@
 <div class="sounds-wrapper container" ng-controller="SoundsCtrl">
-  <table class="table table-hover animate-if" ng-if="sounds.length > 0">
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Created</th>
-      <th>Modified</th>
-      <th>User ID</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="sound in sounds">
-      <td>{{ sound.id }}</td>
-      <td>{{ sound.title }}</td>
-      <td>{{ sound.description }}</td>
-      <td>{{ sound.status }}</td>
-      <td>{{ sound.lat }}</td>
-      <td>{{ sound.long }}</td>
-      <td>{{ sound.createdAt | date}}</td>
-      <td>{{ sound.updatedAt | date}}</td>
-      <td>{{ sound.UserId }}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="table-wrap">
+    <table class="table table-hover animate-if" ng-if="sounds.length > 0">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Created</th>
+        <th>Modified</th>
+        <th>User ID</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="sound in sounds">
+        <td>{{ sound.id }}</td>
+        <td>{{ sound.title }}</td>
+        <td>{{ sound.description }}</td>
+        <td>{{ sound.status }}</td>
+        <td>{{ sound.lat }}</td>
+        <td>{{ sound.long }}</td>
+        <td>{{ sound.createdAt | date}}</td>
+        <td>{{ sound.updatedAt | date}}</td>
+        <td>{{ sound.UserId }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <div ng-include="'views/upload.html'"></div>

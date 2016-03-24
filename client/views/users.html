@@ -1,6 +1,7 @@
 <div class="users-wrapper container" ng-controller="UsersCtrl">
-  <table class="table table-hover animate-if" ng-if="users.length > 0">
-    <thead>
+  <div class="table-wrap">
+    <table class="table table-hover animate-if" ng-if="users.length > 0">
+      <thead>
       <tr>
         <th>Id</th>
         <th>Role</th>
@@ -12,8 +13,8 @@
         <th>Country</th>
         <th>Created</th>
       </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
       <tr ng-repeat="user in users">
         <td>{{ user.id }}</td>
         <td>{{ user.role }}</td>
@@ -25,6 +26,8 @@
         <td>{{ user.country }}</td>
         <td>{{ user.createdAt | date }}</td>
       </tr>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
+
 </div>

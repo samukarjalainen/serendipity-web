@@ -8,26 +8,29 @@
     <button class="btn btn-link" ng-click="openEditor(sound)">OPEN MIXER</button>
   </div>
 
-  <table class="table table-hover animate-if" ng-if="sounds.length > 0">
-    <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Status</th>
-			<th>Edit</th>
-			<th>Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-			<tr ng-repeat="sound in sounds" class="animate-if">
-				<td>{{ sound.title }}</td>
-				<td>{{ sound.description }}</td>
+  <div class="table-wrap  animate-if" ng-if="sounds.length > 0">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="sound in sounds" class="animate-if">
+        <td>{{ sound.title }}</td>
+        <td>{{ sound.description }}</td>
         <td>{{ sound.status }}</td>
-				<td><button class="btn btn-serendipity" ng-click="openEditor(sound)">Edit</button></td>
-				<td><button type="submit" class="btn btn-danger" data-sound-id=sound.id ng-click="deleteSound(sound)">Delete</button></td>
-			</tr>
-    </tbody>
-  </table>
+        <td><button class="btn btn-serendipity" ng-click="openEditor(sound)">Edit</button></td>
+        <td><button type="submit" class="btn btn-danger" data-sound-id=sound.id ng-click="deleteSound(sound)">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
 
   <!-- MAP -->
   <div ng-include="'views/home/map.html'"></div>

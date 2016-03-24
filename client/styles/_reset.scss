@@ -21,9 +21,23 @@ a {
   }
 }
 
+.table-wrap {
+  padding: 30px;
+  background-color: $element-bg;
+  margin: 50px auto;
+}
+
 .table {
   @include border-radius(0);
-  background-color: $element-bg;
+  margin-bottom: 0;
+
+  thead {
+    tr {
+      th {
+        text-transform: uppercase;
+      }
+    }
+  }
 
   tbody {
     td {
@@ -31,8 +45,14 @@ a {
       word-wrap:break-word;
     }
     tr {
+      cursor: pointer;
+
+      td {
+        vertical-align: initial;
+        border-top: none;
+      }
       &:hover {
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, 0.2);
       }
     }
   }
@@ -59,8 +79,8 @@ a {
   font-weight: 400;
 
   &:hover {
-    color: $btn-text;
-    background-color: $btn-bg;
+    color: white;
+    background-color: $btn-hover;
   }
 
   //&:focus, &:active {outline: rgba(white, 0.5);}

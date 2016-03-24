@@ -5,8 +5,10 @@
 
       <!-- SOUNDS -->
       <div class="col-lg-6 col-xs-12">
+        <h2>Your sounds</h2>
+        <p>In the dropdown below you'll find the sounds that you have recorded. Start by choosing a sound from your library.</p>
         <div class="form-group sounds">
-          <label for="sounds-dropdown">Sounds</label>
+          <label for="sounds-dropdown">Select sound</label>
           <select class="form-control" id="sounds-dropdown" ng-model="soundSelect" ng-change="updateSoundInfo()">
             <option ng-repeat="sound in sounds" value="{{sound.path}}">{{sound.title}}</option>
           </select>
@@ -22,10 +24,12 @@
 
       <!-- TRACKS -->
       <div class="col-lg-6 col xs-12">
+        <h2>Overlay tracks</h2>
+        <p>Here you'll find a collection of different overlay tracks you can use for making a simple remix of your sound.</p>
         <div class="form-group tracks">
-          <label for="tracks-dropdown">Tracks</label>
+          <label for="tracks-dropdown">Select track</label>
           <select class="form-control" id="tracks-dropdown" ng-model="trackSelect" ng-change="updateTrackInfo()">
-            <option ng-repeat="track in tracks" value="{{track.path}}">{{track.title}}</option>
+            <option ng-repeat="track in tracks" value="{{track.path}}">{{track.title}} [{{track.type}}]</option>
           </select>
         </div>
         <div class="track-title">{{currentTrack.title}}</div>
@@ -34,13 +38,16 @@
         <audio id="track-audio" ng-src="{{trackSelect}}" controls></audio>
       </div>
 
+
       <!-- COMBINE -->
       <div class="col-lg-12">
         <div class="combined-wrap">
-          <h3 class="combined-title">Combined controls</h3>
-          <div class="checkbox">
-            <label><input type="checkbox" value="" ng-model="newFile" ng-disabled="">Create new file</label>
-          </div>
+          <h2 class="combined-title">Combined controls</h2>
+          <p>With these controls you can simultaneously play, pause and stop both audio sources.
+            What you hear is what you get so when you've made you choice, hit save to save the remix into your library.</p>
+          <!--<div class="checkbox">-->
+          <!--<label><input type="checkbox" value="" ng-model="newFile" ng-disabled="">Create new file</label>-->
+          <!--</div>-->
           <div class="audio-combined-controls">
             <button class="btn btn-serendipity" ng-click="playBoth()"><i class="glyphicon glyphicon-play"></i></button>
             <button class="btn btn-serendipity" ng-click="pauseBoth()"><i class="glyphicon glyphicon-pause"></i></button>
@@ -54,6 +61,7 @@
           <h4 class="alert alert-success alert-shadow animate-if" ng-if="remixSuccess"><span class="glyphicon glyphicon-ok"></span> Remix saved successfully</h4>
         </div>
       </div>
+
 
       <!-- MODAL -->
       <div class="serendipity-modal-bg">

@@ -5927,17 +5927,29 @@ body {
 a:hover {
   color: white; }
 
+.table-wrap {
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: 50px auto; }
+
 .table {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0;
-  background-color: rgba(0, 0, 0, 0.7); }
+  margin-bottom: 0; }
+  .table thead tr th {
+    text-transform: uppercase; }
   .table tbody td {
     word-break: break-all;
     word-wrap: break-word; }
-  .table tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.2); }
+  .table tbody tr {
+    cursor: pointer; }
+    .table tbody tr td {
+      vertical-align: initial;
+      border-top: none; }
+    .table tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.2); }
 
 .container-fluid {
   padding-left: 0;
@@ -5962,8 +5974,8 @@ a:hover {
   border-color: transparent;
   font-weight: 400; }
   .btn-serendipity:hover {
-    color: #555;
-    background-color: white; }
+    color: white;
+    background-color: #333; }
 
 .btn-link {
   padding: 10px 50px;
@@ -6799,7 +6811,10 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   .editor-wrapper audio {
     width: 100%; }
   .editor-wrapper .combined-wrap {
-    text-align: center; }
+    text-align: center;
+    width: 50%;
+    max-width: 520px;
+    margin: 0 auto; }
   .editor-wrapper .audio-combined-controls {
     display: inline-block; }
 

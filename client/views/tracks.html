@@ -1,25 +1,27 @@
 <div class="sounds-wrapper container" ng-controller="TracksCtrl">
-  <table class="table table-hover animate-if" ng-if="tracks.length > 0">
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Path</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="track in tracks">
-      <td>{{ track.id }}</td>
-      <td>{{ track.title }}</td>
-      <td>{{ track.description }}</td>
-      <td>{{ track.type }}</td>
-      <td>{{ track.path }}</td>
-      <td><button type="submit" class="btn btn-danger" data-sound-id=sound.id ng-click="deleteTrack(track)">Delete</button></td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="table-wrap">
+    <table class="table table-hover animate-if" ng-if="tracks.length > 0">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Path</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="track in tracks">
+        <td>{{ track.id }}</td>
+        <td>{{ track.title }}</td>
+        <td>{{ track.description }}</td>
+        <td>{{ track.type }}</td>
+        <td>{{ track.path }}</td>
+        <td><button type="submit" class="btn btn-danger" data-sound-id=sound.id ng-click="deleteTrack(track)">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 
