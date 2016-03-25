@@ -31,6 +31,37 @@
     </table>
   </div>
 
+  <div class="table-wrap animate-if" ng-if="sounds.length > 0">
+    <div class="row">
+      <div class="col-sm-4 sounds-list-wrap">
+        <h3 class="sound-box-heading">MY SOUNDS</h3>
+        <ul class="sounds-list">
+          <li class="sound-item" ng-model="curSound" value="sound" ng-class="{selected:$first}" ng-repeat="sound in sounds" ng-click="showSoundInfo($index, sound, $event)">{{sound.title}}</li>
+        </ul>
+      </div>
+
+      <div class="col-sm-4 sound-details-wrap">
+        <h3 class="sound-box-heading">SOUND DETAILS</h3>
+        <h4 class="sound-title">{{curSound.title}}</h4>
+        <div class="sound-status">({{curSound.status}})</div>
+        <div class="sound-desc">{{curSound.description}}</div>
+        <div class="sound-date-created"><i>Recorded</i> {{curSound.createdAt | date}}</div>
+        <div class="sound-date-updated" ng-if="curSound.createdAt != curSound.updatedAt"><i>Last modified</i> {{curSound.updatedAt | date}}</div>
+        <div class="sound-date-updated" ng-if="curSound.createdAt == curSound.updatedAt"><i>Never modified</i></div>
+        <div class="sound-loc"><i>Location</i> {{curSound.lat}}, {{curSound.long}}</div>
+
+      </div>
+
+      <div class="col-sm-4 sound-controls-wrap">
+        <h3 class="sound-box-heading">SOUND CONTROLS</h3>
+        <button class="btn btn-serendipity" ng-click="openEditor(sound)">Open Mixer</button>
+        <button class="btn btn-serendipity" ng-click="openEditor(sound)">Edit Details</button>
+        <button type="submit" class="btn btn-danger" data-sound-id=sound.id ng-click="deleteSound(curSound)">Delete Sound</button>
+      </div>
+    </div>
+
+  </div>
+
 
   <!-- MAP -->
   <div ng-include="'views/home/map.html'"></div>

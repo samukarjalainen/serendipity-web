@@ -1,28 +1,43 @@
 'use strict';
 
-app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', 'SoundService', function ($scope, $rootScope, $http, $location, SoundService) {
+app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '$timeout', function ($scope, $rootScope, $http, $location, $timeout) {
 
   var TAG = "DashboardCtrl: ";
 
 	$scope.sounds = [];
 
+
   // Get sounds
 	$http.post('/api/sounds/mysounds').
 		then(function successCallback(successResponse) {
-			$scope.sounds = successResponse.data;
+      // Initialize data
+      $scope.sounds = successResponse.data;
+      $scope.curSound = $scope.sounds[0];
+
+      // Reposition map when it's ready
+      $rootScope.$on('MapReady', function () {
+        $rootScope.$emit('ShowSoundInfo', {lat: $scope.curSound.lat, lng: $scope.curSound.long});
+      });
 		}, function errorCallback( errorResponse) {
 			console.log(errorResponse);
 		});
 
-  $scope.showSoundInfo = function (sound) {
+  $scope.showSoundInfo = function (index, sound, event) {
+    // Set the current sound index
+    $scope.curSound = $scope.sounds[index];
+    console.log($scope.curSound);
+
     // Broadcast event to map
     var pos = {
       lat: sound.lat,
       lng: sound.long
     };
-    console.log(TAG + "showSoundInfo pos: ");
-    console.log(pos);
     $rootScope.$emit('ShowSoundInfo', pos);
+
+    // Update selection indicator
+    var $itemClicked = $(event.target);
+    $itemClicked.siblings().removeClass('selected');
+    $itemClicked.addClass('selected');
   };
 
   // Open editor
@@ -33,8 +48,6 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
 
   // Delete sound
   $scope.deleteSound = function (sound) {
-    console.log(sound);
-
     $http.post('/api/sounds/delete-sound', sound)
     .then(function (successResponse) {
       // Remove deleted sound from scope
@@ -43,9 +56,19 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
           $scope.sounds.splice(i, 1);
         }
       }
+      // Set the current sound as index 0
+      // TODO: Refactor to set index -1 or 0 if index was 0
+      if ($scope.sounds.length > 0) {
+        $scope.curSound = $scope.sounds[0];
+      }
     }, function (errorResponse) {
       console.log(errorResponse);
     });
+  };
+
+  // Set the current sound
+  $scope.setCurSound = function (index) {
+    $scope.curSound = $scope.sounds[index];
   };
 
 	// Get current user's data

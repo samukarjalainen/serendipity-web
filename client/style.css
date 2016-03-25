@@ -6757,6 +6757,56 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   margin: 10px auto 40px;
   text-align: center; }
 
+h3.sound-box-heading {
+  padding-bottom: 20px; }
+  h3.sound-box-heading:after {
+    content: '';
+    display: block;
+    background-color: white;
+    height: 3px;
+    width: 40px;
+    margin-top: 20px; }
+
+.sounds-list {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .sounds-list li {
+    padding: 8px;
+    cursor: pointer;
+    -webkit-transition: all 100ms ease-in-out;
+    -moz-transition: all 100ms ease-in-out;
+    -o-transition: all 100ms ease-in-out;
+    -ms-transition: all 100ms ease-in-out;
+    transition: all 100ms ease-in-out; }
+    .sounds-list li:hover {
+      background-color: rgba(255, 255, 255, 0.1); }
+    .sounds-list li.selected {
+      background-color: rgba(255, 255, 255, 0.2); }
+
+.sound-details-wrap .sound-title {
+  font-size: 22px;
+  width: 75%;
+  display: inline-block;
+  margin-bottom: 20px; }
+
+.sound-details-wrap .sound-status {
+  font-size: 14px;
+  display: inline-block;
+  float: right;
+  margin-top: 12px; }
+
+.sound-details-wrap .sound-desc {
+  margin-bottom: 18px; }
+
+.sound-details-wrap .sound-date-created, .sound-details-wrap .sound-date-updated, .sound-details-wrap .sound-loc {
+  font-size: 14px; }
+
+.sound-controls-wrap .btn {
+  display: block;
+  margin-bottom: 8px;
+  width: 110px; }
+
 /* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Media queries -- */

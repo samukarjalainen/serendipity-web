@@ -61,6 +61,9 @@ app.controller('MapCtrl', ['$scope', '$rootScope', '$location', '$timeout', 'NgM
       });
 
       $scope.map = map;
+      
+      // Broadcast map ready
+      $rootScope.$emit('MapReady');
     });
   }, 100);
 

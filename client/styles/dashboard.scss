@@ -21,3 +21,71 @@
   margin: 10px auto 40px;
   text-align: center;
 }
+
+h3.sound-box-heading {
+  padding-bottom: 20px;
+
+  &:after {
+    content: '';
+    display: block;
+    background-color: rgba(255, 255, 255, 1);
+    height: 3px;
+    width: 40px;
+    margin-top: 20px;
+  }
+}
+
+
+.sounds-list {
+  // display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    padding: 8px;
+    cursor: pointer;
+    @include transition(all 100ms ease-in-out);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &.selected {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.sound-details-wrap {
+  .sound-title {
+    font-size: 22px;
+    width: 75%;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .sound-status {
+    font-size: 14px;
+    display: inline-block;
+    float: right;
+    margin-top: 12px;
+  }
+
+  .sound-desc {
+    margin-bottom: 18px;
+  }
+
+  .sound-date-created, .sound-date-updated, .sound-loc {
+    font-size: 14px;
+  }
+}
+
+.sound-controls-wrap {
+  .btn {
+    display: block;
+    margin-bottom: 8px;
+    width: 110px;
+  }
+}
+
