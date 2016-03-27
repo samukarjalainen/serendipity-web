@@ -5,7 +5,7 @@ var Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   var Sound = sequelize.define('Sound', {
     title: Sequelize.STRING,
-    description: Sequelize.STRING,
+    description: Sequelize.TEXT,
     status: {
       type: Sequelize.STRING,
       defaultValue: 'original'
