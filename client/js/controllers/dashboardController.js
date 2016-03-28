@@ -9,10 +9,8 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
   $scope.detailsModal = $scope.detailOverlay.find('.sound-edit-details-wrapper');
   $scope.closeDetailsBtn = $scope.detailOverlay.find('.sound-close-button');
   $scope.closeDetailsBtn.on('click', closeEditSoundModal);
-
-  // $scope.closeBtn = $scope.detailOverlay.find('.close-button').on('click', closeEditSoundModal);
-  // $scope.audioTitle = $scope.detailOverlay.find('.audio-title');
-  // $scope.audioDesc = $scope.detailOverlay.find('.audio-description');
+  var tempSoundTitle = "";
+  var tempSoundDesc = "";
 
 
   // Get sounds
@@ -55,7 +53,19 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
   };
 
   $scope.editDetails = function (sound) {
+    tempSoundTitle = $scope.curSound.title;
+    tempSoundDesc = $scope.curSound.description;
     openEditSoundModal();
+  };
+
+  $scope.cancel = function () {
+    $scope.curSound.title = tempSoundTitle;
+    $scope.curSound.description = tempSoundDesc;
+    closeEditSoundModal();
+  };
+
+  $scope.save = function () {
+    console.log($scope.curSound);
   };
 
   // Delete sound

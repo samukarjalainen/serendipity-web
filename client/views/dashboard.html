@@ -49,7 +49,6 @@
         <div class="sound-date-updated" ng-if="curSound.createdAt != curSound.updatedAt"><i>Last modified</i> {{curSound.updatedAt | date}}</div>
         <div class="sound-date-updated" ng-if="curSound.createdAt == curSound.updatedAt"><i>Never modified</i></div>
         <div class="sound-loc"><i>Location</i> {{curSound.lat}}, {{curSound.long}}</div>
-
       </div>
 
       <div class="col-sm-3 sound-controls-wrap">
@@ -61,25 +60,25 @@
     </div>
   </div>
 
-  <div class="details-overlay" ng-model="curSound">
+  <div class="details-overlay">
     <div class="sound-edit-details-wrapper">
       <div class="sound-close-button"><i class="glyphicon glyphicon-remove"></i></div>
 
       <div class="top-row clearfix">
-        <input type="text" class="form-control" id="sound-title" value="{{curSound.title}}">
+        <input type="text" class="form-control" id="sound-title" ng-model="curSound.title">
         <div class="sound-status">({{curSound.status}})</div>
       </div>
 
-      <textarea class="form-control" rows="5" id="sound-desc">{{curSound.description}}</textarea>
-      
+      <textarea class="form-control" rows="5" id="sound-desc" ng-model="curSound.description"></textarea>
+
       <div class="bottom-left">
         <div class="sound-date-created"><i>Recorded</i> {{curSound.createdAt | date}}</div>
         <div class="sound-date-updated" ng-if="curSound.createdAt != curSound.updatedAt"><i>Last modified</i> {{curSound.updatedAt | date}}</div>
         <div class="sound-date-updated" ng-if="curSound.createdAt == curSound.updatedAt"><i>Never modified</i></div>
         <div class="sound-loc"><i>Location</i> {{curSound.lat}}, {{curSound.long}}</div>
       </div>
-      <div class="bottom-right clearfix">
 
+      <div class="bottom-right clearfix">
         <button class="btn btn-serendipity cancel-btn" ng-click="cancel(sound)">Cancel</button>
         <button class="btn btn-serendipity save-btn" ng-click="save(sound)">Save</button>
       </div>

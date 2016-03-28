@@ -61,7 +61,7 @@ app.controller('MapCtrl', ['$scope', '$rootScope', '$location', '$timeout', 'NgM
       });
 
       $scope.map = map;
-      
+
       // Broadcast map ready
       $rootScope.$emit('MapReady');
     });
@@ -70,19 +70,9 @@ app.controller('MapCtrl', ['$scope', '$rootScope', '$location', '$timeout', 'NgM
   $rootScope.$on('ShowSoundInfo', setMapCenter);
 
   function setMapCenter(event, pos) {
-    console.log(TAG + "setMapCenter called");
     if ($scope.map) {
-      console.log(TAG + "Map found");
-      console.log(pos);
       $scope.pos.lat = parseFloat(pos.lat);
       $scope.pos.lng = parseFloat(pos.lng);
-      console.log($scope.pos.lat);
-      console.log($scope.pos.lng);
-      // $scope.map.panTo(new google.maps.LatLng(lat, lng));
-      // $scope.map.setCenter(new google.maps.LatLng(lat, lng));
-      // NgMap.getMap().then(function (map) {
-      //   map.setCenter({lat: lat, lng: lng});
-      // });
     }
   }
 
