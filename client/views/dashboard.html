@@ -113,22 +113,30 @@
 				<th>Last Name</th>
 				<th>City</th>
 				<th>Country</th>
-				<th>Joined</th>
-				<th>Edit</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
+			<tr ng-hide="showupdatetable">
 				<td>{{ user.username }}</td>
 				<td>{{ user.email }}</td>
 				<td>{{ user.firstName }}</td>
 				<td>{{ user.lastName }}</td>
 				<td>{{ user.city }}</td>
 				<td>{{ user.country }}</td>
-				<td>{{ user.createdAt | date }}</td>
-				<td><button class="btn btn-serendipity" ng-click="">Edit</button></td>
+				<td><button class="btn btn-primary" ng-click="showupdatetable=true; showupdate=false;">Edit</button></td>
+			</tr>
+			<tr ng-show="showupdatetable">
+				<td>{{ user.username }}</td>
+				<td><input type="text" class="form-control" id="firstName" value="{{ user.email }}" ng-model="user.email"></td>
+				<td><input type="text" class="form-control" id="firstName" value="{{ user.firstName }}" ng-model="user.firstName"></td>
+				<td><input type="text" class="form-control" id="lastName" value="{{ user.lastName }}" ng-model="user.lastName"></td>
+				<td><input type="text" class="form-control" id="lastName" value="{{ user.city }}" ng-model="user.city"></td>
+				<td><input type="text" class="form-control" id="lastName" value="{{ user.country }}" ng-model="user.country"></td>
+				<td><button type="submit" class="btn btn-primary" ng-click="editUser(user); showupdate=true; showupdatetable=false;">Save</button></td>
 			</tr>
 		</tbody>
 	</table>
-
+	<span style="float:right;" ng-show="showupdate">Profile Updated!</span>
+	
 </div>

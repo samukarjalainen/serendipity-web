@@ -112,6 +112,17 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
 		console.log(user);
 	});
 
+	// Edit current user
+	$scope.editUser = function (user) {
+		$http.post('/api/users/update', user).
+			then(function (successResponse) {
+		}, function errorCallback(errorResponse){
+			console.log("Error posting data");
+			console.log(response);
+			console.log(user);
+		});
+	};
+
 
   // Helpers
   function openEditSoundModal() {
