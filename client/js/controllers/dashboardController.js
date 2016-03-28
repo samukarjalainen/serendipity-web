@@ -46,6 +46,10 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
     $itemClicked.addClass('selected');
   };
 
+  $scope.playCurrentSound = function () {
+    $rootScope.$emit('OpenPlayer', $scope.curSound);
+  };
+
   // Open editor
   $scope.openEditor = function () {
     //SoundService.setCurrentSoundId(sound.id);

@@ -18,8 +18,6 @@ app.controller('PlayerCtrl', ['$scope', '$rootScope', '$sce', 'SoundService', fu
   function playSound(event, sound) {
     // Set the source for the sound
     //var source = this.path.toString();
-    console.log(event);
-    console.log(sound);
     var source = sound.path;
     //console.log(source);
     console.log(TAG + "playSound called");
@@ -45,7 +43,7 @@ app.controller('PlayerCtrl', ['$scope', '$rootScope', '$sce', 'SoundService', fu
     else
       $scope.audioTitle.html('<span class="text-muted">No title</span>');
 
-    if (sound.desc.length > 0)
+    if (sound.description.length > 0)
       $scope.audioDesc.html(sound.desc);
     else
       $scope.audioDesc.html('<span class="text-muted">No description</span>');

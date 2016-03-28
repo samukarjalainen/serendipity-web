@@ -91,7 +91,7 @@ app.controller('MapCtrl', ['$scope', '$rootScope', '$location', '$timeout', 'NgM
         position: { lat: parseFloat(curSound.lat), lng: parseFloat(curSound.long) },
         map: map,
         title: curSound.title,
-        desc: curSound.description,
+        description: curSound.description,
         soundId: curSound.id,
         path: curSound.path
       });
