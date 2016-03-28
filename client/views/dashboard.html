@@ -103,40 +103,40 @@
   <div ng-include="'views/home/map.html'"></div>
 
 	<!-- User Table -->
-	<br>
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>Username</th>
-				<th>E-mail</th>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>City</th>
-				<th>Country</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-hide="showupdatetable">
-				<td>{{ user.username }}</td>
-				<td>{{ user.email }}</td>
-				<td>{{ user.firstName }}</td>
-				<td>{{ user.lastName }}</td>
-				<td>{{ user.city }}</td>
-				<td>{{ user.country }}</td>
-				<td><button class="btn btn-primary" ng-click="showupdatetable=true; showupdate=false;">Edit</button></td>
-			</tr>
-			<tr ng-show="showupdatetable">
-				<td>{{ user.username }}</td>
-				<td><input type="text" class="form-control" id="firstName" value="{{ user.email }}" ng-model="user.email"></td>
-				<td><input type="text" class="form-control" id="firstName" value="{{ user.firstName }}" ng-model="user.firstName"></td>
-				<td><input type="text" class="form-control" id="lastName" value="{{ user.lastName }}" ng-model="user.lastName"></td>
-				<td><input type="text" class="form-control" id="lastName" value="{{ user.city }}" ng-model="user.city"></td>
-				<td><input type="text" class="form-control" id="lastName" value="{{ user.country }}" ng-model="user.country"></td>
-				<td><button type="submit" class="btn btn-primary" ng-click="editUser(user); showupdate=true; showupdatetable=false;">Save</button></td>
-			</tr>
-		</tbody>
-	</table>
-	<span style="float:right;" ng-show="showupdate">Profile Updated!</span>
-	
+  <div class="table-wrap animate-if" ng-if="sounds.length > 0">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>E-mail</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>City</th>
+          <th>Country</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-hide="showupdatetable">
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.city }}</td>
+          <td>{{ user.country }}</td>
+          <td><button class="btn btn-primary" ng-click="showupdatetable=true; showupdate=false;">Edit</button></td>
+        </tr>
+        <tr ng-show="showupdatetable">
+          <td>{{ user.username }}</td>
+          <td><input type="text" class="form-control" id="firstName" value="{{ user.email }}" ng-model="user.email"></td>
+          <td><input type="text" class="form-control" id="firstName" value="{{ user.firstName }}" ng-model="user.firstName"></td>
+          <td><input type="text" class="form-control" id="lastName" value="{{ user.lastName }}" ng-model="user.lastName"></td>
+          <td><input type="text" class="form-control" id="lastName" value="{{ user.city }}" ng-model="user.city"></td>
+          <td><input type="text" class="form-control" id="lastName" value="{{ user.country }}" ng-model="user.country"></td>
+          <td><button type="submit" class="btn btn-primary" ng-click="editUser(user); showupdate=true; showupdatetable=false;">Save</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <span style="float:right;" ng-show="showupdate">Profile Updated!</span>
+	</div>
 </div>
