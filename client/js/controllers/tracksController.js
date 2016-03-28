@@ -31,19 +31,4 @@ app.controller('TracksCtrl', ['$scope', '$http', 'TrackService', function ($scop
     });
   };
 
-
-
-  //$scope.tracks = TrackService.getTracks();
-
-  //if ($scope.tracks.length === 0) {
-  //  $scope.tracks = TrackService.getTracks();
-  //}
-
-  //console.log($scope.tracks);
-  //
-  //if (typeof $scope.tracks == 'undefined') {
-  //  console.log(TAG + "Getting tracks!");
-  //  $scope.tracks = TrackService.getTracks();
-  //}
-
 }]);

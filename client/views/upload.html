@@ -40,10 +40,10 @@
         <div class="form-group">
           <label class="control-label" for="file"></label>
           <div class="col-sm-9 col-sm-offset-3">
-            <input type="file" id="file" ngf-select ng-model="soundFile" name="file" accept="audio/*" ngf-max-size="2MB" required ngf-model-invalid="errorFiles">
+            <input type="file" id="file" ngf-select ng-model="soundFile" name="file" accept="audio/*" required ngf-model-invalid="errorFiles">
             <i ng-show="myForm.file.$error.required">*required</i><br>
-            <i ng-show="myForm.file.$error.maxSize">File too large
-              {{errorFiles[0].size / 1000000|number:1}}MB: max 2M</i>
+            <!--<i ng-show="myForm.file.$error.maxSize">File too large-->
+              <!--{{errorFiles[0].size / 1000000|number:1}}MB: max 2M</i>-->
             <img ng-show="myForm.file.$valid" ngf-thumbnail="soundFile" class="thumb"> <button class="btn btn-warning" ng-click="soundFile = null" ng-show="soundFile">Remove</button>
             <br>
             <button class="btn btn-primary" ng-disabled="!myForm.$valid" ng-click="uploadSound(soundFile)">Submit</button>
