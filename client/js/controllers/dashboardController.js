@@ -66,6 +66,16 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
 
   $scope.save = function () {
     console.log($scope.curSound);
+    $http.post('/api/sounds/update', $scope.curSound)
+    .then(function (successResponse) {
+      console.log(TAG + "success");
+      console.log(successResponse);
+      closeEditSoundModal();
+    }, function (errorResponse) {
+      console.log(TAG + "error");
+      console.log(errorResponse);
+      $scope.cancel();
+    });
   };
 
   // Delete sound

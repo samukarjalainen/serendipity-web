@@ -140,7 +140,9 @@ var sounds = {
   },
 
   update: function(req, res) {
-		console.log(req.body.id);
+    console.log(TAG + "update sound called");
+    console.log(req.body);
+
     if (req.body.id && typeof req.body.id !== 'undefined') {
       db.Sound.update(req.body, { where : { id: req.body.id } }
       ).then(function () {
@@ -148,7 +150,7 @@ var sounds = {
         res.status(200);
         res.json({ success: true, message: "Sound updated succesfully" });
       }).catch(function (err) {
-        console.log("Error updating user");
+        console.log("Error updating sound");
         console.log(err);
         res.status(400);
         res.json({ success: false, message: err.message, errors: err.errors });
@@ -159,7 +161,6 @@ var sounds = {
       res.json({ success: false, message: "Request ID undefined" });
     }
   },
-
 
   delete: function(req, res) {
     console.log(TAG + "delete called");
