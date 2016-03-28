@@ -31,7 +31,6 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
   $scope.showSoundInfo = function (index, sound, event) {
     // Set the current sound index
     $scope.curSound = $scope.sounds[index];
-    console.log($scope.curSound);
 
     // Broadcast event to map
     var pos = {
