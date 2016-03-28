@@ -15,6 +15,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -5837,7 +5838,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title, .sound-edit-details-wrapper #sound-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -5880,7 +5881,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title, .sound-edit-details-wrapper #sound-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6055,7 +6056,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title, .sound-edit-details-wrapper #sound-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6195,7 +6196,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title, .sound-edit-details-wrapper #sound-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6272,7 +6273,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title, .sound-edit-details-wrapper #sound-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6476,7 +6477,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title, .sound-edit-details-wrapper #sound-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6590,7 +6591,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title, .sound-edit-details-wrapper #sound-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6647,7 +6648,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title, .sound-edit-details-wrapper #sound-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6701,7 +6702,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title, .sound-edit-details-wrapper #sound-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6772,7 +6773,7 @@ h3.sound-box-heading {
   padding: 0;
   margin: 0;
   max-height: 266px;
-  overflow-y: scroll; }
+  overflow-y: auto; }
   .sounds-list::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #F5F5F5; }
@@ -6828,7 +6829,7 @@ body {
   font-size: 16px;
   color: white; }
 
-.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title {
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title, .sound-edit-details-wrapper #sound-title {
   font-size: 23px;
   font-weight: 700; }
 
@@ -6942,3 +6943,128 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
     .serendipity-modal-bg .serendipity-modal-box .loading-text {
       display: block;
       text-align: center; }
+
+/* -- Misc variables -- */
+/* -- Colors -- */
+/* -- Media queries -- */
+/* -- Fonts -- */
+html,
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: white; }
+
+.main-wrapper .help-us .help-us-text, .audio .audio-title, .editor-wrapper .sound-title, .editor-wrapper .track-title, .sound-edit-details-wrapper #sound-title {
+  font-size: 23px;
+  font-weight: 700; }
+
+.header {
+  font-size: 18px;
+  text-transform: uppercase; }
+
+.footer .footer-hero-wrapper .footer-hero-text {
+  opacity: 0.7;
+  font-size: 26px; }
+
+.main-wrapper .definition .definition-title {
+  font-size: 40px;
+  line-height: 50px;
+  color: #070706;
+  font-weight: 300; }
+
+.main-wrapper .steps-wrapper {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #070706; }
+
+/* -- Misc placeholders -- */
+body, .main-wrapper .help-us, .main-wrapper .about-us {
+  background-image: url("../images/city-surface-blur.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; }
+
+/* -- Mixins -- */
+.details-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 15999;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 200ms ease-in-out;
+  -moz-transition: opacity 200ms ease-in-out;
+  -o-transition: opacity 200ms ease-in-out;
+  -ms-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out; }
+  .details-overlay.is-open {
+    opacity: 1;
+    pointer-events: all; }
+    .details-overlay.is-open .sound-edit-details-wrapper {
+      transform: translate(0px, 0px); }
+
+.sound-edit-details-wrapper {
+  position: relative;
+  max-width: 620px;
+  top: calc(50% - 150px);
+  left: calc(50% - 310px);
+  padding: 20px 60px 30px;
+  color: black;
+  background-color: white;
+  box-shadow: 0 4px 20px 5px rgba(0, 0, 0, 0.5);
+  text-align: left;
+  transform: translate(0px, -50px);
+  -webkit-transition: transform 150ms ease-in-out;
+  -moz-transition: transform 150ms ease-in-out;
+  -o-transition: transform 150ms ease-in-out;
+  -ms-transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  clear: both; }
+  .sound-edit-details-wrapper .sound-close-button {
+    position: absolute;
+    top: 10px;
+    right: 11px;
+    font-size: 22px;
+    text-align: center;
+    line-height: 22px;
+    color: #3C3C3C;
+    cursor: pointer;
+    transform: scale(1);
+    -webkit-transition: transform 150ms ease-in-out;
+    -moz-transition: transform 150ms ease-in-out;
+    -o-transition: transform 150ms ease-in-out;
+    -ms-transition: transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out; }
+    .sound-edit-details-wrapper .sound-close-button:hover {
+      transform: scale(1.2); }
+  .sound-edit-details-wrapper .top-row {
+    margin-top: 20px; }
+  .sound-edit-details-wrapper #sound-title {
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 70%; }
+  .sound-edit-details-wrapper .sound-status {
+    display: inline-block;
+    float: right;
+    margin-top: 5px; }
+  .sound-edit-details-wrapper #sound-desc {
+    font-size: 14px;
+    margin-bottom: 20px; }
+  .sound-edit-details-wrapper .bottom-left {
+    width: 60%;
+    display: inline-block; }
+  .sound-edit-details-wrapper .bottom-right {
+    display: inline-block;
+    width: 39%; }
+  .sound-edit-details-wrapper .sound-date-created, .sound-edit-details-wrapper .sound-date-updated, .sound-edit-details-wrapper .sound-loc {
+    font-size: 12px; }
+  .sound-edit-details-wrapper .save-btn {
+    float: right;
+    margin-right: 10px; }
+  .sound-edit-details-wrapper .cancel-btn {
+    float: right; }

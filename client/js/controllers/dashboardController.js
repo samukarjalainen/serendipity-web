@@ -5,11 +5,19 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
   var TAG = "DashboardCtrl: ";
 
 	$scope.sounds = [];
+  $scope.detailOverlay = angular.element('.details-overlay');
+  $scope.detailsModal = $scope.detailOverlay.find('.sound-edit-details-wrapper');
+  $scope.closeDetailsBtn = $scope.detailOverlay.find('.sound-close-button');
+  $scope.closeDetailsBtn.on('click', closeEditSoundModal);
+
+  // $scope.closeBtn = $scope.detailOverlay.find('.close-button').on('click', closeEditSoundModal);
+  // $scope.audioTitle = $scope.detailOverlay.find('.audio-title');
+  // $scope.audioDesc = $scope.detailOverlay.find('.audio-description');
 
 
   // Get sounds
-	$http.post('/api/sounds/mysounds').
-		then(function successCallback(successResponse) {
+	$http.post('/api/sounds/mysounds')
+		.then(function successCallback(successResponse) {
       // Initialize data
       $scope.sounds = successResponse.data;
       $scope.curSound = $scope.sounds[0];
@@ -46,6 +54,10 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
     $location.path('/edit');
   };
 
+  $scope.editDetails = function (sound) {
+    openEditSoundModal();
+  };
+
   // Delete sound
   $scope.deleteSound = function (sound) {
     $http.post('/api/sounds/delete-sound', sound)
@@ -79,5 +91,27 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
 		console.log(response);
 		console.log(user);
 	});
+
+
+  // Helpers
+  function openEditSoundModal() {
+    $scope.detailOverlay.addClass('is-open');
+    $scope.detailsModal.addClass('is-open');
+  }
+
+  function closeEditSoundModal() {
+    $scope.detailOverlay.removeClass('is-open');
+    $scope.detailsModal.removeClass('is-open');
+  }
+
+  (function () {
+
+    $scope.detailOverlay.click(function (event) {
+      if (this == event.target) {
+        closeEditSoundModal();
+      }
+    });
+
+  })();
 
 }]);

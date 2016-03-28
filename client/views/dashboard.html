@@ -4,39 +4,39 @@
   <div ng-include="'views/home/overlay-audio.html'"></div>
 
   <!-- EDITOR LINK -->
-  <div class="editor-link-wrap">
-    <button class="btn btn-link" ng-click="openEditor(sound)">OPEN MIXER</button>
-  </div>
+  <!--<div class="editor-link-wrap">-->
+    <!--<button class="btn btn-link" ng-click="openEditor(sound)">OPEN MIXER</button>-->
+  <!--</div>-->
 
-  <div class="table-wrap  animate-if" ng-if="sounds.length > 0">
-    <table class="table table-hover">
-      <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Status</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr ng-repeat="sound in sounds" class="animate-if">
-        <td ng-click="showSoundInfo(sound)">{{ sound.title }}</td>
-        <td>{{ sound.description }}</td>
-        <td>{{ sound.status }}</td>
-        <td><button class="btn btn-serendipity" ng-click="openEditor(sound)">Edit</button></td>
-        <td><button type="submit" class="btn btn-danger" data-sound-id=sound.id ng-click="deleteSound(sound)">Delete</button></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+  <!--<div class="table-wrap  animate-if" ng-if="sounds.length > 0">-->
+    <!--<table class="table table-hover">-->
+      <!--<thead>-->
+      <!--<tr>-->
+        <!--<th>Title</th>-->
+        <!--<th>Description</th>-->
+        <!--<th>Status</th>-->
+        <!--<th>Edit</th>-->
+        <!--<th>Delete</th>-->
+      <!--</tr>-->
+      <!--</thead>-->
+      <!--<tbody>-->
+      <!--<tr ng-repeat="sound in sounds" class="animate-if">-->
+        <!--<td ng-click="showSoundInfo(sound)">{{ sound.title }}</td>-->
+        <!--<td>{{ sound.description }}</td>-->
+        <!--<td>{{ sound.status }}</td>-->
+        <!--<td><button class="btn btn-serendipity" ng-click="openEditor(sound)">Edit</button></td>-->
+        <!--<td><button type="submit" class="btn btn-danger" data-sound-id=sound.id ng-click="deleteSound(sound)">Delete</button></td>-->
+      <!--</tr>-->
+      <!--</tbody>-->
+    <!--</table>-->
+  <!--</div>-->
 
   <div class="table-wrap animate-if" ng-if="sounds.length > 0">
     <div class="row">
       <div class="col-sm-3 sounds-list-wrap">
         <h3 class="sound-box-heading">MY SOUNDS</h3>
         <ul class="sounds-list">
-          <li class="sound-item" ng-model="curSound" value="sound" ng-class="{selected:$first}" ng-repeat="sound in sounds" ng-click="showSoundInfo($index, sound, $event)">{{sound.title}}</li>
+          <li class="sound-item animate-if" ng-model="curSound" value="sound" ng-class="{selected:$first}" ng-repeat="sound in sounds" ng-click="showSoundInfo($index, sound, $event)">{{sound.title}}</li>
         </ul>
       </div>
 
@@ -55,12 +55,49 @@
       <div class="col-sm-3 sound-controls-wrap">
         <h3 class="sound-box-heading">CONTROLS</h3>
         <button class="btn btn-serendipity" ng-click="openEditor(sound)">Open Mixer</button>
-        <button class="btn btn-serendipity" ng-click="openEditor(sound)">Edit Details</button>
+        <button class="btn btn-serendipity" ng-click="editDetails(sound)">Edit Details</button>
         <button type="submit" class="btn btn-danger" data-sound-id=sound.id ng-click="deleteSound(curSound)">Delete Sound</button>
       </div>
     </div>
-
   </div>
+
+  <div class="details-overlay" ng-model="curSound">
+    <div class="sound-edit-details-wrapper">
+      <div class="sound-close-button"><i class="glyphicon glyphicon-remove"></i></div>
+
+      <div class="top-row clearfix">
+        <input type="text" class="form-control" id="sound-title" value="{{curSound.title}}">
+        <div class="sound-status">({{curSound.status}})</div>
+      </div>
+
+      <textarea class="form-control" rows="5" id="sound-desc">{{curSound.description}}</textarea>
+      
+      <div class="bottom-left">
+        <div class="sound-date-created"><i>Recorded</i> {{curSound.createdAt | date}}</div>
+        <div class="sound-date-updated" ng-if="curSound.createdAt != curSound.updatedAt"><i>Last modified</i> {{curSound.updatedAt | date}}</div>
+        <div class="sound-date-updated" ng-if="curSound.createdAt == curSound.updatedAt"><i>Never modified</i></div>
+        <div class="sound-loc"><i>Location</i> {{curSound.lat}}, {{curSound.long}}</div>
+      </div>
+      <div class="bottom-right clearfix">
+
+        <button class="btn btn-serendipity cancel-btn" ng-click="cancel(sound)">Cancel</button>
+        <button class="btn btn-serendipity save-btn" ng-click="save(sound)">Save</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!--<div class="details-overlay">-->
+    <!--<div class="sound-details-wrapper" ng-model="curSound">-->
+      <!--<h4 class="sound-title">{{curSound.title}}</h4>-->
+      <!--<div class="sound-status">({{curSound.status}})</div>-->
+      <!--<div class="sound-desc">{{curSound.description}}</div>-->
+      <!--<div class="sound-date-created"><i>Recorded</i> {{curSound.createdAt | date}}</div>-->
+      <!--<div class="sound-date-updated" ng-if="curSound.createdAt != curSound.updatedAt"><i>Last modified</i> {{curSound.updatedAt | date}}</div>-->
+      <!--<div class="sound-date-updated" ng-if="curSound.createdAt == curSound.updatedAt"><i>Never modified</i></div>-->
+      <!--<div class="sound-loc"><i>Location</i> {{curSound.lat}}, {{curSound.long}}</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
 
   <!-- MAP -->
