@@ -31,6 +31,11 @@ app.controller('EditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', '$t
     console.log(errorResponse)
   });
 
+  $rootScope.$on('CloseMixer', function () {
+    console.log(TAG + "CloseMixer called");
+    $scope.stopBoth();
+  });
+
   $scope.updateSoundInfo = function () {
     console.log(soundElement.volume);
     angular.forEach($scope.sounds, function (snd) {

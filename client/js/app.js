@@ -70,13 +70,13 @@ app.config(function ($httpProvider, $routeProvider) {
         requiredAdmin: true
       }
     })
-  .when('/edit', {
-    templateUrl: '../views/edit.html',
-    controller: 'EditCtrl',
-    access: {
-      requiredLogin: true
-    }
-  })
+    // .when('/edit', {
+    //   templateUrl: '../views/edit.html',
+    //   controller: 'EditCtrl',
+    //   access: {
+    //     requiredLogin: true
+    //   }
+    // })
     .otherwise({
       redirectTo: '/'
     })

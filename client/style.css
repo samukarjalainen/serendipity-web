@@ -6006,7 +6006,7 @@ a:hover {
   border-radius: 0; }
 
 .alert-shadow {
-  box-shadow: 1px 1px 6px 6px rgba(0, 0, 0, 0.5); }
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.5); }
 
 .form-control {
   -webkit-border-radius: 0;
@@ -6862,10 +6862,59 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   background-attachment: fixed; }
 
 /* -- Mixins -- */
-.editor-wrapper {
+.editor-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 15999;
   background-color: rgba(0, 0, 0, 0.7);
-  margin: 50px auto;
-  padding: 20px; }
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 200ms ease-in-out;
+  -moz-transition: opacity 200ms ease-in-out;
+  -o-transition: opacity 200ms ease-in-out;
+  -ms-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out; }
+  .editor-overlay.is-open {
+    opacity: 1;
+    pointer-events: all; }
+    .editor-overlay.is-open .editor-wrapper {
+      transform: translate(0px, 0px); }
+
+.editor-wrapper {
+  position: relative;
+  background-color: white;
+  margin: 100px auto;
+  padding: 20px;
+  color: black;
+  transform: translate(0px, -50px);
+  -webkit-transition: transform 150ms ease-in-out;
+  -moz-transition: transform 150ms ease-in-out;
+  -o-transition: transform 150ms ease-in-out;
+  -ms-transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out; }
+  .editor-wrapper .sound-box-heading:after {
+    background-color: black; }
+  .editor-wrapper .close-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    font-size: 22px;
+    text-align: center;
+    line-height: 22px;
+    color: #3C3C3C;
+    cursor: pointer;
+    transform: scale(1);
+    -webkit-transition: transform 150ms ease-in-out;
+    -moz-transition: transform 150ms ease-in-out;
+    -o-transition: transform 150ms ease-in-out;
+    -ms-transition: transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out; }
+    .editor-wrapper .close-button:hover {
+      transform: scale(1.2); }
   .editor-wrapper .sound-title, .editor-wrapper .track-title {
     margin-bottom: 10px; }
   .editor-wrapper .sound-description, .editor-wrapper .track-description {
@@ -6878,12 +6927,11 @@ body, .main-wrapper .help-us, .main-wrapper .about-us {
   .editor-wrapper audio {
     width: 100%; }
   .editor-wrapper .combined-wrap {
-    text-align: center;
     width: 50%;
     max-width: 520px;
     margin: 0 auto; }
   .editor-wrapper .audio-combined-controls {
-    display: inline-block; }
+    text-align: center; }
 
 .message-area {
   position: absolute;

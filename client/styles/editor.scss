@@ -1,9 +1,59 @@
 @import "variables";
 
+.editor-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 15999;
+  background-color: rgba(black, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  @include transition(opacity 200ms ease-in-out);
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+
+    .editor-wrapper {
+      transform: translate(0px, 0px);
+    }
+  }
+}
+
 .editor-wrapper {
-  background-color: $element-bg;
-  margin: 50px auto;
+  position: relative;
+  background-color: white;
+  margin: 100px auto;
   padding: 20px;
+  color: black;
+  transform: translate(0px, -50px);
+  @include transition(transform 150ms ease-in-out);
+
+  .sound-box-heading {
+    &:after {
+      background-color: black;
+    }
+  }
+
+  .close-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    font-size: 22px;
+    text-align: center;
+    line-height: 22px;
+    color: #3C3C3C;
+    cursor: pointer;
+    transform: scale(1);
+    @include transition(transform 150ms ease-in-out);
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 
   .sound-title, .track-title {
     @extend %emphasis-font;
@@ -26,14 +76,15 @@
   }
 
   .combined-wrap {
-    text-align: center;
+    //text-align: center;
     width: 50%;
     max-width: 520px;
     margin: 0 auto;
   }
 
   .audio-combined-controls {
-    display: inline-block;
+    text-align: center;
+    //display: inline-block;
   }
 
 }

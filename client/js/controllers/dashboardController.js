@@ -9,8 +9,16 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
   $scope.detailsModal = $scope.detailOverlay.find('.sound-edit-details-wrapper');
   $scope.closeDetailsBtn = $scope.detailOverlay.find('.sound-close-button');
   $scope.closeDetailsBtn.on('click', closeEditSoundModal);
+  $scope.editorOverlay = angular.element('.editor-overlay');
+  $scope.editorModal = $scope.editorOverlay.find('.editor-wrapper');
+  $scope.closeEditorBtn = $scope.editorOverlay.find('.close-button').on('click', closeMixerModal);
+
   var tempSoundTitle = "";
   var tempSoundDesc = "";
+
+  angular.element(document).ready(function () {
+
+  });
 
 
   // Get sounds
@@ -52,7 +60,8 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
   // Open editor
   $scope.openEditor = function () {
     //SoundService.setCurrentSoundId(sound.id);
-    $location.path('/edit');
+    // $location.path('/edit');
+    openMixerModal();
   };
 
   $scope.editDetails = function (sound) {
@@ -139,13 +148,32 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', '$http', '$location', '
   }
 
   (function () {
-
     $scope.detailOverlay.click(function (event) {
       if (this == event.target) {
         closeEditSoundModal();
       }
     });
-
   })();
+
+  function openMixerModal() {
+    $scope.editorOverlay.addClass('is-open');
+    $scope.editorModal.addClass('is-open');
+  }
+
+  function closeMixerModal() {
+    $scope.editorOverlay.removeClass('is-open');
+    $scope.editorModal.removeClass('is-open');
+    $rootScope.$emit('CloseMixer');
+  }
+
+  (function () {
+    $scope.editorOverlay.click(function (event) {
+      if (this == event.target) {
+        closeMixerModal();
+      }
+    });
+  })();
+
+
 
 }]);
