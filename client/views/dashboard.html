@@ -16,7 +16,7 @@
       </div>
 
       <!-- SOUND DETAILS -->
-      <div class="col-sm-6 sound-details-wrap">
+      <div class="col-sm-8 sound-details-wrap">
         <h3 class="sound-box-heading">SOUND DETAILS</h3>
         <div class="sound-info-wrap" ng-if="sounds.length > 0">
           <h4 class="sound-title">{{curSound.title}}</h4>
@@ -27,11 +27,7 @@
           <div class="sound-date-updated" ng-if="curSound.createdAt == curSound.updatedAt"><i>Never modified</i></div>
           <div class="sound-loc"><i>Location</i> {{curSound.lat}}, {{curSound.long}}</div>
         </div>
-      </div>
 
-      <!-- SOUND CONTROLS -->
-      <div class="col-sm-2 sound-controls-wrap">
-        <h3 class="sound-box-heading">CONTROLS</h3>
         <div class="buttons" ng-if="sounds.length > 0">
           <button class="btn btn-serendipity" ng-click="playCurrentSound(sound)">Play Sound</button>
           <button class="btn btn-serendipity" ng-click="editDetails(sound)">Edit Details</button>

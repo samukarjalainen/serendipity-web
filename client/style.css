@@ -6776,13 +6776,13 @@ h3.sound-box-heading {
   overflow-y: auto; }
   .sounds-list::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #F5F5F5; }
+    background-color: #555; }
   .sounds-list::-webkit-scrollbar {
     width: 12px;
-    background-color: #F5F5F5; }
+    background-color: #555; }
   .sounds-list::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #555; }
+    background-color: #F5F5F5; }
   .sounds-list li {
     padding: 8px;
     cursor: pointer;
@@ -6799,14 +6799,13 @@ h3.sound-box-heading {
 
 .sound-details-wrap .sound-title {
   font-size: 22px;
-  width: 75%;
   display: inline-block;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  margin-right: 20px; }
 
 .sound-details-wrap .sound-status {
   font-size: 14px;
   display: inline-block;
-  float: right;
   margin-top: 12px; }
 
 .sound-details-wrap .sound-desc {
@@ -6814,6 +6813,11 @@ h3.sound-box-heading {
 
 .sound-details-wrap .sound-date-created, .sound-details-wrap .sound-date-updated, .sound-details-wrap .sound-loc {
   font-size: 14px; }
+
+.sound-details-wrap .buttons {
+  margin-top: 30px; }
+  .sound-details-wrap .buttons .btn {
+    margin-right: 16px; }
 
 .sound-controls-wrap .btn {
   display: block;
