@@ -6786,6 +6786,7 @@ h3.sound-box-heading {
   .sounds-list li {
     padding: 8px;
     cursor: pointer;
+    word-wrap: break-word;
     -webkit-transition: all 100ms ease-in-out;
     -moz-transition: all 100ms ease-in-out;
     -o-transition: all 100ms ease-in-out;

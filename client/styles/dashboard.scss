@@ -62,6 +62,7 @@ h3.sound-box-heading {
   li {
     padding: 8px;
     cursor: pointer;
+    word-wrap: break-word;
     @include transition(all 100ms ease-in-out);
 
     &:hover {
