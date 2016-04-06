@@ -1,18 +1,11 @@
-app.controller('MapCtrl', ['$scope', '$rootScope', '$location', '$timeout', 'NgMap', 'SoundService', function($scope, $rootScope, $location, $timeout, NgMap, SoundService) {
+app.controller('MapCtrl', ['$scope', '$rootScope', '$location', '$timeout', '$window', 'NgMap', 'AuthenticationFactory', 'SoundService',
+  function($scope, $rootScope, $location, $timeout, $window, NgMap, AuthenticationFactory, SoundService) {
 
   var TAG = 'MapCtrl: ';
 
   $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz7PBHLbH9Bh-sAJBOZ6-rQjULBf_1nys";
   $scope.sounds = SoundService.getSounds();
   $scope.markers = [];
-  //$scope.overlay = angular.element('.overlay');
-  //$scope.audioModal = $scope.overlay.find('.audio');
-  //$scope.closeBtn = $scope.overlay.find('.close-button').on('click', closeAudioModal);
-  //$scope.audioTitle = $scope.overlay.find('.audio-title');
-  //$scope.audioDesc = $scope.overlay.find('.audio-description');
-  //$scope.player = document.getElementById('player');
-  //$scope.audioSrc = document.getElementById('player-source-mp3');
-  //$scope.source = "";
 
 
   $timeout(function () {
@@ -84,27 +77,48 @@ app.controller('MapCtrl', ['$scope', '$rootScope', '$location', '$timeout', 'NgM
   }
 
   function getAndParseSounds(map) {
-    // Loop through the sounds and get place them on the map
-    for (var i = 0; i < $scope.sounds.length; i++) {
-      var curSound = $scope.sounds[i];
-      var marker = new google.maps.Marker({
-        position: { lat: parseFloat(curSound.lat), lng: parseFloat(curSound.long) },
-        map: map,
-        title: curSound.title,
-        description: curSound.description,
-        soundId: curSound.id,
-        path: curSound.path
-      });
-      $scope.markers.push(marker);
-      // Add click event listener to marker
-      marker.addListener('click', function () {
-        SoundService.setCurrentSoundMarker(this);
-        $rootScope.$emit('OpenPlayer', this);
-      });
+    // Check whether user is logged in
+    if (AuthenticationFactory.isLoggedIn) {
+      console.log("User was logged in");
+      var userId = $window.localStorage.user;
+
+      // Loop through the sounds and get place them on the map
+      for (var i = 0; i < $scope.sounds.length; i++) {
+        var curSound = $scope.sounds[i];
+
+        if (curSound.UserId == userId) {
+          var marker = new google.maps.Marker({
+            position: { lat: parseFloat(curSound.lat), lng: parseFloat(curSound.long) },
+            map: map,
+            title: curSound.title,
+            description: curSound.description,
+            soundId: curSound.id,
+            path: curSound.path
+          });
+        }
+        $scope.markers.push(marker);
+        // Add click event listener to marker if the user is logged in
+        marker.addListener('click', function () {
+          SoundService.setCurrentSoundMarker(this);
+          $rootScope.$emit('OpenPlayer', this);
+        });
+      }
+    } else {
+      console.log("Not logged in");
+      for (var j = 0; j < $scope.sounds.length; j++) {
+        var currSound = $scope.sounds[j];
+        var markerr = new google.maps.Marker({
+          position: { lat: parseFloat(currSound.lat), lng: parseFloat(currSound.long) },
+          map: map,
+          title: currSound.title,
+          description: currSound.description,
+          soundId: currSound.id,
+          path: currSound.path
+        });
+        $scope.markers.push(markerr);
+        // TODO: Add listener for displaying message for unregistered users
+      }
     }
   }
-
-
-
 
 }]);
