@@ -70,13 +70,6 @@ app.config(function ($httpProvider, $routeProvider) {
         requiredAdmin: true
       }
     })
-    // .when('/edit', {
-    //   templateUrl: '../views/edit.html',
-    //   controller: 'EditCtrl',
-    //   access: {
-    //     requiredLogin: true
-    //   }
-    // })
     .otherwise({
       redirectTo: '/'
     })
@@ -96,7 +89,7 @@ app.run(function($rootScope, $window, $location, AuthenticationFactory) {
     if (nextRoute.access && nextRoute.access.requiredAdmin && $window.localStorage.userRole !== 'admin') {
       console.log("Admin rights are needed for that");
       $window.alert("Unauthorized action!");
-      $location.path("login");
+      $location.path("/login");
     }
 
     if ((nextRoute.access && nextRoute.access.requiredLogin) && !AuthenticationFactory.isLoggedIn) {
@@ -119,7 +112,7 @@ app.run(function($rootScope, $window, $location, AuthenticationFactory) {
 
 
 
-app.factory('HttpInterceptor', function ($window) {
+app.factory('HttpInterceptor', function ($window, $location, AuthenticationFactory) {
   return {
     request: function (config) {
       if ($window.localStorage.token) {
@@ -130,6 +123,25 @@ app.factory('HttpInterceptor', function ($window) {
     },
 
     response: function (response) {
+
+      if (response.data.message) {
+
+        // Check and handle expired tokens
+        if (response.data.message === 'Token expired.') {
+          console.log("HttpInterceptor response: Token expired");
+          AuthenticationFactory.clear();
+          $location.path('/');
+          $window.location.reload();
+          // Check and handle invalid signatures
+        } else if (response.data.message === 'Invalid signature in token.') {
+          console.log("HttpInterceptor response: Invalid signature in token.")
+          AuthenticationFactory.clear();
+          $location.path('/');
+          $window.location.reload();
+        }
+
+      }
+
       return response;
     }
   }

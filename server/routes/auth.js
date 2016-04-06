@@ -63,10 +63,19 @@ var auth = {
         token = elements[1];
 
         try {
-          jwt.decode(token, secret);
-          next();
+          var decoded = jwt.decode(token, secret);
+          console.log(decoded);
+          var notExpired = checkTokenNotExpired(decoded.exp);
+          console.log(TAG + "Token expires is in the future: " + notExpired);
+          if (!notExpired)
+            res.json({ success: false, message: "Token expired." });
+          else {
+            next();
+          }
         } catch (err) {
+          console.log(TAG + "error found");
           console.log(err);
+          res.json({ success: false, message: "Invalid signature in token."});
         }
       } else {
         res.json({ success: false, message: "Bad header " + authHeader });
@@ -132,6 +141,13 @@ function generateToken(user) {
 function expiresIn(days) {
   var currentTime = new Date();
   return currentTime.setDate(currentTime.getDate() + days);
+}
+
+function checkTokenNotExpired(exp) {
+  var now = Date.now();
+  console.log(TAG + "Date now: " + now);
+  console.log(TAG + "Tken exp: " + exp);
+  return exp > now;
 }
 
 module.exports = auth;
