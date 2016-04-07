@@ -51,7 +51,7 @@ h3.sound-box-heading {
   &::-webkit-scrollbar {
     width: 12px;
     background-color: #555;
-    
+
   }
 
   &::-webkit-scrollbar-thumb {
@@ -112,6 +112,12 @@ h3.sound-box-heading {
     display: block;
     margin: 8px 0 16px;
     width: 110px;
+  }
+}
+
+@media #{$mq-phone} {
+  .table-user {
+    display: none;
   }
 }
 

@@ -115,16 +115,11 @@
             <h3 class="sound-box-heading">COMBINED CONTROLS</h3>
             <p>With these controls you can simultaneously play, pause and stop both audio sources.
               What you hear is what you get so when you've made you choice, hit save to save the remix into your library.</p>
-            <!--<div class="checkbox">-->
-            <!--<label><input type="checkbox" value="" ng-model="newFile" ng-disabled="">Create new file</label>-->
-            <!--</div>-->
             <div class="audio-combined-controls">
               <button class="btn btn-serendipity" ng-click="playBoth()"><i class="glyphicon glyphicon-play"></i></button>
               <button class="btn btn-serendipity" ng-click="pauseBoth()"><i class="glyphicon glyphicon-pause"></i></button>
               <button class="btn btn-serendipity" ng-click="stopBoth()"><i class="glyphicon glyphicon-stop"></i></button>
               <button class="btn btn-success" ng-click="saveSoundRemix()">Save</button>
-              <!--<button class="btn btn-success" ng-click="toggleMessage()">Toggle</button>-->
-              <!--<button class="btn btn-default" ng-click="toggleModal()">Modal</button>-->
             </div>
           </div>
           <div class="message-area">
@@ -146,14 +141,11 @@
   </div>
 
 
-
-  <!--<div ng-include="'views/edit.html'"></div>-->
-
   <!-- MAP -->
   <div ng-include="'views/home/map.html'"></div>
 
 	<!-- User Table -->
-  <div class="table-wrap animate-if" ng-if="user">
+  <div class="table-wrap table-user animate-if" ng-if="user">
     <table class="table table-hover">
       <thead>
         <tr>

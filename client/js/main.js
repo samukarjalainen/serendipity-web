@@ -1,16 +1,9 @@
 var $win = $(window);
 var previousScroll = 0;
 var currentScroll;
-var $bgElements = [];
 
 
-$(document).ready(function(){
-
-  $body = $('body');
-  $helpUs = $('.help-us');
-
-  $bgElements.push($body);
-  $bgElements.push($helpUs);
+$(document).ready(function() {
 
   // Things that happen when window is scrolled go in here
   $win.scroll(function(){

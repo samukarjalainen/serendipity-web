@@ -6824,6 +6824,10 @@ h3.sound-box-heading {
   margin: 8px 0 16px;
   width: 110px; }
 
+@media only screen and (max-width: 480px) {
+  .table-user {
+    display: none; } }
+
 /* -- Misc variables -- */
 /* -- Colors -- */
 /* -- Media queries -- */
