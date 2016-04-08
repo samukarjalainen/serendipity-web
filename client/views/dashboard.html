@@ -170,11 +170,11 @@
         </tr>
         <tr ng-show="showupdatetable">
           <td>{{ user.username }}</td>
-          <td><input type="text" class="form-control" id="firstName" value="{{ user.email }}" ng-model="user.email"></td>
+          <td><input type="text" class="form-control" id="email" value="{{ user.email }}" ng-model="user.email"></td>
           <td><input type="text" class="form-control" id="firstName" value="{{ user.firstName }}" ng-model="user.firstName"></td>
           <td><input type="text" class="form-control" id="lastName" value="{{ user.lastName }}" ng-model="user.lastName"></td>
-          <td><input type="text" class="form-control" id="lastName" value="{{ user.city }}" ng-model="user.city"></td>
-          <td><input type="text" class="form-control" id="lastName" value="{{ user.country }}" ng-model="user.country"></td>
+          <td><input type="text" class="form-control" id="city" value="{{ user.city }}" ng-model="user.city"></td>
+          <td><input type="text" class="form-control" id="country" value="{{ user.country }}" ng-model="user.country"></td>
           <td><button type="submit" class="btn btn-primary" ng-click="editUser(user); showupdate=true; showupdatetable=false;">Save</button></td>
         </tr>
       </tbody>
