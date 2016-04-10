@@ -1,65 +1,76 @@
+<form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate> 
 <div class="register-wrapper container">
   <div class="form-horizontal" ng-controller="RegisterCtrl">
     <!-- First name -->
-    <div class="form-group">
-      <label class="control-label col-sm-3" for="firstName">First name:</label>
+    <div class="form-group" ng-class="{ 'has-error' : userForm.firstName.$invalid && !userForm.firstName.$pristine }">
+      <label class="control-label col-sm-3" for="firstName">First name*:</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="firstName" placeholder="John" ng-model="user.firstName">
-      </div>
-    </div>
-    <!-- Last name -->
-    <div class="form-group">
-      <label class="control-label col-sm-3" for="lastName">Last name:</label>
-      <div class="col-sm-9">
-        <input type="text" class="form-control" id="lastName" placeholder="Doe" ng-model="user.lastName">
+        <input type="text" class="form-control" name ="firstName" id="firstName" placeholder="John" ng-model="user.firstName" required ng-pattern="/^[a-zA-ZäöüßÄÖÜ]*$/">
+        <p ng-show="userForm.firstName.$invalid && !userForm.firstName.$pristine" class="help-block">Your name is required, numbers and symbols are not allowed.</p>
       </div>
     </div>
 
-    <!-- E-mail -->
-    <div class="form-group">
-      <label class="control-label col-sm-3" for="email">E-mail:</label>
+    <!-- Last name -->
+    <div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid && !userForm.lastName.$pristine }">
+      <label class="control-label col-sm-3" for="lastName">Last name*:</label>
       <div class="col-sm-9">
-        <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="user.email">
+        <input type="text" class="form-control" name ="lastName" id="lastName" placeholder="Doe" ng-model="user.lastName" required ng-pattern="/^[a-zA-ZäöüßÄÖÜ]*$/">
+        <p ng-show="userForm.lastName.$invalid && !userForm.lastName.$pristine" class="help-block">Your name is required, numbers and symbols are not allowed.</p>
+      </div>
+    </div>
+		
+    <!-- E-mail -->
+    <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+      <label class="control-label col-sm-3" for="email">E-mail*:</label>
+      <div class="col-sm-9">
+        <input type="email" class="form-control" name="email"  id="email" placeholder="Enter email" ng-model="user.email">
+        <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
       </div>
     </div>
 
     <!-- Username -->
-    <div class="form-group">
-      <label class="control-label col-sm-3" for="username">Username:</label>
+    <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+      <label class="control-label col-sm-3" for="username">Username*:</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="username" placeholder="johndoe" ng-model="user.username">
+        <input type="text" class="form-control" name="username" id="username" placeholder="johndoe" ng-model="user.username" required ng-minlength="3" ng-maxlength="10" ng-pattern="/^[A-z][A-z0-9]*$/">
+        <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">Your username must be between 3 and 10 characters.</p>
+        <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">Must start with a letter, and contain letters &amp; numbers only.</p>
       </div>
     </div>
 
     <!-- Password -->
-    <div class="form-group">
-      <label class="control-label col-sm-3" for="password">Password:</label>
+    <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+      <label class="control-label col-sm-3" for="password">Password*:</label>
       <div class="col-sm-9">
-        <input type="password" class="form-control" id="password" placeholder="Choose a password" ng-model="user.password">
+        <input type="password" class="form-control" name="password" id="password" placeholder="Choose a password" ng-model="user.password" required ng-minlength="3" ng-maxlength="10">
+        <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">Your password must be between 3 and 10 characters.</p>
       </div>
     </div>
 
     <!-- City -->
-    <div class="form-group">
+    <div class="form-group" ng-class="{ 'has-error' : userForm.city.$invalid && !userForm.city.$pristine }">
       <label class="control-label col-sm-3" for="city">City:</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="city" placeholder="Oulu" ng-model="user.city">
+        <input type="text" class="form-control" name="city" id="city" placeholder="Oulu" ng-model="user.city" ng-pattern="/^[a-zA-ZäöüßÄÖÜ]*$/">
+        <p ng-show="userForm.city.$invalid && !userForm.city.$pristine" class="help-block">Numbers and symbols are not allowed.</p>
       </div>
     </div>
 
     <!-- Country -->
-    <div class="form-group">
+    <div class="form-group" ng-class="{ 'has-error' : userForm.country.$invalid && !userForm.country.$pristine }">
       <label class="control-label col-sm-3" for="country">Country:</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="country" placeholder="Finland" ng-model="user.country">
+        <input type="text" class="form-control" name="country" id="country" placeholder="Finland" ng-model="user.country" ng-pattern="/^[a-zA-ZäöüßÄÖÜ]*$/">
+        <p ng-show="userForm.country.$invalid && !userForm.country.$pristine" class="help-block">Numbers and symbols are not allowed.</p>
       </div>
     </div>
 
     <!-- Submit -->
     <div class="form-group">
       <div class="col-sm-offset-3 col-sm-9">
-        <button type="submit" class="btn btn-primary" ng-click="sendRegistration(user)">Register</button>
+        <button type="submit" class="btn btn-primary" ng-click="sendRegistration(user)" ng-disabled="userForm.$invalid">Register</button>
       </div>
     </div>
   </div>
 </div>
+</form>
