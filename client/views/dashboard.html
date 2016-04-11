@@ -173,31 +173,31 @@
           <td>{{ user.username }}</td>
           <td>
             <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
-              <input type="email" class="form-control" name="email"  id="email" ng-model="user.email">
+              <input type="email" class="form-control" name="email"  id="email" ng-maxlength="50" ng-model="user.email">
               <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
             </div>
           </td>
           <td>
             <div class="form-group" ng-class="{ 'has-error' : userForm.firstName.$invalid && !userForm.firstName.$pristine }">
-							<input type="text" class="form-control" name ="firstName" id="firstName" placeholder="John" ng-model="user.firstName" required ng-pattern="/^[a-zA-ZäöüßÄÖÜ]*$/">
+							<input type="text" class="form-control" name ="firstName" id="firstName" placeholder="John" ng-model="user.firstName" required ng-maxlength="50" ng-pattern="/^[a-zA-ZäöüßÄÖÜ]*$/">
 							<p ng-show="userForm.firstName.$invalid && !userForm.firstName.$pristine" class="help-block">Your name is required, numbers and symbols are not allowed.</p>
             </div>
           </td>
           <td>
 						<div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid && !userForm.lastName.$pristine }">
-              <input type="text" class="form-control" name ="lastName" id="lastName" placeholder="Doe" ng-model="user.lastName" required ng-pattern="/^[a-zA-ZäöüßÄÖÜ]*$/">
+              <input type="text" class="form-control" name ="lastName" id="lastName" placeholder="Doe" ng-model="user.lastName" required ng-maxlength="50" ng-pattern="/^[a-zA-ZäöüßÄÖÜ]*$/">
               <p ng-show="userForm.lastName.$invalid && !userForm.lastName.$pristine" class="help-block">Your name is required, numbers and symbols are not allowed.</p>
 						</div>
             </td>
             <td>
 						<div class="form-group" ng-class="{ 'has-error' : userForm.city.$invalid && !userForm.city.$pristine }">
-              <input type="text" class="form-control" name="city" id="city" placeholder="Oulu" ng-model="user.city" ng-pattern="/^[a-zA-ZäöüßÄÖÜ]*$/">
+              <input type="text" class="form-control" name="city" id="city" placeholder="Oulu" ng-model="user.city" ng-maxlength="50" ng-pattern="/^[a-zA-ZäöüßÄÖÜ]*$/">
               <p ng-show="userForm.city.$invalid && !userForm.city.$pristine" class="help-block">Numbers and symbols are not allowed.</p>
 						</div>
           </td>
           <td>
 						<div class="form-group" ng-class="{ 'has-error' : userForm.country.$invalid && !userForm.country.$pristine }">
-              <input type="text" class="form-control" name="country" id="country" placeholder="Finland" ng-model="user.country" ng-pattern="/^[a-zA-ZäöüßÄÖÜ]*$/">
+              <input type="text" class="form-control" name="country" id="country" placeholder="Finland" ng-model="user.country" ng-maxlength="50" ng-pattern="/^[a-zA-ZäöüßÄÖÜ]*$/">
               <p ng-show="userForm.country.$invalid && !userForm.country.$pristine" class="help-block">Numbers and symbols are not allowed.</p>
             </div>
           </td>
